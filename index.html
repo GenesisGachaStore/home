@@ -1319,7 +1319,8 @@
   }
 </style>
 
-</head>
+<style>.copy-discord-btn { background: #ffcc00; color: #111; border: none; border-radius: 5px; padding: 5px 11px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.15s; }
+  .copy-discord-btn:hover { background: #ffffff; transform: scale(1.04); }</style></head>
 <body>
   <div class="cosmic-sky">
     <div class="stars-bg"></div>
@@ -1340,8 +1341,8 @@
 
     <div class="info-bar">
       <span>💬 For any questions, prices or more images, add me on Discord:</span>
-      <span class="dc-tag">GenesisGacha#0271</span>
-      <button type="button" id="copyBtnHome" class="btn-copy-dc" onclick="kopirajMojDiscord(this)">📋 Copy</button>
+      <span class="dc-tag" id="dcTag">GenesisGacha#0271</span>
+      <button type="button" class="copy-discord-btn" onclick="(function(b){var t=document.getElementById('dcTag').textContent.trim();var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,9999);try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);if(navigator.clipboard){navigator.clipboard.writeText(t).catch(function(){});}var o=b.innerHTML;b.innerHTML='&#10003; Copied!';setTimeout(function(){b.innerHTML=o;},2000);})(this)">&#128203; Copy</button>
     </div>
 
     <div class="pay-bar">
@@ -1412,7 +1413,7 @@
   </div>
 
   <div class="live-top-box" title="Real-time visitors online">
-    <span style="display:inline-block; width:8px; height:8px; background:#22c55e; border-radius:50%; box-shadow:0 0 8px #22c55e;"></span>
+    <span style="display:inline-block; width:8px; height:8px; background:#ffcc00; border-radius:50%; box-shadow:0 0 8px #ffcc00;"></span>
     <span style="font-size:12px; font-weight:bold; color:#ffe680;">LIVE:</span>
     <script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
     <script async src="//waust.at/s.js"></script>
@@ -1439,10 +1440,10 @@
       function gotovo() {
         if (btn) {
           btn.innerText = "✔ Copied!";
-          btn.style.background = "#16a34a";
-          btn.style.borderColor = "#4ade80";
+          btn.style.background = "#ffcc00"; btn.style.color = "#111";
+          btn.style.borderColor = "#ffe680";
           setTimeout(function() {
-            btn.innerText = "📋 Copy";
+            btn.innerText = "📋 Copy"; btn.style.background = ""; btn.style.color = "";
             btn.style.background = "";
             btn.style.borderColor = "";
           }, 2000);
