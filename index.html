@@ -1,33 +1,559 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Genesis Gacha Store - Home</title>
+<title>Bleach Mirrors High Catalog</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-  @keyframes bgBreathe {
-    0%, 100% { background-color: #08070a; box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.95); }
-    50% { background-color: #160b29; box-shadow: inset 0 0 130px rgba(138, 79, 209, 0.25); }
+  @keyframes bgPulse {
+    0%, 100% { background-color: #08070a; box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.9); }
+    50% { background-color: #170c29; box-shadow: inset 0 0 110px rgba(123, 66, 188, 0.22); }
   }
-  body { background-color: #08070a; color: #fff; min-height: 100vh; padding: 15px 16px 40px 16px; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; position: relative; animation: bgBreathe 7s infinite ease-in-out; }
-  .cosmic-sky { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
-.stars-bg { position: absolute; inset: 0; background-image: radial-gradient(1.5px 1.5px at 8% 15%, #fff, transparent), radial-gradient(2px 2px at 18% 68%, #e879f9, transparent), radial-gradient(1.5px 1.5px at 31% 25%, #fde047, transparent), radial-gradient(2px 2px at 47% 12%, #c084fc, transparent), radial-gradient(1.5px 1.5px at 62% 78%, #fff, transparent), radial-gradient(2px 2px at 76% 22%, #ffcc00, transparent), radial-gradient(1.5px 1.5px at 88% 62%, #d8b4fe, transparent), radial-gradient(2px 2px at 94% 35%, #f0abfc, transparent); animation: twinkle 4.5s infinite ease-in-out; }
-.meteor { position: absolute; width: 135px; height: 2px; background: linear-gradient(90deg, #fff 0%, #ffcc00 35%, #a855f7 75%, transparent 100%); border-radius: 50%; filter: drop-shadow(0 0 6px #ffcc00); opacity: 0; }
-  .meteor::before { content: ""; position: absolute; left: 0; top: -2px; width: 6px; height: 6px; border-radius: 50%; background: #fff; box-shadow: 0 0 12px #fff, 0 0 20px #ffcc00; }
-  .m1 { top: 5%; left: 95%; animation: shootingStar 7s infinite linear 0.8s; }
-  .m2 { top: 24%; left: 105%; animation: shootingStar 10s infinite linear 3.5s; }
-  .m3 { top: -2%; left: 65%; animation: shootingStar 8.5s infinite linear 6.2s; }
-  @keyframes rise { 0% { transform: translateY(0) scale(0.7); opacity: 0; } 25% { opacity: 0.9; } 85% { opacity: 0.7; } 100% { transform: translateY(-98vh) scale(1.2); opacity: 0; } }
-  .spark { position: absolute; bottom: -12px; border-radius: 50%; opacity: 0; }
-  .s1 { left: 10%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: rise 8s infinite 0.5s; }
-  .s2 { left: 25%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: rise 10s infinite 2.1s; }
-  .s3 { left: 45%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: rise 9s infinite 4.2s; }
-  .s4 { left: 65%; width: 4px; height: 4px; background: #c084fc; box-shadow: 0 0 10px #c084fc; animation: rise 11s infinite 1.1s; }
-  .s5 { left: 85%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: rise 8.5s infinite 3.4s; }
-  .container { width: 100%; max-width: 1080px; margin: 0 auto; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
-  .bleach-top-nav { width: 100%; margin: 0 auto 14px auto; display: flex; justify-content: center; align-items: center; gap: 12px; }
-  /* CENTRALNI HOME MENI - prenesen sa originalne stranice */
+  body { background-color: #08070a; color: #fff; padding: 15px; display: flex; flex-direction: column; align-items: center; animation: bgPulse 7s infinite ease-in-out; }
+  .discord-bar { width: 100%; max-width: 1080px; background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%); border: 1.5px solid #8ea1e1; border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45); text-align: center; }
+  .discord-text { font-size: 14px; font-weight: bold; color: #ffffff; letter-spacing: 0.4px; }
+  .discord-tag { background: rgba(0, 0, 0, 0.45); color: #ffe680; font-weight: 800; font-size: 14px; padding: 4px 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.25); user-select: all; }
+  .copy-discord-btn { background: #ffcc00; color: #111; border: none; border-radius: 5px; padding: 5px 11px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.15s; }
+  .copy-discord-btn:hover { background: #ffffff; transform: scale(1.04); }
+  .bleach-panel { width: 100%; max-width: 1080px; background: radial-gradient(circle at 50% 0%, #3b1c5e 0%, #190d2b 60%, #0e0917 100%); border: 2px solid #8a4fd1; border-radius: 12px; padding: 22px 18px 18px 18px; margin-bottom: 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(138, 79, 209, 0.35); display: flex; flex-direction: column; align-items: center; }
+  .bleach-title { font-size: 30px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; text-align: center; background: linear-gradient(180deg, #ffffff 10%, #ffd24d 55%, #ff6600 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 3px 12px rgba(255, 102, 0, 0.7)); margin-bottom: 6px; }
+  .bleach-subtitle { font-size: 12px; font-weight: bold; letter-spacing: 2px; color: #d8bff8; background: rgba(0, 0, 0, 0.35); padding: 4px 14px; border-radius: 20px; border: 1px solid rgba(155, 102, 223, 0.3); text-transform: uppercase; margin-bottom: 16px; text-align: center; }
+  .heroes-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 9px; width: 100%; max-width: 1060px; }
+  .hero-card { background: linear-gradient(180deg, #a792d1 0%, #7d66ad 100%); border: 1.5px solid #35274d; border-radius: 6px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; align-items: center; user-select: none; box-shadow: 0 3px 6px rgba(0,0,0,0.45); transition: 0.15s; }
+  .hero-card:hover { border-color: #e0c3fc; transform: translateY(-2px); }
+  .hero-card.active { border-color: #ffcc00; box-shadow: 0 0 14px rgba(255, 204, 0, 0.95); transform: translateY(-2px) scale(1.02); }
+  .hero-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+  @keyframes cbGlow {
+    0%, 100% { border-color: #d8bff8; box-shadow: 0 0 6px rgba(192, 132, 252, 0.6), inset 0 0 4px rgba(192, 132, 252, 0.4); }
+    50% { border-color: #ffcc00; box-shadow: 0 0 14px rgba(255, 204, 0, 0.95), inset 0 0 6px rgba(255, 204, 0, 0.6); }
+  }
+  .cb-area { width: 100%; padding: 6px 0; display: flex; justify-content: center; background: #26173d; border-top: 1.5px solid #482d70; transition: 0.15s; }
+  .hero-card:hover .cb-area { background: #342052; }
+  .hero-card.active .cb-area { background: #3d2400; border-top-color: #ffcc00; }
+  .cb { width: 22px; height: 22px; border: 2px solid #d8bff8; background: #140b24; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px; color: #111; animation: cbGlow 1.6s infinite ease-in-out; transition: 0.15s; }
+  .hero-card:hover .cb { border-color: #ffffff; transform: scale(1.08); }
+  .hero-card.active .cb { background: #ffcc00; border-color: #ffffff; box-shadow: 0 0 16px #ffcc00, 0 0 24px #ff8800; animation: none; }
+  .hero-card.active .cb::after { content: "✔"; }
+  .status { width: 100%; max-width: 1080px; display: flex; justify-content: center; align-items: center; gap: 12px; padding: 10px 16px; margin-bottom: 16px; background: linear-gradient(90deg, #160c24 0%, #24133b 50%, #160c24 100%); border: 1px solid #5c338f; border-radius: 8px; font-size: 14px; font-weight: bold; color: #e6d4ff; }
+  .reset-btn { background: #ffcc00; color: #140a21; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; }
+  .reset-btn:hover { background: #ffffff; }
+  @keyframes blinkBorder { 0%, 100% { border-color: #666666; box-shadow: 0 0 6px rgba(255, 204, 0, 0.2); } 50% { border-color: #ffcc00; box-shadow: 0 0 18px rgba(255, 204, 0, 0.85); } }
+  @keyframes blinkAccount { 0%, 100% { color: #ffcc00; text-shadow: 0 0 8px rgba(255, 204, 0, 0.8); } 50% { color: #ffffff; text-shadow: 0 0 18px #ffcc00, 0 0 28px #ff8800; } }
+  .accounts { width: 100%; max-width: 1080px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: start; }
+  .acc { background: #181818; border: 2px solid #ffcc00; border-radius: 6px; padding: 0; overflow: hidden; animation: blinkBorder 1.5s infinite ease-in-out; }
+  .drive-btn { display: block; width: 100%; text-align: center; background: linear-gradient(90deg, #3b1e5e 0%, #6833a8 50%, #3b1e5e 100%); color: #ffe680; font-weight: bold; font-size: 13px; letter-spacing: 0.8px; text-transform: uppercase; text-decoration: none; padding: 9px 12px; border-bottom: 1px solid #5a5a5a; transition: 0.2s; }
+  .drive-btn:hover { background: linear-gradient(90deg, #522982 0%, #8744d6 50%, #522982 100%); color: #ffffff; }
+  .acc-title { font-size: 15px; padding: 7px; font-weight: bold; color: #ffcc00; background: #262626; padding: 10px; border-bottom: 2px solid #5a5a5a; margin: 0; text-align: center; animation: blinkAccount 1.2s infinite ease-in-out; }
+  .acc img { width: 100%; display: block; padding: 8px; background: #141414; }
+  .img-crop-box { width: 100%; max-height: 580px; overflow: hidden; position: relative; background: #141414; transition: max-height 0.35s ease; }
+  .img-crop-box.expanded { max-height: 2500px; }
+  .img-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 35px; background: linear-gradient(to bottom, transparent, #181818); pointer-events: none; }
+  .img-crop-box.expanded .img-fade { display: none; }
+  .toggle-wrap { display: flex; justify-content: center; padding: 10px; background: #1c1c1c; border-top: 1px solid #333; }
+  .toggle-btn { background: linear-gradient(90deg, #3b1e5e 0%, #6833a8 50%, #3b1e5e 100%); color: #ffe680; border: 1.5px solid #9b66df; border-radius: 5px; padding: 8px 18px; font-size: 13px; font-weight: bold; letter-spacing: 0.6px; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+  .toggle-btn:hover { background: linear-gradient(90deg, #522982 0%, #8744d6 50%, #522982 100%); color: #ffffff; }
+  @media (max-width: 768px) { .accounts { grid-template-columns: 1fr; } .heroes-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; } .bleach-title { font-size: 20px; letter-spacing: 1.5px; } .img-crop-box { max-height: 280px !important; } .img-crop-box.expanded { max-height: 2500px !important; } }
+/* COSMIC THEME START */
+  .cosmic-sky {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+  }
+  .discord-bar, .bleach-panel, .status, .accounts {
+    position: relative;
+    z-index: 2;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.25; transform: scale(0.9); }
+    50% { opacity: 0.9; transform: scale(1.2); }
+  }
+  .stars-bg {
+    position: absolute;
+    width: 100%; height: 100%;
+    background-image:
+      radial-gradient(1.5px 1.5px at 12% 18%, #ffffff, transparent),
+      radial-gradient(2px 2px at 28% 72%, #e879f9, transparent),
+      radial-gradient(1.5px 1.5px at 44% 33%, #fde047, transparent),
+      radial-gradient(2px 2px at 67% 15%, #c084fc, transparent),
+      radial-gradient(1.5px 1.5px at 82% 64%, #ffffff, transparent),
+      radial-gradient(2px 2px at 91% 29%, #ffcc00, transparent),
+      radial-gradient(1.5px 1.5px at 19% 88%, #d8b4fe, transparent),
+      radial-gradient(1.5px 1.5px at 56% 81%, #ffffff, transparent),
+      radial-gradient(2px 2px at 74% 48%, #f0abfc, transparent);
+    animation: twinkle 5s infinite ease-in-out;
+  }
+  @keyframes shootingStar {
+    0% { transform: translate(0, 0) rotate(-35deg); opacity: 0; }
+    4% { opacity: 1; }
+    16% { transform: translate(-1100px, 750px) rotate(-35deg); opacity: 0; }
+    100% { transform: translate(-1100px, 750px) rotate(-35deg); opacity: 0; }
+  }
+  .meteor {
+    position: absolute;
+    width: 130px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff 0%, #ffcc00 35%, #a855f7 75%, transparent 100%);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px #ffcc00);
+    opacity: 0;
+  }
+  .meteor::before {
+    content: "";
+    position: absolute;
+    left: 0; top: -2px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 12px #ffffff, 0 0 20px #ffcc00;
+  }
+  .m1 { top: 6%; left: 95%; animation: shootingStar 7s infinite linear 1s; }
+  .m2 { top: 22%; left: 105%; animation: shootingStar 11s infinite linear 4.5s; }
+  .m3 { top: -2%; left: 68%; animation: shootingStar 9s infinite linear 7.5s; }
+  .m4 { top: 45%; left: 102%; animation: shootingStar 13s infinite linear 10s; }
+  /* COSMIC THEME END */
+/* EXTRA EFFECTS START */
+  @keyframes auraWave {
+    0%, 100% { opacity: 0.35; transform: scaleY(1); }
+    50% { opacity: 0.75; transform: scaleY(1.15); }
+  }
+  .soul-aura {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 180px;
+    background: radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.45) 0%, rgba(107, 33, 168, 0.15) 55%, transparent 80%);
+    pointer-events: none;
+    animation: auraWave 5s infinite ease-in-out;
+  }
+  @keyframes floatEmber {
+    0% { transform: translateY(0) translateX(0) scale(0.7); opacity: 0; }
+    20% { opacity: 0.95; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-95vh) translateX(35px) scale(1.2); opacity: 0; }
+  }
+  .ember {
+    position: absolute;
+    bottom: -15px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .e1 { left: 4%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 8s infinite ease-in 0.2s; }
+  .e2 { left: 8%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: floatEmber 10.5s infinite ease-in 2.1s; }
+  .e3 { left: 12%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: floatEmber 9.5s infinite ease-in 4.2s; }
+  .e4 { left: 16%; width: 4px; height: 4px; background: #c084fc; box-shadow: 0 0 10px #c084fc; animation: floatEmber 11.5s infinite ease-in 1.1s; }
+  .e5 { left: 20%; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 9px #ffcc00; animation: floatEmber 8.5s infinite ease-in 3.4s; }
+  .e6 { left: 25%; width: 5px; height: 5px; background: #ffcc00; box-shadow: 0 0 12px #ff8800; animation: floatEmber 12s infinite ease-in 5.5s; }
+  .e7 { left: 29%; width: 4px; height: 4px; background: #f0abfc; box-shadow: 0 0 10px #f0abfc; animation: floatEmber 9s infinite ease-in 0.8s; }
+  .e8 { left: 33%; width: 3px; height: 3px; background: #fde047; box-shadow: 0 0 9px #fde047; animation: floatEmber 10s infinite ease-in 2.8s; }
+  .e9 { left: 37%; width: 5px; height: 5px; background: #a855f7; box-shadow: 0 0 12px #a855f7; animation: floatEmber 11s infinite ease-in 4.8s; }
+  .e10 { left: 41%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 7.8s infinite ease-in 1.9s; }
+  .e11 { left: 45%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 9px #e879f9; animation: floatEmber 9.8s infinite ease-in 3.9s; }
+  .e12 { left: 50%; width: 4px; height: 4px; background: #ffffff; box-shadow: 0 0 10px #c084fc; animation: floatEmber 8.8s infinite ease-in 6.1s; }
+  .e13 { left: 54%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 9.2s infinite ease-in 0.5s; }
+  .e14 { left: 58%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: floatEmber 11.2s infinite ease-in 2.7s; }
+  .e15 { left: 62%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: floatEmber 8.9s infinite ease-in 4.9s; }
+  .e16 { left: 66%; width: 4px; height: 4px; background: #c084fc; box-shadow: 0 0 10px #c084fc; animation: floatEmber 10.8s infinite ease-in 1.5s; }
+  .e17 { left: 71%; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 9px #ffcc00; animation: floatEmber 8.2s infinite ease-in 3.1s; }
+  .e18 { left: 75%; width: 5px; height: 5px; background: #ffcc00; box-shadow: 0 0 12px #ff8800; animation: floatEmber 11.8s infinite ease-in 5.2s; }
+  .e19 { left: 79%; width: 4px; height: 4px; background: #f0abfc; box-shadow: 0 0 10px #f0abfc; animation: floatEmber 9.4s infinite ease-in 1.3s; }
+  .e20 { left: 83%; width: 3px; height: 3px; background: #fde047; box-shadow: 0 0 9px #fde047; animation: floatEmber 10.3s infinite ease-in 3.6s; }
+  .e21 { left: 87%; width: 5px; height: 5px; background: #a855f7; box-shadow: 0 0 12px #a855f7; animation: floatEmber 11.4s infinite ease-in 6.4s; }
+  .e22 { left: 91%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 7.6s infinite ease-in 2.4s; }
+  .e23 { left: 94%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 9px #e879f9; animation: floatEmber 9.6s infinite ease-in 4.5s; }
+  .e24 { left: 97%; width: 4px; height: 4px; background: #ffffff; box-shadow: 0 0 10px #c084fc; animation: floatEmber 8.4s infinite ease-in 0.9s; }
+  .acc { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .acc:hover { transform: translateY(-3px); box-shadow: 0 0 24px rgba(255, 204, 0, 0.9), 0 0 36px rgba(168, 85, 247, 0.5) !important; }
+  /* EXTRA EFFECTS END */
+/* MATCHED HEROES START */
+  .matched-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: linear-gradient(90deg, #1b0f2e 0%, #2d184d 50%, #1b0f2e 100%);
+    border-bottom: 1.5px solid #ffcc00;
+  }
+  .matched-label {
+    font-size: 11.5px;
+    font-weight: 900;
+    color: #ffe680;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-right: 4px;
+  }
+  .matched-hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid #ffcc00;
+    border-radius: 6px;
+    padding: 3px 8px 3px 3px;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.75);
+  }
+  .matched-hero-badge img {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    border-radius: 4px;
+    object-fit: cover;
+    display: block;
+  }
+  .matched-hero-badge span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  /* MATCHED HEROES END */
+/* PREMIUM HEROES START */
+  .hero-card {
+    position: relative;
+    background: radial-gradient(circle at 50% 30%, #4b2882 0%, #1a0e2e 100%) !important;
+    border: 2px solid #6b42a8 !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(168, 85, 247, 0.4) !important;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
+  }
+  .hero-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.45s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .hero-card:hover::before {
+    left: 160%;
+  }
+  .hero-card:hover {
+    border-color: #e879f9 !important;
+    transform: translateY(-4px) scale(1.03) !important;
+    box-shadow: 0 8px 18px rgba(192, 132, 252, 0.55), inset 0 0 15px rgba(232, 121, 249, 0.5) !important;
+  }
+  .hero-card.active {
+    border-color: #ffcc00 !important;
+    box-shadow: 0 0 18px rgba(255, 204, 0, 0.95), 0 0 28px rgba(255, 136, 0, 0.65) !important;
+    transform: translateY(-4px) scale(1.04) !important;
+  }
+  .hero-card img {
+    filter: contrast(1.08) saturate(1.15);
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+  .hero-card:hover img {
+    transform: scale(1.06);
+    filter: contrast(1.12) saturate(1.22);
+  }
+  /* PREMIUM HEROES END */
+
+/* SEAMLESS BANNER START */
+  @keyframes bannerPulse {
+    0%, 100% { border-color: #9333ea; box-shadow: 0 0 22px rgba(168, 85, 247, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.3); }
+    50% { border-color: #f0abfc; box-shadow: 0 0 38px rgba(217, 70, 239, 0.85), 0 0 15px rgba(255, 204, 0, 0.4); }
+  }
+  @keyframes bannerSweep {
+    0% { left: -100%; }
+    35%, 100% { left: 150%; }
+  }
+  .main-banner-wrap {
+    width: 100%;
+    max-width: 1080px;
+    margin-bottom: 0;
+    border-radius: 14px 14px 0 0;
+    overflow: hidden;
+    border: 2px solid #a855f7;
+    border-bottom: none;
+    position: relative;
+    z-index: 2;
+    background: #0d0717;
+    animation: bannerPulse 4s infinite ease-in-out;
+  }
+  .main-banner-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 45%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+    transform: skewX(-25deg);
+    animation: bannerSweep 7s infinite ease-in-out;
+    pointer-events: none;
+  }
+  .main-banner-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: contrast(1.04) saturate(1.08);
+  }
+  .discord-bar {
+    border-radius: 0 0 14px 14px !important;
+    border-top: 1px solid rgba(240, 171, 252, 0.45) !important;
+    border-left: 2px solid #a855f7 !important;
+    border-right: 2px solid #a855f7 !important;
+    border-bottom: 2px solid #a855f7 !important;
+    margin-bottom: 16px !important;
+    background: linear-gradient(90deg, #160c29 0%, #3b1c6e 30%, #5865F2 50%, #3b1c6e 70%, #160c29 100%) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(168, 85, 247, 0.45) !important;
+  }
+  /* SEAMLESS BANNER END */
+
+
+/* NEBULA & TOP BTN START */
+  @keyframes nebulaBreathe {
+    0%, 100% { opacity: 0.45; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.12); }
+  }
+  
+  
+  
+  
+  
+  
+  @media (max-width: 1150px) {
+    
+  }
+  /* NEBULA & TOP BTN END */
+/* SMOOTH SCROLL & PERF START */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .cosmic-sky, .ember, .meteor {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+  .acc {
+    content-visibility: auto;
+    contain-intrinsic-size: 680px;
+  }
+  /* SMOOTH SCROLL & PERF END */
+
+  
+  
+
+/* RED DRIVE BTN START */
+  @keyframes redDriveGlow {
+    0%, 100% { box-shadow: inset 0 0 12px rgba(255, 100, 100, 0.35), 0 2px 8px rgba(220, 38, 38, 0.4); }
+    50% { box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.45), 0 2px 14px rgba(239, 68, 68, 0.85); }
+  }
+  .drive-btn {
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    text-align: center !important;
+    background: linear-gradient(90deg, #5c0a16 0%, #b91c1c 35%, #dc2626 50%, #b91c1c 65%, #5c0a16 100%) !important;
+    color: #fff3b0 !important;
+    font-weight: 900 !important;
+    font-size: 13.5px !important;
+    letter-spacing: 0.9px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    padding: 11px 14px !important;
+    border-bottom: 2px solid #ff6b6b !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+    animation: redDriveGlow 2.2s infinite ease-in-out !important;
+    transition: all 0.2s ease !important;
+  }
+  .drive-btn::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.5s ease;
+  }
+  .drive-btn:hover::after {
+    left: 150%;
+  }
+  .drive-btn:hover {
+    background: linear-gradient(90deg, #7f1d1d 0%, #dc2626 30%, #ef4444 50%, #dc2626 70%, #7f1d1d 100%) !important;
+    color: #ffffff !important;
+    border-bottom-color: #ffcc00 !important;
+    text-shadow: 0 0 10px rgba(255, 230, 128, 0.95) !important;
+  }
+  /* RED DRIVE BTN END */
+/* PAYMENT BAR START */
+  .payment-bar {
+    width: 100%;
+    max-width: 1080px;
+    background: linear-gradient(90deg, #120921 0%, #241240 50%, #120921 100%);
+    border: 1.5px solid #7e22ce;
+    border-radius: 10px;
+    padding: 9px 16px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 14px rgba(147, 51, 234, 0.3);
+    position: relative;
+    z-index: 2;
+  }
+  .payment-label {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #e9d5ff;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .pay-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  .pay-paypal {
+    background: linear-gradient(135deg, #003087 0%, #0070e0 100%);
+    border: 1.5px solid #7dd3fc;
+    color: #ffffff;
+  }
+  .pay-steam {
+    background: linear-gradient(135deg, #171a21 0%, #2a475e 100%);
+    border: 1.5px solid #66c0f4;
+    color: #e0f2fe;
+  }
+  /* PAYMENT BAR END */
+
+
+  .back-to-top {
+    position: fixed !important;
+    right: 145px !important;
+    bottom: 24px !important;
+    z-index: 99999 !important;
+    background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 100%) !important;
+    color: #ffe680 !important;
+    border: 2px solid #ffcc00 !important;
+    border-radius: 50px !important;
+    padding: 12px 18px !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.8px !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 204, 0, 0.75) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: transform 0.2s ease, background 0.2s ease !important;
+  }
+  .back-to-top:hover {
+    background: #ffcc00 !important;
+    color: #140a21 !important;
+    transform: translateY(-3px) scale(1.05) !important;
+  }
+
+/* FLAG COUNTER START */
+  @keyframes trustedGlow {
+    0%, 100% { color: #ffcc00; text-shadow: 0 0 6px rgba(255, 204, 0, 0.7); transform: scale(1); }
+    50% { color: #ffffff; text-shadow: 0 0 14px #ffcc00, 0 0 22px #ff8800; transform: scale(1.04); }
+  }
+  .trusted-box {
+    position: fixed;
+    top: 15px;
+    right: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(50%);
+    z-index: 95;
+    background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%);
+    border: 2px solid #ffcc00;
+    border-radius: 12px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.55);
+    text-align: center;
+    max-width: 195px;
+  }
+  .trusted-text {
+    font-size: 13.5px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    line-height: 1.25;
+    animation: trustedGlow 1.8s infinite ease-in-out;
+  }
+  .trusted-box img {
+    width: 175px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    border: 1.5px solid rgba(255, 204, 0, 0.65);
+  }
+  
+  
+  
+  @media (max-width: 1520px) {
+    .trusted-box {
+      position: static;
+      transform: none;
+      margin: 0 auto 14px auto;
+      width: fit-content;
+    }
+  }
+  @media (max-width: 1520px) {
+    
+  }
+  /* FLAG COUNTER END */
+
+  .live-top-box {
+    position: fixed;
+    top: 294px;
+    left: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(-50%);
+    z-index: 96;
+    width: 132px; padding: 7px 12px; gap: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: #0d0717;
+    border: 2px solid #a855f7;
+    border-top: 1.5px solid #ffcc00;
+    border-radius: 0 0 10px 10px;
+    padding: 6px 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4);
+  }
+  .flag-clean-wrap {
+    position: fixed;
+    top: 15px;
+    left: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(-50%);
+    z-index: 95;
+    background: #0d0717;
+    border: 2px solid #a855f7;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 6px 6px 4px 6px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
+  }
+  @media (max-width: 1520px) {
+    .live-top-box, .flag-clean-wrap {
+      position: static;
+      transform: none;
+      margin: 16px auto;
+      width: fit-content;
+    }
+  }
+
+
   .bleach-top-nav {
     width: 100%;
     max-width: 1080px;
@@ -62,394 +588,69 @@
     box-shadow: 0 0 22px rgba(255, 204, 0, 0.85);
   }
 
-  .btn-nav-active { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%); color: #fff; border: 2px solid #ffcc00; border-radius: 10px; padding: 9px 24px; font-size: 13.5px; font-weight: 900; letter-spacing: 0.9px; text-transform: uppercase; text-decoration: none; box-shadow: 0 0 18px rgba(255, 204, 0, 0.65); }
-  .banner-box { width: 100%; border-radius: 14px; overflow: hidden; border: 2px solid #a855f7; background: #0d0717; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9), 0 0 24px rgba(168, 85, 247, 0.5); }
-  .banner-box img { width: 100%; height: auto; display: block; }
-  .games-row { width: 100%; margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-  .btn-game { background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%); color: #ffe680; border: 2px solid #ffcc00; border-radius: 10px; padding: 14px 28px; font-size: 15px; font-weight: 900; letter-spacing: 0.9px; text-transform: uppercase; text-decoration: none; box-shadow: 0 4px 18px rgba(147, 51, 234, 0.55); transition: 0.2s; text-align: center; }
-  .btn-game:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(255, 204, 0, 0.85); color: #fff; }
-  .trusted-box { position: fixed; top: 15px; right: calc(50% + 540px + ((50vw - 540px) / 2)); transform: translateX(50%); z-index: 95; background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%); border: 2px solid #ffcc00; border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; box-shadow: 0 6px 24px rgba(0,0,0,0.9), 0 0 20px rgba(255,204,0,0.55); text-align: center;  }
-  .trusted-title { color: #ffe680; font-size: 12px; font-weight: 900; letter-spacing: 0.6px; text-transform: uppercase; text-shadow: 0 0 8px rgba(255,204,0,0.7); }
-  .trusted-box img { width: 100%;  height: auto; border-radius: 8px; display: block; }
-  .flag-clean-wrap { position: fixed; top: 15px; left: calc(50% + 540px + ((50vw - 540px) / 2)); transform: translateX(-50%); z-index: 95; background: #0d0717; border: 2px solid #a855f7; border-bottom: none; border-radius: 10px 10px 0 0; padding: 6px 6px 4px 6px; box-shadow: 0 4px 18px rgba(0,0,0,0.85), 0 0 14px rgba(168,85,247,0.45); }
-  
-  /* Removed an incomplete legacy media query. */
-  @media (max-width: 640px) { .btn-game { width: 100%; font-size: 13.5px; padding: 12px 16px; } }
 
-  /* Kosmicke magline (Nebula) na bokovima i dnu */
-  @keyframes nebulaFloat {
-    0%, 100% { transform: scale(1) translateY(0); opacity: 0.45; }
-    50% { transform: scale(1.12) translateY(-15px); opacity: 0.8; }
-  }
-  @keyframes nebulaDriftLeft {
-    0%, 100% {
-      transform: translate(0px, 0px) scale(0.95);
-      opacity: 0.45;
-    }
-    50% {
-      transform: translate(calc(50vw - 660px), 35px) scale(1.2);
-      opacity: 0.85;
-    }
-  }
-  .nebula-left {
-    position: absolute;
-    top: 16%;
-    left: -60px;
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.48) 0%, rgba(126, 34, 206, 0.22) 45%, transparent 75%);
-    filter: blur(32px);
-    animation: nebulaDriftLeft 11s infinite ease-in-out;
-  }
-  @keyframes nebulaDriftRight {
-    0%, 100% {
-      transform: translate(0px, 0px) scale(0.95);
-      opacity: 0.45;
-    }
-    50% {
-      transform: translate(calc(-50vw + 660px), 35px) scale(1.2);
-      opacity: 0.85;
-    }
-  }
-  .nebula-right {
-    position: absolute;
-    top: 22%;
-    right: -60px;
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(126, 34, 206, 0.24) 45%, rgba(255, 204, 0, 0.04) 60%, transparent 75%);
-    filter: blur(32px);
-    animation: nebulaDriftRight 11.5s infinite ease-in-out 1.5s;
-  }
-  .soul-aura {
-    position: absolute; bottom: 0; left: 0; width: 100%; height: 180px;
-    background: radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.45) 0%, rgba(107, 33, 168, 0.15) 55%, transparent 80%);
-    animation: nebulaFloat 6s infinite ease-in-out;
-  }
-
-  /* Dodatni meteori (m4 - m7) razlicitih brzina */
-  @keyframes shootingStarFast {
-    0% { transform: translate(0, 0) rotate(-32deg); opacity: 0; }
-    3% { opacity: 1; }
-    14% { transform: translate(-1300px, 820px) rotate(-32deg); opacity: 0; }
-    100% { transform: translate(-1300px, 820px) rotate(-32deg); opacity: 0; }
-  }
-  .meteor-purple {
-    position: absolute; width: 165px; height: 2.5px;
-    background: linear-gradient(90deg, #ffffff 0%, #e879f9 35%, #7e22ce 75%, transparent 100%);
-    border-radius: 50%; filter: drop-shadow(0 0 8px #d946ef); opacity: 0;
-  }
-  .meteor-purple::before {
-    content: ""; position: absolute; left: 0; top: -2px; width: 6px; height: 6px;
-    border-radius: 50%; background: #ffffff; box-shadow: 0 0 12px #ffffff, 0 0 22px #e879f9;
-  }
-  .m4 { top: 12%; left: 102%; animation: shootingStarFast 6.5s infinite linear 1.9s; }
-  .m5 { top: 38%; left: 98%; animation: shootingStarFast 9s infinite linear 4.4s; }
-  .m6 { top: -4%; left: 48%; animation: shootingStar 7.8s infinite linear 2.7s; }
-  .m7 { top: 55%; left: 104%; animation: shootingStarFast 11s infinite linear 7.1s; }
-
-  /* Dodatne iskre (s6 - s14) */
-  .s6 { left: 6%; width: 3px; height: 3px; background: #f0abfc; box-shadow: 0 0 9px #f0abfc; animation: rise 9.5s infinite 1.4s; }
-  .s7 { left: 18%; width: 5px; height: 5px; background: #ffcc00; box-shadow: 0 0 12px #ff8800; animation: rise 11s infinite 3.1s; }
-  .s8 { left: 34%; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 9px #ffcc00; animation: rise 8.2s infinite 5.2s; }
-  .s9 { left: 53%; width: 4px; height: 4px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: rise 10.4s infinite 0.9s; }
-  .s10 { left: 73%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: rise 9.1s infinite 2.6s; }
-  .s11 { left: 91%; width: 3px; height: 3px; background: #c084fc; box-shadow: 0 0 9px #c084fc; animation: rise 8.7s infinite 4.7s; }
-  .s12 { left: 95%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: rise 10.1s infinite 6.3s; }
-
-  /* Blagi svjetlosni odsjaj preko glavnog banera */
-  @keyframes bannerShine {
-    0% { left: -100%; }
-    30%, 100% { left: 150%; }
-  }
-  .banner-box { position: relative; }
-  .banner-box::after {
-    content: ""; position: absolute; top: 0; left: -100%; width: 40%; height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.14), transparent);
-    transform: skewX(-25deg); animation: bannerShine 7.5s infinite ease-in-out; pointer-events: none;
-  }
-
-
-  .selling-header {
-    width: 100%;
-    margin-top: 24px;
-    margin-bottom: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-  }
-  .selling-line {
-    flex: 1;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #a855f7, #ffcc00);
-    border-radius: 2px;
-  }
-  .selling-line.right {
-    background: linear-gradient(90deg, #ffcc00, #a855f7, transparent);
-  }
-  .selling-title {
-    color: #ffe680;
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-shadow: 0 0 12px rgba(255, 204, 0, 0.75), 0 0 22px rgba(168, 85, 247, 0.7);
-    text-align: center;
-  }
-  @media (max-width: 640px) {
-    .selling-title { font-size: 13.5px; letter-spacing: 1px; }
-  }
-
-
-  
-  /* FIKSNA POZICIJA LIJEVO I DESNO OD BANERA (NE ISPOD) */
+  /* 100% IDENTICNO CENTRIRANJE I PORAVNANJE NA OBJE STRANICE */
   html {
     overflow-y: scroll;
   }
+  body {
+    padding-top: 15px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow-x: hidden !important;
+  }
+  .container {
+    width: 100% !important;
+    max-width: 1080px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .bleach-top-nav {
+    width: 100% !important;
+    max-width: 1080px !important;
+    margin: 0 auto 14px auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .btn-nav-active, .btn-back-home {
+    padding: 9px 24px !important;
+    font-size: 13.5px !important;
+    line-height: 1.2 !important;
+    box-sizing: border-box !important;
+  }
+  .banner-box {
+    width: 100% !important;
+    max-width: 1080px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
   .trusted-box {
     position: fixed !important;
     top: 15px !important;
     right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
     transform: translateX(50%) !important;
-    z-index: 95 !important;
-    
-    margin: 0 !important;
+    width: 195px !important;
+    max-width: 195px !important;
   }
   .flag-clean-wrap {
     position: fixed !important;
     top: 15px !important;
     left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
     transform: translateX(-50%) !important;
-    z-index: 95 !important;
-    margin: 0 !important;
   }
-  
-  /* Removed an incomplete legacy media query. */
-
-
-  
-  /* 1:1 KOPIJA EPICNPC BEDZA SA BLEACH STRANICE */
-  @keyframes bgPulse {
-    0%, 100% { background-color: #08070a; box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.9); }
-    50% { background-color: #170c29; box-shadow: inset 0 0 110px rgba(123, 66, 188, 0.22); }
-  }
-@keyframes cbGlow {
-    0%, 100% { border-color: #d8bff8; box-shadow: 0 0 6px rgba(192, 132, 252, 0.6), inset 0 0 4px rgba(192, 132, 252, 0.4); }
-    50% { border-color: #ffcc00; box-shadow: 0 0 14px rgba(255, 204, 0, 0.95), inset 0 0 6px rgba(255, 204, 0, 0.6); }
-  }
-@keyframes blinkBorder { 0%, 100% { border-color: #666666; box-shadow: 0 0 6px rgba(255, 204, 0, 0.2); } 50% { border-color: #ffcc00; box-shadow: 0 0 18px rgba(255, 204, 0, 0.85); } }
-@keyframes blinkAccount { 0%, 100% { color: #ffcc00; text-shadow: 0 0 8px rgba(255, 204, 0, 0.8); } 50% { color: #ffffff; text-shadow: 0 0 18px #ffcc00, 0 0 28px #ff8800; } }
-@keyframes twinkle {
-    0%, 100% { opacity: 0.25; transform: scale(0.9); }
-    50% { opacity: 0.9; transform: scale(1.2); }
-  }
-@keyframes shootingStar {
-    0% { transform: translate(0, 0) rotate(-35deg); opacity: 0; }
-    4% { opacity: 1; }
-    16% { transform: translate(-1100px, 750px) rotate(-35deg); opacity: 0; }
-    100% { transform: translate(-1100px, 750px) rotate(-35deg); opacity: 0; }
-  }
-@keyframes auraWave {
-    0%, 100% { opacity: 0.35; transform: scaleY(1); }
-    50% { opacity: 0.75; transform: scaleY(1.15); }
-  }
-@keyframes floatEmber {
-    0% { transform: translateY(0) translateX(0) scale(0.7); opacity: 0; }
-    20% { opacity: 0.95; }
-    80% { opacity: 0.8; }
-    100% { transform: translateY(-95vh) translateX(35px) scale(1.2); opacity: 0; }
-  }
-@keyframes bannerPulse {
-    0%, 100% { border-color: #9333ea; box-shadow: 0 0 22px rgba(168, 85, 247, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.3); }
-    50% { border-color: #f0abfc; box-shadow: 0 0 38px rgba(217, 70, 239, 0.85), 0 0 15px rgba(255, 204, 0, 0.4); }
-  }
-@keyframes bannerSweep {
-    0% { left: -100%; }
-    35%, 100% { left: 150%; }
-  }
-@keyframes nebulaBreathe {
-    0%, 100% { opacity: 0.45; transform: scale(1); }
-    50% { opacity: 0.85; transform: scale(1.12); }
-  }
-@keyframes redDriveGlow {
-    0%, 100% { box-shadow: inset 0 0 12px rgba(255, 100, 100, 0.35), 0 2px 8px rgba(220, 38, 38, 0.4); }
-    50% { box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.45), 0 2px 14px rgba(239, 68, 68, 0.85); }
-  }
-@keyframes trustedGlow {
-    0%, 100% { color: #ffcc00; text-shadow: 0 0 6px rgba(255, 204, 0, 0.7); transform: scale(1); }
-    50% { color: #ffffff; text-shadow: 0 0 14px #ffcc00, 0 0 22px #ff8800; transform: scale(1.04); }
-  }
-  .trusted-box {
-    position: fixed;
-    top: 15px;
-    right: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(50%);
-    z-index: 95;
-    background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%);
-    border: 2px solid #ffcc00;
-    border-radius: 12px;
-    padding: 10px 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.55);
-    text-align: center;
-    
-  }
-.trusted-text {
-    font-size: 13.5px;
-    font-weight: 900;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    line-height: 1.25;
-    animation: trustedGlow 1.8s infinite ease-in-out;
-  }
-.trusted-box img {
-    width: 175px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    border: 1.5px solid rgba(255, 204, 0, 0.65);
-  }
-.trusted-box {
-      position: static;
-      transform: none;
-      margin: 0 auto 14px auto;
-      width: fit-content;
-    }
-.trusted-box {
+  .live-top-box {
     position: fixed !important;
-    top: 15px !important;
-    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(50%) !important;
-    
+    top: 294px !important;
+    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
+    transform: translateX(-50%) !important;
+    width: 132px !important;
   }
-.trusted-box, .flag-clean-wrap, 
-  .trusted-box {
-    position: fixed !important;
-    top: 15px !important;
-    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(50%) !important;
-    z-index: 95 !important;
-    margin: 0 !important;
-  }
-  @media (max-width: 1280px) {
-    .trusted-box {
+  @media (max-width: 1520px) {
+    .trusted-box, .flag-clean-wrap, .live-top-box {
       position: static !important;
       transform: none !important;
       margin: 12px auto !important;
-    }
-  }
-
-
-  /* TACNA VELICINA EPICNPC BEDZA KAO NA BLEACH STRANICI */
-  .trusted-box {
-    
-    position: fixed;
-    top: 15px;
-    right: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(50%);
-    z-index: 95;
-    background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%);
-    border: 2px solid #ffcc00;
-    border-radius: 12px;
-    padding: 10px 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.55);
-    text-align: center;
-    max-width: 195px;
-  
-    position: fixed !important;
-    top: 15px !important;
-    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(50%) !important;
-    z-index: 95 !important;
-    margin: 0 !important;
-  }
-  .trusted-box img {
-    
-    width: 175px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    border: 1.5px solid rgba(255, 204, 0, 0.65);
-  
-  }
-
-
-  /* 1:1 KOPIJA FLAG COUNTERA I LIVE BROJACA SA BLEACH STRANICE */
-  .flag-clean-wrap {
-    position: fixed;
-    top: 15px;
-    left: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(-50%);
-    z-index: 95;
-    background: #0d0717;
-    border: 2px solid #a855f7;
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
-    padding: 6px 6px 4px 6px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
-  }
-.flag-clean-wrap {
-      position: static;
-      transform: none;
-      margin: 16px auto;
-      width: fit-content;
-    }
-.flag-clean-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-  }
-.flag-clean-wrap, .flag-clean-wrap {
-      position: static;
-      transform: none;
-      margin: 16px auto;
-      width: fit-content;
-    }
-
-
-  .flag-clean-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-    z-index: 95 !important;
-    margin: 0 !important;
-  }
-  
-  /* Removed an incomplete legacy media query. */
-
-
-  /* UREDAN PRIKAZ KATALOGA U 2 STUPCA NA HOME STRANICI */
-  .games-row {
-    width: 100% !important;
-    max-width: 1080px !important;
-    margin-top: 18px !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
-  }
-  .btn-game {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    padding: 16px 20px !important;
-    font-size: 14.5px !important;
-    line-height: 1.35 !important;
-    text-align: center !important;
-  }
-  @media (max-width: 760px) {
-    .games-row {
-      grid-template-columns: 1fr !important;
     }
   }
 
@@ -492,119 +693,72 @@
   }
 
 
-  /* DISCORD I NACINI PLACANJA ISPOD BANERA (IDENTICNO KAO U KATALOGU) */
-  .info-bar {
-    width: 100%;
-    max-width: 1080px;
-    margin: 14px auto 0 auto;
-    background: linear-gradient(90deg, #120821 0%, #241042 50%, #120821 100%);
-    border: 2px solid #a855f7;
-    border-radius: 12px;
-    padding: 12px 18px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-size: 14.5px;
-    font-weight: bold;
-    color: #f3e8ff;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85), 0 0 15px rgba(168, 85, 247, 0.4);
-    text-align: center;
+  .trusted-box a.btn-epicnpc-topic,
+  .btn-epicnpc-topic {
+    display: block !important;
+    width: 100% !important;
+    margin: 6px 0 2px 0 !important;
+    padding: 7px 10px !important;
+    background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%) !important;
+    background-clip: padding-box !important;
+    color: #ffe680 !important;
+    border: 1.5px solid #ffcc00 !important;
+    border-radius: 8px !important;
+    outline: none !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.75) !important;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+    line-height: 1.25 !important;
+    box-sizing: border-box !important;
   }
-  .dc-tag {
-    color: #ffe680;
-    font-weight: 900;
-    background: rgba(88, 28, 135, 0.55);
-    padding: 4px 10px;
-    border-radius: 7px;
-    border: 1px solid #ffcc00;
-  }
-  .btn-copy-dc {
-    background: linear-gradient(90deg, #581c87 0%, #9333ea 100%);
-    color: #ffffff;
-    border: 1.5px solid #ffcc00;
-    border-radius: 8px;
-    padding: 5px 12px;
-    font-size: 13px;
-    font-weight: 900;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
-  }
-  .btn-copy-dc:hover {
-    background: #9333ea;
-    box-shadow: 0 0 16px rgba(255, 204, 0, 0.85);
-    transform: translateY(-1px);
-  }
-  .pay-bar {
-    width: 100%;
-    max-width: 1080px;
-    margin: 10px auto 0 auto;
-    background: #0d0717;
-    border: 1.5px solid #ffcc00;
-    border-radius: 10px;
-    padding: 10px 16px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #ffe680;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 204, 0, 0.35);
-    text-align: center;
-  }
-  .pay-badge {
-    background: rgba(168, 85, 247, 0.2);
-    border: 1px solid #a855f7;
-    color: #ffffff;
-    padding: 4px 11px;
-    border-radius: 7px;
-    font-weight: 800;
+  .trusted-box a.btn-epicnpc-topic:hover,
+  .btn-epicnpc-topic:hover {
+    background: linear-gradient(90deg, #7e22ce 0%, #a855f7 50%, #7e22ce 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 14px rgba(255, 204, 0, 0.85) !important;
   }
 
 
   
 
+  
 
-  /* VRACEN LIVE BROJAC ISPOD FLAG COUNTERA */
-  .flag-clean-wrap {
-    border-bottom: none !important;
-    border-radius: 10px 10px 0 0 !important;
-    padding: 6px 6px 4px 6px !important;
-  }
-  .live-top-box {
+  /* MIRAN OMOTAC: KUTIJA DISE, GUMB STOJI 100% MIRNO */
+  .epicnpc-wrapper {
     position: fixed !important;
-    top: 294px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-    z-index: 96 !important;
-    width: 132px !important;
+    top: 15px !important;
+    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
+    transform: translateX(50%) !important;
+    z-index: 95 !important;
+    width: 195px !important;
     display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 7px !important;
-    background: #0d0717 !important;
-    border: 2px solid #a855f7 !important;
-    border-top: 1.5px solid #ffcc00 !important;
-    border-radius: 0 0 10px 10px !important;
-    padding: 7px 12px !important;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4) !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+  .epicnpc-wrapper .trusted-box {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .epicnpc-wrapper .btn-epicnpc-topic {
+    position: static !important;
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
     margin: 0 !important;
   }
   @media (max-width: 1280px) {
-    .flag-clean-wrap {
-      border-bottom: 2px solid #a855f7 !important;
-      border-radius: 10px !important;
-    }
-    .live-top-box {
+    .epicnpc-wrapper {
       position: static !important;
       transform: none !important;
       margin: 12px auto !important;
-      border-top: 2px solid #ffcc00 !important;
-      border-radius: 10px !important;
     }
   }
 
@@ -621,513 +775,9 @@
 
 
 
-  /* GLAVNI TAB I PADAJUCI SUB-MENU ZA KATALOGE */
-  .game-dropdown-wrap {
-    width: 100%;
-    max-width: 580px;
-    margin: 0 auto;
-    position: relative;
-  }
-  .btn-game-main {
-    width: 100%;
-    padding: 16px 22px;
-    background: linear-gradient(90deg, #241042 0%, #581c87 50%, #241042 100%);
-    color: #ffe680;
-    border: 2px solid #ffcc00;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85), 0 0 16px rgba(168, 85, 247, 0.55);
-    transition: all 0.2s ease;
-  }
-  .btn-game-main:hover {
-    background: linear-gradient(90deg, #3b176e 0%, #7e22ce 50%, #3b176e 100%);
-    color: #ffffff;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.95), 0 0 24px rgba(255, 204, 0, 0.85);
-  }
-  .game-arrow {
-    font-size: 14px;
-    transition: transform 0.25s ease;
-    color: #ffcc00;
-  }
-  .game-dropdown-wrap.open .game-arrow {
-    transform: rotate(180deg);
-  }
-  .game-submenu {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 12px;
-    background: rgba(13, 7, 23, 0.96);
-    border: 2px solid #a855f7;
-    border-radius: 12px;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.95), 0 0 18px rgba(168, 85, 247, 0.5);
-  }
-  .game-dropdown-wrap.open .game-submenu {
-    display: flex;
-  }
-  .btn-sub-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 13px 18px;
-    background: linear-gradient(90deg, #1b0c30 0%, #3b176e 100%);
-    color: #ffe680 !important;
-    border: 1.5px solid #ffcc00;
-    border-radius: 9px;
-    font-size: 14.5px;
-    font-weight: 800;
-    text-decoration: none !important;
-    transition: all 0.2s ease;
-  }
-  .btn-sub-item:hover {
-    background: linear-gradient(90deg, #581c87 0%, #9333ea 100%);
-    color: #ffffff !important;
-    box-shadow: 0 0 16px rgba(255, 204, 0, 0.8);
-    transform: translateY(-1px);
-  }
-
-
-
-  /* UPGRADE LIJEVE KUTIJE BEZ DIRANJA POZICIJE STRANICE */
-  .left-upgrade-wrap {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-  }
-  .btn-epicnpc-topic {
-    display: block !important;
-    width: 100% !important;
-    margin: 6px 0 !important;
-    padding: 6px 8px !important;
-    background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%) !important;
-    color: #ffe680 !important;
-    border: 1.5px solid #ffcc00 !important;
-    border-radius: 7px !important;
-    font-size: 10.5px !important;
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-    text-decoration: none !important;
-    text-align: center !important;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8) !important;
-    line-height: 1.2 !important;
-  }
-  .btn-epicnpc-topic:hover {
-    background: linear-gradient(90deg, #7e22ce 0%, #a855f7 50%, #7e22ce 100%) !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 14px rgba(255, 204, 0, 0.85) !important;
-  }
-  img[src*="epicnpc" i] {
-    border: 2.5px solid #ffcc00 !important;
-    border-radius: 10px !important;
-    box-shadow: 0 0 14px rgba(255, 204, 0, 0.75) !important;
-  }
-  .howtobuy-box {
-    width: 168px !important;
-    max-width: 168px !important;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%) !important;
-    border: 2px solid #ffcc00 !important;
-    border-radius: 12px !important;
-    padding: 8px 8px 6px 8px !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45) !important;
-    text-align: left !important;
-    flex-shrink: 0 !important;
-  }
-  .howtobuy-header {
-    text-align: center !important;
-    font-size: 11.5px !important;
-    font-weight: 900 !important;
-    color: #ffe680 !important;
-    text-transform: uppercase !important;
-    padding-bottom: 5px !important;
-    margin-bottom: 6px !important;
-    border-bottom: 1.5px solid rgba(255, 204, 0, 0.4) !important;
-  }
-  .htb-step {
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 6px !important;
-    margin-bottom: 5px !important;
-    background: rgba(88, 28, 135, 0.25) !important;
-    border: 1px solid rgba(168, 85, 247, 0.35) !important;
-    border-radius: 7px !important;
-    padding: 4px 5px !important;
-  }
-  .htb-step:last-child { margin-bottom: 0 !important; }
-  .htb-num {
-    min-width: 17px !important;
-    height: 17px !important;
-    background: linear-gradient(135deg, #ffcc00 0%, #f59e0b 100%) !important;
-    color: #0d0717 !important;
-    font-size: 10.5px !important;
-    font-weight: 900 !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  .htb-txt { font-size: 10px !important; line-height: 1.22 !important; color: #f3e8ff !important; }
-  .htb-txt b { color: #ffe680 !important; display: block !important; font-size: 10.5px !important; }
-
-
-
-  /* HOW TO BUY: precizno uskladjeno s originalnom stranicom */
-  .left-side-row .howtobuy-box {
-    width: 195px !important;
-    max-width: 195px !important;
-    flex: 0 0 195px !important;
-    padding: 10px 10px 8px 10px !important;
-    margin-top: 2px !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-  }
-  .left-side-row .howtobuy-header {
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 12px !important;
-    font-weight: 900 !important;
-    letter-spacing: 0.8px !important;
-    padding-bottom: 6px !important;
-    margin-bottom: 8px !important;
-    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6) !important;
-  }
-  .left-side-row .htb-step {
-    gap: 7px !important;
-    margin-bottom: 7px !important;
-    padding: 5px 6px !important;
-  }
-  .left-side-row .htb-num {
-    min-width: 18px !important;
-    width: 18px !important;
-    height: 18px !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 11px !important;
-    font-weight: 900 !important;
-    margin-top: 1px !important;
-    box-shadow: 0 0 6px rgba(255, 204, 0, 0.7) !important;
-  }
-  .left-side-row .htb-txt {
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 10.5px !important;
-    line-height: 1.28 !important;
-    color: #f3e8ff !important;
-  }
-  .left-side-row .htb-txt b {
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 11px !important;
-    font-weight: bold !important;
-    margin-bottom: 1px !important;
-  }
-
-  /* TACNA MATEMATIKA OD RUBA DO BANERA */
-  .left-upgrade-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc((100vw - 1080px) / 4) !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-    z-index: 95 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-    margin: 0 !important;
-  }
-  @media (max-width: 1620px) {
-    .left-upgrade-wrap {
-      left: 15px !important;
-      transform: none !important;
-    }
-  }
-  @media (max-width: 1440px) {
-    .left-upgrade-wrap {
-      position: static !important;
-      transform: none !important;
-      justify-content: center !important;
-      flex-wrap: wrap !important;
-      margin: 12px auto !important;
-    }
-  }
-
-
-
-  /* PORAVNAJ SREDISNJI OKVIR NA 1080PX */
-  body > div:not(.left-upgrade-wrap):not(.flag-clean-wrap):not(.live-top-box):not(.cosmic-sky),
-  .home-panel, .hero-card-box, .main-card, .bleach-panel, .discord-bar, .pay-bar {
-    max-width: 1080px !important;
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    box-sizing: border-box !important;
-  }
-
-
-
-  /* SKROZ LIJEVO KAO NA DRUGOJ SLICI */
-  .left-upgrade-wrap,
-  .left-side-row {
-    position: fixed !important;
-    top: 15px !important;
-    left: 10px !important;
-    right: auto !important;
-    transform: none !important;
-    z-index: 999 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-    margin: 0 !important;
-  }
-
-
-
-  /* MOBITEL FIX ZA HOME - ISTO KAO STARTER I JADE */
-  @media (max-width: 1450px) {
-    .left-upgrade-wrap,
-    .left-side-row,
-    .flag-clean-wrap,
-    .live-top-box {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
-      left: auto !important;
-      right: auto !important;
-      top: auto !important;
-    }
-    .left-upgrade-wrap,
-    .left-side-row {
-      justify-content: center !important;
-      flex-wrap: wrap !important;
-      width: 100% !important;
-    }
-  }
-
-
-
-  /* PRENESENA ZAJEDNICKA LIJEVA STRANA: EPICNPC + HOW TO BUY */
-  .left-side-row {
-    position: fixed !important;
-    top: 15px !important;
-    left: 15px !important;
-    z-index: 999 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 10px !important;
-    margin: 0 !important;
-  }
-  .left-side-row .epicnpc-wrapper {
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
-    width: 175px !important;
-    flex: 0 0 175px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-  }
-  .left-side-row .epicnpc-wrapper .trusted-box {
-    position: static !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-  }
-  .left-side-row .epicnpc-wrapper img {
-    display: block !important;
-    width: 175px !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-  .left-side-row .howtobuy-box {
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
-    width: 175px !important;
-    max-width: 175px !important;
-    flex: 0 0 175px !important;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%) !important;
-    border: 2px solid #ffcc00 !important;
-    border-radius: 12px !important;
-    padding: 8px 8px 6px 8px !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45) !important;
-    box-sizing: border-box !important;
-    text-align: left !important;
-  }
-  .left-side-row .howtobuy-header {
-    text-align: center !important;
-    font-size: 12px !important;
-    font-weight: 900 !important;
-    color: #ffe680 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.8px !important;
-    padding-bottom: 6px !important;
-    margin-bottom: 8px !important;
-    border-bottom: 1.5px solid rgba(255, 204, 0, 0.4) !important;
-    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6) !important;
-  }
-  .left-side-row .htb-step {
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 7px !important;
-    margin-bottom: 5px !important;
-    background: rgba(88, 28, 135, 0.25) !important;
-    border: 1px solid rgba(168, 85, 247, 0.35) !important;
-    border-radius: 7px !important;
-    padding: 4px 5px !important;
-  }
-  .left-side-row .htb-step:last-child { margin-bottom: 0 !important; }
-  .left-side-row .htb-num {
-    min-width: 18px !important;
-    height: 18px !important;
-    background: linear-gradient(135deg, #ffcc00 0%, #f59e0b 100%) !important;
-    color: #0d0717 !important;
-    font-size: 11px !important;
-    font-weight: 900 !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin-top: 1px !important;
-    flex-shrink: 0 !important;
-  }
-  .left-side-row .htb-txt {
-    font-size: 10px !important;
-    line-height: 1.22 !important;
-    color: #f3e8ff !important;
-  }
-  .left-side-row .htb-txt b {
-    color: #ffe680 !important;
-    display: block !important;
-    font-size: 10.5px !important;
-    margin-bottom: 1px !important;
-  }
-  @media (max-width: 1620px) {
-    .left-side-row {
-      position: static !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      width: 100% !important;
-      max-width: 1080px !important;
-      margin: 12px auto !important;
-    }
-    .left-side-row .howtobuy-box {
-      width: 100% !important;
-      max-width: 680px !important;
-      flex: 1 1 100% !important;
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 8px !important;
-    }
-    .left-side-row .howtobuy-header {
-      grid-column: 1 / -1 !important;
-      margin-bottom: 2px !important;
-    }
-    .left-side-row .htb-step { margin-bottom: 0 !important; }
-  }
-  @media (max-width: 760px) {
-    .left-side-row .howtobuy-box {
-      grid-template-columns: 1fr !important;
-    }
-  }
-
-
-  /* Poravnanje centralnog menija */
-  .bleach-top-nav { width: 100% !important; max-width: 1080px !important; margin: 0 auto 14px auto !important; justify-content: center !important; }
-  .bleach-top-nav .btn-back-home { box-sizing: border-box; line-height: 1.2; }
-
-
   
 
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-  /* CISTI RASPORED KATALOGA (PC I MOBITEL) */
-  .two-games-row {
-    display: inline-flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    gap: 18px !important;
-    width: auto !important;
-    max-width: 100% !important;
-  }
-  .two-games-row > div {
-    width: 245px !important;
-    min-width: 245px !important;
-    max-width: 245px !important;
-    flex: 0 0 245px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    box-sizing: border-box !important;
-  }
-  .two-games-row > div > div:first-child {
-    width: 245px !important;
-    min-width: 245px !important;
-    max-width: 245px !important;
-    height: 74px !important;
-    min-height: 74px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    box-sizing: border-box !important;
-  }
-  .two-games-row > div > div:not(:first-child) {
-    width: 245px !important;
-    min-width: 245px !important;
-    max-width: 245px !important;
-    margin-top: 10px !important;
-    box-sizing: border-box !important;
-  }
-  @media (max-width: 768px) {
-    .two-games-row {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      width: 100% !important;
-      height: auto !important;
-      min-height: 0 !important;
-      margin: 0 auto !important;
-      padding: 0 !important;
-      gap: 12px !important;
-    }
-    .two-games-row > div {
-      margin: 0 auto !important;
-      align-items: center !important;
-    }
-    .two-games-row > div > div:not(:first-child) {
-      margin-top: 8px !important;
-      margin-bottom: 4px !important;
-      position: static !important;
-    }
-  }
-
-
-  /* USKLADJEN HOW TO BUY FONT I STIL */
-  .howtobuy-box, .howtobuy-box * {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  }
+  /* STYLISH HOW TO BUY KUTIJA ISPOD EPICNPC BEDZA */
   .howtobuy-box {
     width: 100%;
     max-width: 195px;
@@ -1190,7 +840,32 @@
     font-size: 11px;
     margin-bottom: 1px;
   }
-  .howtobuy-box {
+
+
+
+  
+
+  /* JEDNA DO DRUGE LIJEVO: EPICNPC + HOW TO BUY BEZ PREKLAPANJA */
+  .left-side-row {
+    position: fixed !important;
+    top: 15px !important;
+    left: 15px !important;
+    z-index: 95 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+  .left-side-row .epicnpc-wrapper,
+  .left-side-row .trusted-box {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    width: 175px !important;
+    flex-shrink: 0 !important;
+  }
+  .left-side-row .howtobuy-box {
     position: static !important;
     transform: none !important;
     margin: 0 !important;
@@ -1203,195 +878,423 @@
     padding: 8px 8px 6px 8px !important;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45) !important;
   }
-  .htb-step {
+  .left-side-row .htb-step {
     padding: 4px 5px !important;
     margin-bottom: 5px !important;
   }
-  .htb-txt {
+  .left-side-row .htb-txt {
     font-size: 10px !important;
     line-height: 1.22 !important;
   }
-  .howtobuy-box {
+  @media (max-width: 1620px) {
+    .left-side-row {
+      position: static !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      width: 100% !important;
+      max-width: 1080px !important;
+      margin: 12px auto !important;
+    }
+    .left-side-row .howtobuy-box {
       width: 100% !important;
       max-width: 680px !important;
       display: grid !important;
       grid-template-columns: repeat(3, 1fr) !important;
       gap: 8px !important;
     }
-  .howtobuy-header {
+    .left-side-row .howtobuy-header {
       grid-column: 1 / -1 !important;
       margin-bottom: 2px !important;
     }
-  .htb-step {
+    .left-side-row .htb-step {
       margin-bottom: 0 !important;
     }
-  .howtobuy-box {
+  }
+  @media (max-width: 760px) {
+    .left-side-row .howtobuy-box {
       grid-template-columns: 1fr !important;
-    }
-
-
-
-  /* FIX RAZMAKA NA MOBITELU ZA TWO-GAMES-ROW */
-  @media (max-width: 768px) {
-    .two-games-row {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      gap: 12px !important;
-      height: auto !important;
-      min-height: 0 !important;
-      margin: 0 auto !important;
-      padding: 0 !important;
-    }
-    .two-games-row > div {
-      height: auto !important;
-      min-height: 0 !important;
-      max-height: none !important;
-      flex: 0 0 auto !important;
-      margin: 0 auto !important;
-      padding: 0 !important;
-    }
-    .two-games-row > div > div:not(:first-child) {
-      position: static !important;
-      margin-top: 8px !important;
-      margin-bottom: 0 !important;
-      height: auto !important;
     }
   }
 
+
+
+  /* CIST DIZAJN ZA BLEACH: MIRRORS HIGH */
+  .img-crop-box { max-height: none !important; height: auto !important; overflow: visible !important; }
+  .img-fade, .toggle-wrap, .toggle-btn, .drive-btn { display: none !important; }
+  .heroes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(8, 1fr) !important;
+    gap: 10px !important;
+    max-width: 1040px !important;
+  }
+  .hero-name-label {
+    width: 100%;
+    padding: 4px 2px;
+    background: #140b24;
+    color: #ffe680;
+    font-size: 10.5px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.15;
+    border-top: 1px solid rgba(168, 85, 247, 0.35);
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 768px) {
+    .heroes-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
+  }
+
+
+
+  /* UREDNA MREZA ZA SVE IKONICE HEROJA (8 U REDU) */
+  .heroes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(8, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 1040px !important;
+    margin: 0 auto !important;
+  }
+  .hero-name-label {
+    width: 100%;
+    padding: 4px 2px;
+    background: #140b24;
+    color: #ffe680;
+    font-size: 10.5px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.15;
+    border-top: 1px solid rgba(168, 85, 247, 0.35);
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 768px) {
+    .heroes-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
+  }
+
+
+
+  .accounts {
+    width: 100% !important;
+    max-width: 1080px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important; gap: 10px !important;
+    gap: 20px !important;
+    align-items: start !important;
+    margin: 0 auto !important;
+  }
+  @media (max-width: 768px) {
+    .accounts { grid-template-columns: 1fr !important; }
+  }
+
+
+
+  
+
+  /* ISTAKNUTA CIJENA PORED ACCOUNT NASLOVA */
+  .acc-title {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 8px 12px !important;
+    text-align: center !important;
+  }
+  .acc-price-badge {
+    background: linear-gradient(135deg, #ffd700 0%, #ffae00 100%);
+    color: #140824;
+    font-weight: 900;
+    font-size: 13px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.4px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.45);
+    border: 1px solid #fff3a1;
+  }
+
+
+
+  
+
+  /* MOBILNI PRIKAZ MIRRORS HIGH */
+  @media (max-width: 768px) { .accounts { grid-template-columns: 1fr; } .heroes-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; } .bleach-title { font-size: 20px; letter-spacing: 1.5px; } .img-crop-box { max-height: 280px !important; } .img-crop-box.expanded { max-height: 2500px !important; } }
+@media (max-width: 1150px) {
+    
+  }
+  /* NEBULA & TOP BTN END */
+/* SMOOTH SCROLL & PERF START */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .cosmic-sky, .ember, .meteor {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+  .acc {
+    content-visibility: auto;
+    contain-intrinsic-size: 680px;
+  }
+  /* SMOOTH SCROLL & PERF END */
+
+  
+  
+
+/* RED DRIVE BTN START */
+  @keyframes redDriveGlow {
+    0%, 100% { box-shadow: inset 0 0 12px rgba(255, 100, 100, 0.35), 0 2px 8px rgba(220, 38, 38, 0.4); }
+    50% { box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.45), 0 2px 14px rgba(239, 68, 68, 0.85); }
+  }
+@media (max-width: 1520px) {
+    .trusted-box {
+      position: static;
+      transform: none;
+      margin: 0 auto 14px auto;
+      width: fit-content;
+    }
+  }
+@media (max-width: 1520px) {
+    
+  }
+  /* FLAG COUNTER END */
+
+  .live-top-box {
+    position: fixed;
+    top: 294px;
+    left: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(-50%);
+    z-index: 96;
+    width: 132px; padding: 7px 12px; gap: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: #0d0717;
+    border: 2px solid #a855f7;
+    border-top: 1.5px solid #ffcc00;
+    border-radius: 0 0 10px 10px;
+    padding: 6px 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4);
+  }
+  .flag-clean-wrap {
+    position: fixed;
+    top: 15px;
+    left: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(-50%);
+    z-index: 95;
+    background: #0d0717;
+    border: 2px solid #a855f7;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 6px 6px 4px 6px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
+  }
+  @media (max-width: 1520px) {
+    .live-top-box, .flag-clean-wrap {
+      position: static;
+      transform: none;
+      margin: 16px auto;
+      width: fit-content;
+    }
+  }
+@media (max-width: 1520px) {
+    .trusted-box, .flag-clean-wrap, .live-top-box {
+      position: static !important;
+      transform: none !important;
+      margin: 12px auto !important;
+    }
+  }
+@media (max-width: 1280px) {
+    .flag-clean-wrap {
+      position: static !important;
+      transform: none !important;
+      margin: 12px auto !important;
+      border-bottom: 2px solid #a855f7 !important;
+      border-radius: 10px !important;
+      width: fit-content !important;
+    }
+  }
+@media (max-width: 1280px) {
+    .epicnpc-wrapper {
+      position: static !important;
+      transform: none !important;
+      margin: 12px auto !important;
+    }
+  }
+@media (max-width: 1620px) {
+    .left-side-row {
+      position: static !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      width: 100% !important;
+      max-width: 1080px !important;
+      margin: 12px auto !important;
+    }
+    .left-side-row .howtobuy-box {
+      width: 100% !important;
+      max-width: 680px !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 8px !important;
+    }
+    .left-side-row .howtobuy-header {
+      grid-column: 1 / -1 !important;
+      margin-bottom: 2px !important;
+    }
+    .left-side-row .htb-step {
+      margin-bottom: 0 !important;
+    }
+  }
+@media (max-width: 760px) {
+    .left-side-row .howtobuy-box {
+      grid-template-columns: 1fr !important;
+    }
+  }
+  @media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
+    .accounts {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 10px !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+    }
+    .acc {
+      
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+    }
+    .acc img {
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+    }
+    .heroes-grid {
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 8px !important;
+      padding: 0 8px !important;
+    }
+  }
+
+
+
+  
+
+  /* VIDLJIVA KVACICA ZA ZADNJEG HEROJA */
+  .heroes-grid {
+    padding-bottom: 18px !important;
+  }
+  .hero-card {
+    min-height: 112px !important;
+    padding-bottom: 8px !important;
+  }
+
+
+  /* STIL ZA CLEAR FILTER GUMB */
+  .reset-btn { background: #ffcc00; color: #140a21; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; }
+  .reset-btn:hover { background: #ffffff; }
+  .discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
+  .copy-discord-btn { position: relative !important; z-index: 10000 !important; pointer-events: auto !important; cursor: pointer !important; }
+  
   .discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
   .copy-discord-btn { position: relative !important; z-index: 10000 !important; pointer-events: auto !important; cursor: pointer !important; }
 </style>
-
-
-<style id="how-to-buy-final-cleanup">
-  /* How to Buy — dimenzije i tipografija usklađene s originalnom stranicom */
-  .left-side-row .howtobuy-box {
-    position: static !important; transform: none !important; margin: 0 !important;
-    width: 175px !important; max-width: 175px !important; flex: 0 0 175px !important;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%) !important;
-    border: 2px solid #ffcc00 !important; border-radius: 12px !important;
-    padding: 8px 8px 6px !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,.9), 0 0 15px rgba(168,85,247,.45) !important;
-    box-sizing: border-box !important; text-align: left !important;
-    font-family: Arial, sans-serif !important;
-  }
-  .left-side-row .howtobuy-header {
-    text-align: center !important; font: 900 12px Arial, sans-serif !important;
-    color: #ffe680 !important; text-transform: uppercase !important; letter-spacing: .8px !important;
-    padding-bottom: 6px !important; margin-bottom: 8px !important;
-    border-bottom: 1.5px solid rgba(255,204,0,.4) !important;
-    text-shadow: 0 0 8px rgba(255,204,0,.6) !important;
-  }
-  .left-side-row .htb-step {
-    display: flex !important; align-items: flex-start !important; gap: 7px !important;
-    margin-bottom: 5px !important; background: rgba(88,28,135,.25) !important;
-    border: 1px solid rgba(168,85,247,.35) !important; border-radius: 7px !important;
-    padding: 4px 5px !important; font-family: Arial, sans-serif !important;
-  }
-  .left-side-row .htb-step:last-child { margin-bottom: 0 !important; }
-  .left-side-row .htb-num {
-    min-width: 18px !important; width: 18px !important; height: 18px !important;
-    display: flex !important; align-items: center !important; justify-content: center !important;
-    flex-shrink: 0 !important; margin-top: 1px !important; border-radius: 50% !important;
-    background: linear-gradient(135deg,#ffcc00 0%,#f59e0b 100%) !important;
-    color: #0d0717 !important; font: 900 11px Arial, sans-serif !important;
-    box-shadow: 0 0 6px rgba(255,204,0,.7) !important;
-  }
-  .left-side-row .htb-txt {
-    font: 10px/1.22 Arial, sans-serif !important; color: #f3e8ff !important;
-  }
-  .left-side-row .htb-txt b {
-    display: block !important; color: #ffe680 !important;
-    font: bold 10.5px Arial, sans-serif !important; margin-bottom: 1px !important;
-  }
-  @media (max-width: 1620px) {
-    .left-side-row .howtobuy-box {
-      width: 100% !important; max-width: 680px !important; flex: 1 1 100% !important;
-      display: grid !important; grid-template-columns: repeat(3,minmax(0,1fr)) !important; gap: 8px !important;
-    }
-    .left-side-row .howtobuy-header { grid-column: 1 / -1 !important; margin-bottom: 2px !important; }
-    .left-side-row .htb-step { margin-bottom: 0 !important; }
-  }
-  @media (max-width: 760px) {
-    .left-side-row .howtobuy-box { grid-template-columns: 1fr !important; }
-  }
-</style>
-
-</head>
+<style>.accounts:empty,.status:empty{display:none!important}</style><style>.live-top-box > div:nth-of-type(2),.live-top-box > a:nth-of-type(2){display:none!important}</style></head>
 <body>
+  <div class="bleach-top-nav"><a href="https://genesisgachastore.github.io/home/" class="btn-back-home">🏠 Home • Genesis Gacha Store</a></div>
+
+  
+  
+  <!-- NEBULA & TOP BTN HTML START -->
+  <button type="button" class="back-to-top" id="topBtn" onclick="document.querySelector('.bleach-panel').scrollIntoView({behavior:'smooth'})">▲ Top</button>
+  <!-- NEBULA & TOP BTN HTML END -->
   <div class="cosmic-sky">
     <div class="stars-bg"></div>
-    <div class="nebula-left"></div>
-    <div class="nebula-right"></div>
+    <div class="meteor m1"></div>
+    <div class="meteor m2"></div>
+    <div class="meteor m3"></div>
+    <div class="meteor m4"></div>
     <div class="soul-aura"></div>
-    <div class="meteor m1"></div><div class="meteor m2"></div><div class="meteor m3"></div>
-    <div class="meteor-purple m4"></div><div class="meteor-purple m5"></div>
-    <div class="meteor m6"></div><div class="meteor-purple m7"></div>
-    <div class="spark s1"></div><div class="spark s2"></div><div class="spark s3"></div><div class="spark s4"></div>
-    <div class="spark s5"></div><div class="spark s6"></div><div class="spark s7"></div><div class="spark s8"></div>
-    <div class="spark s9"></div><div class="spark s10"></div><div class="spark s11"></div><div class="spark s12"></div>
+    <div class="ember e1"></div>
+    <div class="ember e2"></div>
+    <div class="ember e3"></div>
+    <div class="ember e4"></div>
+    <div class="ember e5"></div>
+    <div class="ember e6"></div>
+    <div class="ember e7"></div>
+    <div class="ember e8"></div>
+    <div class="ember e9"></div>
+    <div class="ember e10"></div>
+    <div class="ember e11"></div>
+    <div class="ember e12"></div>
+    <div class="ember e13"></div>
+    <div class="ember e14"></div>
+    <div class="ember e15"></div>
+    <div class="ember e16"></div>
+    <div class="ember e17"></div>
+    <div class="ember e18"></div>
+    <div class="ember e19"></div>
+    <div class="ember e20"></div>
+    <div class="ember e21"></div>
+    <div class="ember e22"></div>
+    <div class="ember e23"></div>
+    <div class="ember e24"></div>
   </div>
+  <!-- FULL BANNER HTML START -->
+  <div class="main-banner-wrap">
+    <img src="slike/banner.jpg" alt="Bleach Soul Resonance Promo Banner">
+  </div>
+  <!-- FULL BANNER HTML END -->
+  <div class="discord-bar"><span class="discord-text">💬 For any questions, prices or more images, add me on Discord:</span><span class="discord-tag" id="dcTag">GenesisGacha#0271</span><button type="button" class="copy-discord-btn" onclick="(function(b){var t=document.getElementById('dcTag').textContent.trim();var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,9999);try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);if(navigator.clipboard){navigator.clipboard.writeText(t).catch(function(){});}var o=b.innerHTML;b.innerHTML='&#10003; Copied!';setTimeout(function(){b.innerHTML=o;},2000);})(this)">&#128203; Copy</button></div>
+  <!-- PAYMENT BAR HTML START -->
+  <div class="payment-bar">
+    <span class="payment-label">💳 Accepted Payment Methods:</span>
+    <span class="pay-badge pay-paypal">🅿️ PayPal</span>
+    <span class="pay-badge pay-steam">🎮 Steam Gift Cards (EU)</span>
+  </div>
+  <!-- PAYMENT BAR HTML END -->
+  <div class="bleach-panel"><div class="bleach-title">BLEACH: MIRRORS HIGH</div><div class="bleach-subtitle">EU • GUEST STARTER CATALOG • SELECT HEROES TO FILTER</div>
+    <div id="heroes" class="heroes-grid"></div>
+  </div>
+  <div id="status" class="status"></div>
+  <div id="accounts" class="accounts"></div>
 
-  <div class="container">
-    <div class="bleach-top-nav"><a href="https://genesisgachastore.github.io/home/" class="btn-back-home">🏠 Home • Genesis Gacha Store</a></div>
-    <div class="banner-box"><img src="slike/home_banner.png" alt="Genesis Gacha Store"></div>
+<div id="heroes" class="heroes-grid"></div>
+  <div id="status" class="status"></div>
+  <div id="accounts" class="accounts"></div>
+  
 
-    <div class="info-bar">
-      <span>💬 For any questions, prices or more images, add me on Discord:</span>
-      <span class="dc-tag">GenesisGacha#0271</span>
-      <button type="button" id="copyBtnHome" class="btn-copy-dc" onclick="kopirajMojDiscord(this)">📋 Copy</button>
-    </div>
 
-    <div class="pay-bar">
-      <span>💳 Accepted Payment Methods:</span>
-      <span class="pay-badge">🅿️ PayPal</span>
-      <span class="pay-badge">🎮 Steam Gift Cards (EU)</span>
-    </div>
-
-        <div class="selling-header">
-      <div class="selling-line"></div>
-      <div class="selling-title">🔥 Currently Available Catalogs 🔥</div>
-      <div class="selling-line right"></div>
-    </div>
-
-    <div class="two-games-row">
-<div class="games-row">
-      <div class="game-dropdown-wrap" id="bleachDropdown">
-        <button type="button" class="btn-game-main" onclick="document.getElementById('bleachDropdown').classList.toggle('open')">
-          <span>&#128293; Bleach Soul Resonance APLUS</span>
-          <span class="game-arrow">&#9660;</span>
-        </button>
-        <div class="game-submenu">
-          <a href="https://genesisgachastore.github.io/Bleach-Soul-Resonance-APLUS-Starter-Accounts/" class="btn-sub-item">&#9876;&#65039; Starter Accounts with Characters</a>
-          <a href="https://genesisgachastore.github.io/Bleach-Soul-Resonance-APLUS-Jade-Accounts/" class="btn-sub-item">&#128142; Starter Accounts with Only Jades</a>
-        </div>
-      </div>
+<!-- FLAG COUNTER HTML START -->
+  
+  
+  <!-- FLAG COUNTER HTML END -->
+  <!-- LIVE COUNTER START -->
     
-    </div>
-<div class="games-row">
-      <div class="game-dropdown-wrap" id="bmh_bleachDropdown">
-        <button type="button" class="btn-game-main" onclick="toggleBmhBox(this)">
-          <span>&#128293; Bleach Mirrors High EU</span>
-          <span class="game-arrow">&#9660;</span>
-        </button>
-        <div class="game-submenu">
-          
-        </div>
-      </div>
-    
-    </div>
-</div>
-
 
   <div class="left-side-row">
   <div class="epicnpc-wrapper">
-    <div class="trusted-box">
-      <div class="trusted-text">⭐ 100% Trusted Seller ⭐</div>
-      <a href="https://www.epicnpc.com/members/genesisgacha.1199111/" target="_blank" rel="noopener" class="btn-epicnpc-topic">&#128293; Click Here for EpicNPC Profile</a>
-    </div>
-    <img src="slike/epicnpc.png" alt="EpicNPC Trusted Seller">
+  <div class="trusted-box">
+    <div class="trusted-text">⭐ 100% Trusted Seller ⭐
+    
+  </div>
+  <a href="https://www.epicnpc.com/threads/eu-starter-catalog-chapter-1-map-1-guest-accounts-15e-daily-update.3263407/" target="_blank" rel="noopener" class="btn-epicnpc-topic">&#128293; Click Here for EpicNPC Topic</a>
+    
+</div>
+    <img src="slike/epicnpc.png" alt="EpicNPC Verified Seller">
   </div>
   <div class="howtobuy-box">
       <div class="howtobuy-header">&#128722; How to Buy</div>
@@ -1399,22 +1302,169 @@
         <span class="htb-num">1</span>
         <div class="htb-txt"><b>Pick Account</b>Select your favorite Account #.</div>
       </div>
-    <div class="htb-step"><span class="htb-num">2</span><div class="htb-txt"><b>Add on Discord</b>Message me with the Account #.</div></div>
-    <div class="htb-step"><span class="htb-num">3</span><div class="htb-txt"><b>Live Account Check</b>I will log back into the account so we can confirm it's the exact one you want.</div></div>
-    <div class="htb-step"><span class="htb-num">4</span><div class="htb-txt"><b>Easy Payment</b>Pay via PayPal or Steam Gift.</div></div>
-    <div class="htb-step"><span class="htb-num">5</span><div class="htb-txt"><b>Account Binding</b>Send mail or dummy mail &amp; password.</div></div>
-    <div class="htb-step"><span class="htb-num">6</span><div class="htb-txt"><b>100% Yours</b>Account is 100% yours &mdash; change the password and do whatever you want!</div></div>
-  </div>
+      <div class="htb-step">
+        <span class="htb-num">2</span>
+        <div class="htb-txt"><b>Add on Discord</b>Message me with the Account #.</div>
+      </div>
+      <div class="htb-step">
+        <span class="htb-num">3</span>
+        <div class="htb-txt"><b>Live Account Check</b>I will log back into the account so we can confirm it's the exact one you want.</div>
+      </div>
+      <div class="htb-step">
+        <span class="htb-num">4</span>
+        <div class="htb-txt"><b>Easy Payment</b>Pay via PayPal or Steam Gift.</div>
+      </div>
+      <div class="htb-step">
+        <span class="htb-num">5</span>
+        <div class="htb-txt"><b>Account Binding</b>Send mail or dummy mail &amp; password.</div>
+      </div>
+      <div class="htb-step">
+        <span class="htb-num">6</span>
+        <div class="htb-txt"><b>100% Yours</b>Account is 100% yours &mdash; change the password and do whatever you want!</div>
+      </div>
+    </div>
 </div>
 
   <div class="flag-clean-wrap">
     <a href="https://info.flagcounter.com/E57c" target="_blank" rel="noopener"><img src="https://s01.flagcounter.com/count2/E57c/bg_000000/txt_FFFFFF/border_CCCCCC/columns_1/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
   </div>
 
-  <div class="live-top-box" title="Real-time visitors online">
+<div class="live-top-box" title="Real-time visitors online">
     <span style="display:inline-block; width:8px; height:8px; background:#22c55e; border-radius:50%; box-shadow:0 0 8px #22c55e;"></span>
     <span style="font-size:12px; font-weight:bold; color:#ffe680;">LIVE:</span>
     <script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
+    <script async src="//waust.at/s.js"></script>
+  </div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const HEROJI = [{"ime": "Sosuke Aizen", "slika": "slike/hero_0.jpg"}, {"ime": "Gin Ichimaru", "slika": "slike/hero_2.jpg"}, {"ime": "Uryu Ishida", "slika": "slike/hero_5.jpg"}, {"ime": "Yoruichi Shihoin", "slika": "slike/hero_6.jpg"}, {"ime": "Bambietta Basterbine", "slika": "slike/hero_7.jpg"}, {"ime": "Grimmjow Jaegerjaquez", "slika": "slike/hero_8.jpg"}, {"ime": "Toshiro Hitsugaya", "slika": "slike/hero_9.jpg"}, {"ime": "Rukia Kuchiki", "slika": "slike/hero_10.jpg"}, {"ime": "Byakuya Kuchiki", "slika": "slike/hero_11.jpg"}, {"ime": "Renji Abarai", "slika": "slike/hero_12.jpg"}, {"ime": "Ichigo Kurosaki", "slika": "slike/hero_13.jpg"}, {"ime": "Mayuri Kurotsuchi", "slika": "slike/hero_14.jpg"}, {"ime": "Orihime Inoue", "slika": "slike/hero_15.jpg"}, {"ime": "Rangiku Matsumoto", "slika": "slike/hero_16.jpg"}, {"ime": "Yasutora Sado (v2)", "slika": "slike/hero_4.jpg"}, {"ime": "Gin Ichimaru (v2)", "slika": "slike/hero_3.jpg"}, {"ime": "Sosuke Aizen (v2)", "slika": "slike/hero_1.jpg"}, {"ime": "Toshiro Hitsugaya (v2)", "slika": "slike/hero_17.jpg"}, {"ime": "Orihime Inoue (v2)", "slika": "slike/hero_18.jpg"}, {"ime": "Ichigo Kurosaki (v2)", "slika": "slike/hero_19.jpg"}, {"ime": "Rangiku Matsumoto (v2)", "slika": "slike/hero_20.jpg"}, {"ime": "Bambietta Basterbine (v2)", "slika": "slike/hero_21.jpg"}, {"ime": "Rukia Kuchiki (v2)", "slika": "slike/hero_22.jpg"}, {"ime": "Renji Abarai (v2)", "slika": "slike/hero_23.jpg"}, {"ime": "Grimmjow Jaegerjaquez (v2)", "slika": "slike/hero_24.jpg"}];
+  const NALOZI = [{"naziv": "Account #1", "heroji": ["bambietta basterbine", "sosuke aizen (v2)", "yoruichi shihoin"], "slika": "slike/acc_1.jpg"}, {"naziv": "Account #2", "heroji": ["sosuke aizen", "uryu ishida", "yasutora sado (v2)"], "slika": "slike/acc_2.jpg"}, {"naziv": "Account #3", "heroji": ["byakuya kuchiki", "grimmjow jaegerjaquez", "orihime inoue", "sosuke aizen (v2)"], "slika": "slike/acc_3.jpg"}, {"naziv": "Account #4", "heroji": ["grimmjow jaegerjaquez", "orihime inoue", "sosuke aizen"], "slika": "slike/acc_4.jpg"}, {"naziv": "Account #5", "heroji": ["grimmjow jaegerjaquez", "sosuke aizen", "yasutora sado (v2)"], "slika": "slike/acc_5.jpg"}, {"naziv": "Account #6", "heroji": ["gin ichimaru", "renji abarai", "rukia kuchiki", "sosuke aizen (v2)", "uryu ishida", "yasutora sado (v2)"], "slika": "slike/acc_6.jpg"}, {"naziv": "Account #7", "heroji": ["ichigo kurosaki", "orihime inoue", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_7.jpg"}, {"naziv": "Account #8", "heroji": ["bambietta basterbine", "grimmjow jaegerjaquez", "sosuke aizen"], "slika": "slike/acc_8.jpg"}, {"naziv": "Account #9", "heroji": ["ichigo kurosaki", "rukia kuchiki", "sosuke aizen"], "slika": "slike/acc_9.jpg"}, {"naziv": "Account #10", "heroji": ["ichigo kurosaki (v2)", "rukia kuchiki", "sosuke aizen (v2)"], "slika": "slike/acc_10.jpg"}, {"naziv": "Account #11", "heroji": ["orihime inoue", "renji abarai", "sosuke aizen"], "slika": "slike/acc_11.jpg"}, {"naziv": "Account #12", "heroji": ["bambietta basterbine", "grimmjow jaegerjaquez", "mayuri kurotsuchi", "sosuke aizen"], "slika": "slike/acc_12.jpg"}, {"naziv": "Account #13", "heroji": ["grimmjow jaegerjaquez", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_13.jpg"}, {"naziv": "Account #14", "heroji": ["rukia kuchiki", "sosuke aizen (v2)", "toshiro hitsugaya"], "slika": "slike/acc_14.jpg"}, {"naziv": "Account #15", "heroji": ["bambietta basterbine", "ichigo kurosaki", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_15.jpg"}, {"naziv": "Account #16", "heroji": ["bambietta basterbine", "ichigo kurosaki", "rukia kuchiki", "sosuke aizen (v2)"], "slika": "slike/acc_16.jpg"}, {"naziv": "Account #17", "heroji": ["byakuya kuchiki", "gin ichimaru", "rukia kuchiki", "sosuke aizen"], "slika": "slike/acc_17.jpg"}, {"naziv": "Account #18", "heroji": ["gin ichimaru", "ichigo kurosaki", "sosuke aizen", "uryu ishida"], "slika": "slike/acc_18.jpg"}, {"naziv": "Account #19", "heroji": ["gin ichimaru", "sosuke aizen", "uryu ishida", "yoruichi shihoin"], "slika": "slike/acc_19.jpg"}, {"naziv": "Account #20", "heroji": ["byakuya kuchiki", "gin ichimaru", "orihime inoue", "sosuke aizen"], "slika": "slike/acc_20.jpg"}, {"naziv": "Account #21", "heroji": ["gin ichimaru", "rangiku matsumoto (v2)", "sosuke aizen", "uryu ishida"], "slika": "slike/acc_21.jpg"}, {"naziv": "Account #22", "heroji": ["bambietta basterbine (v2)", "rukia kuchiki (v2)", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_22.jpg"}, {"naziv": "Account #23", "heroji": ["gin ichimaru", "ichigo kurosaki", "rangiku matsumoto (v2)", "sosuke aizen"], "slika": "slike/acc_23.jpg"}, {"naziv": "Account #24", "heroji": ["ichigo kurosaki (v2)", "mayuri kurotsuchi", "sosuke aizen"], "slika": "slike/acc_24.jpg"}, {"naziv": "Account #25", "heroji": ["bambietta basterbine", "ichigo kurosaki (v2)", "orihime inoue (v2)", "sosuke aizen"], "slika": "slike/acc_25.jpg"}, {"naziv": "Account #26", "heroji": ["orihime inoue", "sosuke aizen", "uryu ishida", "yasutora sado (v2)"], "slika": "slike/acc_26.jpg"}, {"naziv": "Account #27", "heroji": ["ichigo kurosaki (v2)", "rukia kuchiki", "sosuke aizen", "toshiro hitsugaya"], "slika": "slike/acc_27.jpg"}, {"naziv": "Account #28", "heroji": ["gin ichimaru (v2)", "rukia kuchiki", "sosuke aizen", "toshiro hitsugaya (v2)"], "slika": "slike/acc_28.jpg"}, {"naziv": "Account #29", "heroji": ["rukia kuchiki", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_29.jpg"}, {"naziv": "Account #30", "heroji": ["bambietta basterbine", "byakuya kuchiki", "ichigo kurosaki", "mayuri kurotsuchi", "renji abarai", "rukia kuchiki (v2)", "sosuke aizen", "yasutora sado (v2)"], "slika": "slike/acc_30.jpg"}, {"naziv": "Account #31", "heroji": ["renji abarai", "rukia kuchiki", "sosuke aizen (v2)"], "slika": "slike/acc_31.jpg"}, {"naziv": "Account #32", "heroji": ["bambietta basterbine", "mayuri kurotsuchi", "sosuke aizen", "toshiro hitsugaya", "yoruichi shihoin"], "slika": "slike/acc_32.jpg"}, {"naziv": "Account #33", "heroji": ["sosuke aizen", "toshiro hitsugaya", "uryu ishida"], "slika": "slike/acc_33.jpg"}, {"naziv": "Account #34", "heroji": ["ichigo kurosaki", "sosuke aizen", "toshiro hitsugaya"], "slika": "slike/acc_34.jpg"}, {"naziv": "Account #35", "heroji": ["bambietta basterbine", "ichigo kurosaki", "renji abarai", "rukia kuchiki", "sosuke aizen (v2)", "toshiro hitsugaya"], "slika": "slike/acc_35.jpg"}, {"naziv": "Account #36", "heroji": ["mayuri kurotsuchi", "renji abarai", "sosuke aizen (v2)"], "slika": "slike/acc_36.jpg"}, {"naziv": "Account #37", "heroji": ["sosuke aizen (v2)", "toshiro hitsugaya", "uryu ishida"], "slika": "slike/acc_37.jpg"}, {"naziv": "Account #38", "heroji": ["gin ichimaru", "orihime inoue", "renji abarai", "sosuke aizen", "uryu ishida"], "slika": "slike/acc_38.jpg"}, {"naziv": "Account #39", "heroji": ["gin ichimaru", "rangiku matsumoto (v2)", "renji abarai", "rukia kuchiki", "sosuke aizen (v2)"], "slika": "slike/acc_39.jpg"}, {"naziv": "Account #40", "heroji": ["orihime inoue", "rangiku matsumoto (v2)", "renji abarai", "sosuke aizen"], "slika": "slike/acc_40.jpg"}, {"naziv": "Account #41", "heroji": ["renji abarai", "sosuke aizen", "yasutora sado (v2)"], "slika": "slike/acc_41.jpg"}, {"naziv": "Account #42", "heroji": ["bambietta basterbine", "orihime inoue (v2)", "rukia kuchiki", "sosuke aizen"], "slika": "slike/acc_42.jpg"}, {"naziv": "Account #43", "heroji": ["bambietta basterbine", "byakuya kuchiki", "ichigo kurosaki", "sosuke aizen"], "slika": "slike/acc_43.jpg"}, {"naziv": "Account #44", "heroji": ["ichigo kurosaki", "orihime inoue", "rukia kuchiki", "sosuke aizen"], "slika": "slike/acc_44.jpg"}, {"naziv": "Account #45", "heroji": ["gin ichimaru", "rangiku matsumoto", "renji abarai", "sosuke aizen"], "slika": "slike/acc_45.jpg"}, {"naziv": "Account #46", "heroji": ["rukia kuchiki", "sosuke aizen", "uryu ishida", "yasutora sado (v2)"], "slika": "slike/acc_46.jpg"}, {"naziv": "Account #47", "heroji": ["grimmjow jaegerjaquez", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_47.jpg"}, {"naziv": "Account #48", "heroji": ["grimmjow jaegerjaquez", "sosuke aizen", "toshiro hitsugaya"], "slika": "slike/acc_48.jpg"}, {"naziv": "Account #49", "heroji": ["mayuri kurotsuchi", "rangiku matsumoto (v2)", "rukia kuchiki", "sosuke aizen"], "slika": "slike/acc_49.jpg"}, {"naziv": "Account #50", "heroji": ["byakuya kuchiki", "sosuke aizen (v2)", "yasutora sado (v2)"], "slika": "slike/acc_50.jpg"}, {"naziv": "Account #51", "heroji": ["gin ichimaru", "ichigo kurosaki", "sosuke aizen", "yasutora sado (v2)"], "slika": "slike/acc_51.jpg"}, {"naziv": "Account #52", "heroji": ["sosuke aizen", "uryu ishida", "yasutora sado (v2)"], "slika": "slike/acc_52.jpg"}, {"naziv": "Account #53", "heroji": ["bambietta basterbine", "gin ichimaru", "orihime inoue (v2)", "renji abarai", "sosuke aizen"], "slika": "slike/acc_53.jpg"}, {"naziv": "Account #54", "heroji": ["orihime inoue", "sosuke aizen", "toshiro hitsugaya"], "slika": "slike/acc_54.jpg"}, {"naziv": "Account #55", "heroji": ["rukia kuchiki (v2)", "sosuke aizen", "yasutora sado (v2)", "yoruichi shihoin"], "slika": "slike/acc_55.jpg"}, {"naziv": "Account #56", "heroji": ["ichigo kurosaki", "mayuri kurotsuchi", "sosuke aizen"], "slika": "slike/acc_56.jpg"}, {"naziv": "Account #57", "heroji": ["renji abarai", "sosuke aizen (v2)", "yasutora sado (v2)"], "slika": "slike/acc_57.jpg"}, {"naziv": "Account #58", "heroji": ["gin ichimaru", "orihime inoue", "rangiku matsumoto (v2)", "sosuke aizen", "toshiro hitsugaya"], "slika": "slike/acc_58.jpg"}, {"naziv": "Account #59", "heroji": ["byakuya kuchiki", "mayuri kurotsuchi", "rukia kuchiki", "sosuke aizen"], "slika": "slike/acc_59.jpg"}, {"naziv": "Account #60", "heroji": ["gin ichimaru", "grimmjow jaegerjaquez", "ichigo kurosaki", "mayuri kurotsuchi", "sosuke aizen"], "slika": "slike/acc_60.jpg"}, {"naziv": "Account #61", "heroji": ["bambietta basterbine (v2)", "byakuya kuchiki", "orihime inoue", "renji abarai", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_61.jpg"}, {"naziv": "Account #62", "heroji": ["gin ichimaru", "grimmjow jaegerjaquez", "rangiku matsumoto (v2)", "renji abarai (v2)", "sosuke aizen"], "slika": "slike/acc_62.jpg"}, {"naziv": "Account #63", "heroji": ["byakuya kuchiki", "gin ichimaru", "sosuke aizen", "yasutora sado (v2)"], "slika": "slike/acc_63.jpg"}, {"naziv": "Account #64", "heroji": ["grimmjow jaegerjaquez", "orihime inoue", "rukia kuchiki", "sosuke aizen (v2)"], "slika": "slike/acc_64.jpg"}, {"naziv": "Account #65", "heroji": ["grimmjow jaegerjaquez", "mayuri kurotsuchi", "sosuke aizen (v2)"], "slika": "slike/acc_65.jpg"}, {"naziv": "Account #66", "heroji": ["rukia kuchiki", "sosuke aizen", "toshiro hitsugaya (v2)"], "slika": "slike/acc_66.jpg"}, {"naziv": "Account #67", "heroji": ["bambietta basterbine", "ichigo kurosaki", "rukia kuchiki", "sosuke aizen"], "slika": "slike/acc_67.jpg"}, {"naziv": "Account #68", "heroji": ["sosuke aizen", "toshiro hitsugaya", "yasutora sado (v2)"], "slika": "slike/acc_68.jpg"}, {"naziv": "Account #69", "heroji": ["grimmjow jaegerjaquez", "ichigo kurosaki", "sosuke aizen"], "slika": "slike/acc_69.jpg"}, {"naziv": "Account #70", "heroji": ["mayuri kurotsuchi", "rangiku matsumoto (v2)", "sosuke aizen (v2)"], "slika": "slike/acc_70.jpg"}, {"naziv": "Account #71", "heroji": ["byakuya kuchiki", "ichigo kurosaki", "rukia kuchiki", "yoruichi shihoin"], "slika": "slike/acc_71.jpg"}, {"naziv": "Account #72", "heroji": ["gin ichimaru", "rangiku matsumoto (v2)", "sosuke aizen", "uryu ishida", "yoruichi shihoin"], "slika": "slike/acc_72.jpg"}, {"naziv": "Account #73", "heroji": ["mayuri kurotsuchi", "rangiku matsumoto (v2)", "sosuke aizen"], "slika": "slike/acc_73.jpg"}, {"naziv": "Account #74", "heroji": ["bambietta basterbine", "grimmjow jaegerjaquez", "sosuke aizen"], "slika": "slike/acc_74.jpg"}, {"naziv": "Account #75", "heroji": ["bambietta basterbine", "byakuya kuchiki", "mayuri kurotsuchi", "orihime inoue", "rangiku matsumoto", "rukia kuchiki"], "slika": "slike/acc_75.jpg"}, {"naziv": "Account #76", "heroji": ["byakuya kuchiki", "rukia kuchiki", "sosuke aizen", "toshiro hitsugaya"], "slika": "slike/acc_76.jpg"}, {"naziv": "Account #77", "heroji": ["renji abarai", "sosuke aizen", "yasutora sado (v2)", "yoruichi shihoin"], "slika": "slike/acc_77.jpg"}, {"naziv": "Account #78", "heroji": ["rukia kuchiki", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_78.jpg"}, {"naziv": "Account #79", "heroji": ["rangiku matsumoto (v2)", "renji abarai", "sosuke aizen (v2)", "uryu ishida"], "slika": "slike/acc_79.jpg"}, {"naziv": "Account #81", "heroji": ["renji abarai", "rukia kuchiki", "sosuke aizen"], "slika": "slike/acc_81.jpg"}, {"naziv": "Account #82", "heroji": ["bambietta basterbine", "grimmjow jaegerjaquez", "sosuke aizen"], "slika": "slike/acc_82.jpg"}, {"naziv": "Account #83", "heroji": ["grimmjow jaegerjaquez", "ichigo kurosaki", "sosuke aizen"], "slika": "slike/acc_83.jpg"}, {"naziv": "Account #84", "heroji": ["gin ichimaru", "grimmjow jaegerjaquez (v2)", "renji abarai", "sosuke aizen (v2)"], "slika": "slike/acc_84.jpg"}, {"naziv": "Account #85", "heroji": ["mayuri kurotsuchi", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_85.jpg"}, {"naziv": "Account #86", "heroji": ["bambietta basterbine", "byakuya kuchiki", "ichigo kurosaki", "sosuke aizen (v2)"], "slika": "slike/acc_86.jpg"}, {"naziv": "Account #87", "heroji": ["renji abarai", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_87.jpg"}, {"naziv": "Account #88", "heroji": ["bambietta basterbine (v2)", "rukia kuchiki", "sosuke aizen"], "slika": "slike/acc_88.jpg"}, {"naziv": "Account #89", "heroji": ["grimmjow jaegerjaquez", "sosuke aizen", "yasutora sado (v2)"], "slika": "slike/acc_89.jpg"}, {"naziv": "Account #90", "heroji": ["gin ichimaru", "rukia kuchiki", "sosuke aizen (v2)", "uryu ishida"], "slika": "slike/acc_90.jpg"}, {"naziv": "Account #91", "heroji": ["byakuya kuchiki", "gin ichimaru", "orihime inoue", "rangiku matsumoto (v2)", "sosuke aizen"], "slika": "slike/acc_91.jpg"}, {"naziv": "Account #92", "heroji": ["orihime inoue", "rukia kuchiki", "sosuke aizen (v2)"], "slika": "slike/acc_92.jpg"}, {"naziv": "Account #93", "heroji": ["gin ichimaru", "ichigo kurosaki", "sosuke aizen", "uryu ishida"], "slika": "slike/acc_93.jpg"}, {"naziv": "Account #94", "heroji": ["byakuya kuchiki", "mayuri kurotsuchi", "sosuke aizen"], "slika": "slike/acc_94.jpg"}, {"naziv": "Account #95", "heroji": ["renji abarai", "sosuke aizen", "toshiro hitsugaya", "yoruichi shihoin"], "slika": "slike/acc_95.jpg"}, {"naziv": "Account #96", "heroji": ["grimmjow jaegerjaquez", "sosuke aizen", "toshiro hitsugaya"], "slika": "slike/acc_96.jpg"}, {"naziv": "Account #97", "heroji": ["grimmjow jaegerjaquez", "sosuke aizen", "yasutora sado (v2)", "yoruichi shihoin"], "slika": "slike/acc_97.jpg"}, {"naziv": "Account #98", "heroji": ["sosuke aizen", "uryu ishida", "yoruichi shihoin"], "slika": "slike/acc_98.jpg"}, {"naziv": "Account #99", "heroji": ["renji abarai", "sosuke aizen", "uryu ishida"], "slika": "slike/acc_99.jpg"}, {"naziv": "Account #100", "heroji": ["gin ichimaru", "rukia kuchiki", "sosuke aizen", "yoruichi shihoin"], "slika": "slike/acc_100.jpg"}];
+  const OBRISANE_SLIKE = new Set(JSON.parse(sessionStorage.getItem('bmh_obrisane') || '[]'));
+  const KORAK_PRIKAZA = 20;
+  let prikazanoDoSada = 0;
+  let trenutniRezultati = [];
+  let odabrani = new Set();
+
+  const grid = document.getElementById('heroes');
+  HEROJI.forEach(h => {
+    const card = document.createElement('div');
+    card.className = 'hero-card';
+    card.title = h.ime;
+    card.innerHTML = `<img src="${h.slika}" alt="${h.ime}"><div class="hero-name-label">${h.ime}</div><div class="cb-area"><div class="cb"></div></div>`;
+    card.onclick = () => {
+      const k = h.ime.toLowerCase();
+      if (odabrani.has(k)) {
+        odabrani.delete(k);
+        card.classList.remove('active');
+      } else {
+        odabrani.add(k);
+        card.classList.add('active');
+      }
+      filtriraj();
+  setTimeout(azurirajStatusBrojac, 50);
+    };
+    grid.appendChild(card);
+  });
+
+  function azurirajStatusBrojac() {
+    const status = document.getElementById('status');
+    if (!status) return;
+    const ukupnoAktivnih = NALOZI.filter(x => !OBRISANE_SLIKE.has(x.naziv)).length;
+    if (odabrani.size > 0) {
+      const br = trenutniRezultati.filter(x => !OBRISANE_SLIKE.has(x.naziv)).length;
+      status.innerHTML = `<span>Showing ${br} of ${ukupnoAktivnih} accounts</span> <button class="reset-btn" onclick="ponistiFilter()">&#10005; CLEAR FILTER</button>`;
+    } else {
+      status.innerHTML = `<span>Showing all ${ukupnoAktivnih} accounts</span>`;
+    }
+  }
+
+  function obrisiNestaliNalog(imgEl, nazivNaloga) {
+    if (!OBRISANE_SLIKE.has(nazivNaloga)) {
+      OBRISANE_SLIKE.add(nazivNaloga);
+      sessionStorage.setItem('bmh_obrisane', JSON.stringify(Array.from(OBRISANE_SLIKE)));
+      azurirajStatusBrojac();
+    }
+    if (imgEl) {
+      const kartica = imgEl.closest('.acc');
+      if (kartica) kartica.remove();
+    }
+  }
+
+  function dodajSljedecuGrupu() {
+    const lista = document.getElementById('accounts');
+    const kraj = Math.min(prikazanoDoSada + KORAK_PRIKAZA, trenutniRezultati.length);
+    const fragment = document.createDocumentFragment();
+
+    for (let i = prikazanoDoSada; i < kraj; i++) {
+      const a = trenutniRezultati[i];
+      if (OBRISANE_SLIKE.has(a.naziv)) continue;
+      const div = document.createElement('div');
+      div.className = 'acc';
+      div.innerHTML = `<div class="acc-title"><span>${a.naziv}</span><span class="acc-price-badge">15 Euro</span></div><img src="${a.slika}" loading="lazy" onerror="obrisiNestaliNalog(this, '${a.naziv}')">`;
+      fragment.appendChild(div);
+    }
+
+    lista.appendChild(fragment);
+    prikazanoDoSada = kraj;
+  }
+
+  function filtriraj() {
+    const lista = document.getElementById('accounts');
+    lista.innerHTML = '';
+    prikazanoDoSada = 0;
+
+    trenutniRezultati = NALOZI.filter(a => {
+      if (OBRISANE_SLIKE.has(a.naziv)) return false;
+      for (let t of odabrani) {
+        if (!a.heroji.includes(t)) return false;
+      }
+      return true;
+    });
+
+    azurirajStatusBrojac();
+    dodajSljedecuGrupu();
+  }
+
+  function ponistiFilter() {
+    odabrani.clear();
+    document.querySelectorAll('.hero-card.active').forEach(c => c.classList.remove('active'));
+    filtriraj();
+  }
+
+  window.addEventListener('scroll', () => {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 600) {
+      if (prikazanoDoSada < trenutniRezultati.length) {
+        dodajSljedecuGrupu();
+      }
+    }
+  });
+
+  (function() {
+    NALOZI.forEach(a => {
+      const testImg = new Image();
+      testImg.onerror = () => obrisiNestaliNalog(null, a.naziv);
+      testImg.src = a.slika + '?v=' + Math.floor(Date.now() / 60000);
+    });
+  })();
+
+  filtriraj();
+</script>
+
+<script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
     <script async src="//waust.at/s.js"></script>
   </div>
 
@@ -1430,202 +1480,5 @@
   s0.parentNode.insertBefore(s1,s0);
   })();
   </script>
-  <!--End of Tawk.to Script-->
-
-  </div>
-<script>
-    function kopirajMojDiscord(btn) {
-      var tekst = "GenesisGacha#0271";
-      function gotovo() {
-        if (btn) {
-          btn.innerText = "✔ Copied!";
-          btn.style.background = "#16a34a";
-          btn.style.borderColor = "#4ade80";
-          setTimeout(function() {
-            btn.innerText = "📋 Copy";
-            btn.style.background = "";
-            btn.style.borderColor = "";
-          }, 2000);
-        }
-      }
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(tekst).then(gotovo).catch(function() {
-          rezerva(tekst);
-        });
-      } else {
-        rezerva(tekst);
-      }
-      function rezerva(val) {
-        var el = document.createElement("textarea");
-        el.value = val;
-        el.style.position = "fixed";
-        el.style.left = "-9999px";
-        document.body.appendChild(el);
-        el.select();
-        try {
-          if (document.execCommand("copy")) {
-            gotovo();
-          }
-        } catch (e) {
-          // Keep the button unchanged if copying is blocked by the browser.
-        } finally {
-          document.body.removeChild(el);
-        }
-      }
-    }
-  </script>
-
-
-<style id="how-to-buy-typography-final">
-  /* Samo tipografija iz prvog HTML-a — bez izmjene rasporeda i dimenzija */
-  html body .left-side-row .howtobuy-header {
-    font-family: Arial, sans-serif !important;
-    font-size: 12px !important;
-    font-weight: 900 !important;
-    letter-spacing: 0.8px !important;
-    text-transform: uppercase !important;
-  }
-  html body .left-side-row .htb-num {
-    font-family: Arial, sans-serif !important;
-    font-size: 11px !important;
-    font-weight: 900 !important;
-  }
-  html body .left-side-row .htb-txt {
-    font-family: Arial, sans-serif !important;
-    font-size: 10.5px !important;
-    line-height: 1.28 !important;
-  }
-  html body .left-side-row .htb-txt b {
-    font-family: Arial, sans-serif !important;
-    font-size: 11px !important;
-    font-weight: bold !important;
-  }
-</style>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.game-header, .catalog-header, .accordion-header, .dropdown-header').forEach(function(hdr) {
-    if (!hdr.dataset.bound) {
-      hdr.dataset.bound = '1';
-      hdr.addEventListener('click', function() {
-        var parent = hdr.parentElement;
-        if (parent) parent.classList.toggle('open');
-      });
-    }
-  });
-});
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var row = document.querySelector('.two-games-row');
-  if (!row) return;
-
-  // 1. Lijeva kartica (Bleach Soul Resonance APLUS)
-  var jadesLink = Array.from(document.querySelectorAll('a')).find(function(a) {
-    return a.textContent.indexOf('Only Jades') !== -1;
-  });
-  var lijeviPadajuci = jadesLink ? jadesLink.parentElement : null;
-  var bsrHeader = Array.from(row.querySelectorAll('div')).find(function(el) {
-    return el.textContent.indexOf('Bleach Soul Resonance') !== -1 && el.children.length > 0 && el.offsetHeight < 120;
-  });
-
-  if (bsrHeader && lijeviPadajuci) {
-    var lijeviStupac = document.createElement('div');
-    row.insertBefore(lijeviStupac, row.firstChild);
-    lijeviStupac.appendChild(bsrHeader);
-    lijeviStupac.appendChild(lijeviPadajuci);
-    lijeviPadajuci.style.setProperty('display', 'none', 'important');
-
-    bsrHeader.style.cursor = 'pointer';
-    bsrHeader.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A') return;
-      var jeSkriven = (lijeviPadajuci.style.display === 'none');
-      lijeviPadajuci.style.setProperty('display', jeSkriven ? 'flex' : 'none', 'important');
-      lijeviPadajuci.style.setProperty('flex-direction', 'column', 'important');
-    });
-  }
-
-  // 2. Desna kartica (Bleach Mirrors High EU)
-  var desnaKartica = Array.from(row.querySelectorAll('div')).find(function(el) {
-    return el.textContent.indexOf('Bleach Mirrors High') !== -1 && el.children.length > 0 && el.offsetHeight < 120;
-  });
-  var lijeviLink = Array.from(document.querySelectorAll('a')).find(function(a) {
-    return a.textContent.indexOf('Starter Accounts with Characters') !== -1 && a.href.indexOf('Mirrors-High') === -1;
-  });
-
-  if (desnaKartica) {
-    var desniStupac = desnaKartica.parentElement;
-    if (desniStupac === row) {
-      desniStupac = document.createElement('div');
-      row.insertBefore(desniStupac, desnaKartica);
-      desniStupac.appendChild(desnaKartica);
-    }
-
-    var noviMeni = document.createElement('div');
-    if (lijeviLink && lijeviLink.parentElement) {
-      noviMeni.className = lijeviLink.parentElement.className;
-    }
-    noviMeni.style.setProperty('display', 'none', 'important');
-
-    var noviLink = lijeviLink ? lijeviLink.cloneNode(true) : document.createElement('a');
-    var url = 'https://genesisgachastore.github.io/Bleach-Mirrors-High-EU-Starter-Accounts-/';
-    noviLink.href = url;
-    noviLink.innerHTML = '&#9876;&#65039; Starter Accounts with Characters';
-    noviLink.style.setProperty('width', '100%', 'important');
-    noviLink.style.setProperty('box-sizing', 'border-box', 'important');
-    noviLink.style.setProperty('white-space', 'normal', 'important');
-    noviLink.onclick = function(e) { e.stopPropagation(); window.location.href = url; };
-    noviMeni.appendChild(noviLink);
-    desniStupac.appendChild(noviMeni);
-
-    desnaKartica.style.cursor = 'pointer';
-    desnaKartica.onclick = function(e) {
-      if (e.target.tagName === 'A') return;
-      e.preventDefault();
-      e.stopPropagation();
-      var otvoren = noviMeni.style.display !== 'none';
-      noviMeni.style.setProperty('display', otvoren ? 'none' : 'flex', 'important');
-      var strelica = desnaKartica.querySelector('.arrow, span:last-child');
-      if (strelica) {
-        strelica.style.display = 'inline-block';
-        strelica.style.transition = 'transform 0.2s ease';
-        strelica.style.transform = otvoren ? 'rotate(0deg)' : 'rotate(180deg)';
-      }
-    };
-  }
-});
-</script>
 </body>
 </html>
