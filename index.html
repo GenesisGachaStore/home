@@ -1320,7 +1320,131 @@
 </style>
 
 <style>.copy-discord-btn { background: #ffcc00; color: #111; border: none; border-radius: 5px; padding: 5px 11px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.15s; }
-  .copy-discord-btn:hover { background: #ffffff; transform: scale(1.04); }</style><style>.flag-clean-wrap{border:2px solid #ffcc00!important;border-bottom:2px solid #ffcc00!important;border-radius:10px!important;padding-bottom:6px!important}.live-top-box{border:2px solid #ffcc00!important;border-top:2px solid #ffcc00!important;border-radius:10px!important;width:auto!important;min-width:138px!important;padding:7px 12px!important}.live-top-box div[title]{width:80px!important;min-width:80px!important;box-sizing:content-box!important;overflow:visible!important}</style></head>
+  .copy-discord-btn:hover { background: #ffffff; transform: scale(1.04); }</style><style>.flag-clean-wrap{border:2px solid #ffcc00!important;border-bottom:2px solid #ffcc00!important;border-radius:10px!important;padding-bottom:6px!important}.live-top-box{border:2px solid #ffcc00!important;border-top:2px solid #ffcc00!important;border-radius:10px!important;width:auto!important;min-width:138px!important;padding:7px 12px!important}.live-top-box div[title]{width:80px!important;min-width:80px!important;box-sizing:content-box!important;overflow:visible!important}</style><style>
+.payment-bar {
+    width: 100%;
+    max-width: 1080px;
+    background: linear-gradient(90deg, #120921 0%, #241240 50%, #120921 100%);
+    border: 1.5px solid #7e22ce;
+    border-radius: 10px;
+    padding: 9px 16px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 14px rgba(147, 51, 234, 0.3);
+    position: relative;
+    z-index: 2;
+  }
+.payment-label {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #e9d5ff;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+.pay-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+.pay-paypal {
+    background: linear-gradient(135deg, #003087 0%, #0070e0 100%);
+    border: 1.5px solid #7dd3fc;
+    color: #ffffff;
+  }
+.pay-steam {
+    background: linear-gradient(135deg, #171a21 0%, #2a475e 100%);
+    border: 1.5px solid #66c0f4;
+    color: #e0f2fe;
+  }
+</style>
+<style>
+.payment-bar {
+    width: 100%;
+    max-width: 1080px;
+    background: linear-gradient(90deg, #120921 0%, #241240 50%, #120921 100%);
+    border: 1.5px solid #7e22ce;
+    border-radius: 10px;
+    padding: 9px 16px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 14px rgba(147, 51, 234, 0.3);
+    position: relative;
+    z-index: 2;
+  }
+.payment-label {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #e9d5ff;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+.pay-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+.pay-paypal {
+    background: linear-gradient(135deg, #003087 0%, #0070e0 100%);
+    border: 1.5px solid #7dd3fc;
+    color: #ffffff;
+  }
+.pay-steam {
+    background: linear-gradient(135deg, #171a21 0%, #2a475e 100%);
+    border: 1.5px solid #66c0f4;
+    color: #e0f2fe;
+  }
+</style>
+<style>
+.discord-bar { width: 100%; max-width: 1080px; background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%); border: 1.5px solid #8ea1e1; border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45); text-align: center; }
+.discord-bar, .bleach-panel, .status, .accounts {
+    position: relative;
+    z-index: 2;
+  }
+.discord-bar {
+    border-radius: 0 0 14px 14px !important;
+    border-top: 1px solid rgba(240, 171, 252, 0.45) !important;
+    border-left: 2px solid #a855f7 !important;
+    border-right: 2px solid #a855f7 !important;
+    border-bottom: 2px solid #a855f7 !important;
+    margin-bottom: 16px !important;
+    background: linear-gradient(90deg, #160c29 0%, #3b1c6e 30%, #5865F2 50%, #3b1c6e 70%, #160c29 100%) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(168, 85, 247, 0.45) !important;
+  }
+.banner-box {
+    width: 100% !important;
+    max-width: 1080px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+.discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
+.discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
+.banner-box,.banner-wrap,.hero-banner{margin-bottom:0!important;border-bottom:none!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}.banner-box img,.banner-wrap img,.hero-banner img{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;display:block!important}.discord-bar,.dc-bar{margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important}</style>
+<style>
+.banner-box{margin-bottom:0!important;border-bottom:none!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}
+.banner-box img{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;display:block!important;width:100%!important}
+.info-bar{ width: 100%; max-width: 1080px; background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%); border: 1.5px solid #8ea1e1; border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45); text-align: center; ;margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important;width:100%!important;box-sizing:border-box!important}
+</style>
+</head>
 <body>
   <div class="cosmic-sky">
     <div class="stars-bg"></div>
@@ -1345,11 +1469,11 @@
       <button type="button" class="copy-discord-btn" onclick="(function(b){var t=document.getElementById('dcTag').textContent.trim();var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,9999);try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);if(navigator.clipboard){navigator.clipboard.writeText(t).catch(function(){});}var o=b.innerHTML;b.innerHTML='&#10003; Copied!';setTimeout(function(){b.innerHTML=o;},2000);})(this)">&#128203; Copy</button>
     </div>
 
-    <div class="pay-bar">
-      <span>💳 Accepted Payment Methods:</span>
-      <span class="pay-badge">🅿️ PayPal</span>
-      <span class="pay-badge">🎮 Steam Gift Cards (EU)</span>
-    </div>
+    <div class="payment-bar">
+    <span class="payment-label">💳 Accepted Payment Methods:</span>
+    <span class="pay-badge pay-paypal">🅿️ PayPal</span>
+    <span class="pay-badge pay-steam">🎮 Steam Gift Cards (EU)</span>
+  </div>
 
         <div class="selling-header">
       <div class="selling-line"></div>
