@@ -6,25 +6,7 @@
 <title>Genesis Gacha Store - Home</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-  @keyframes bgBreathe {
-    0%, 100% { background-color: #08070a; box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.95); }
-    50% { background-color: #160b29; box-shadow: inset 0 0 130px rgba(138, 79, 209, 0.25); }
-  }
-  body { background-color: #08070a; color: #fff; min-height: 100vh; padding: 15px 16px 40px 16px; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; position: relative; animation: bgBreathe 7s infinite ease-in-out; }
-  .cosmic-sky { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
-.stars-bg { position: absolute; inset: 0; background-image: radial-gradient(1.5px 1.5px at 8% 15%, #fff, transparent), radial-gradient(2px 2px at 18% 68%, #e879f9, transparent), radial-gradient(1.5px 1.5px at 31% 25%, #fde047, transparent), radial-gradient(2px 2px at 47% 12%, #c084fc, transparent), radial-gradient(1.5px 1.5px at 62% 78%, #fff, transparent), radial-gradient(2px 2px at 76% 22%, #ffcc00, transparent), radial-gradient(1.5px 1.5px at 88% 62%, #d8b4fe, transparent), radial-gradient(2px 2px at 94% 35%, #f0abfc, transparent); animation: twinkle 4.5s infinite ease-in-out; }
-.meteor { position: absolute; width: 135px; height: 2px; background: linear-gradient(90deg, #fff 0%, #ffcc00 35%, #a855f7 75%, transparent 100%); border-radius: 50%; filter: drop-shadow(0 0 6px #ffcc00); opacity: 0; }
-  .meteor::before { content: ""; position: absolute; left: 0; top: -2px; width: 6px; height: 6px; border-radius: 50%; background: #fff; box-shadow: 0 0 12px #fff, 0 0 20px #ffcc00; }
-  .m1 { top: 5%; left: 95%; animation: shootingStar 7s infinite linear 0.8s; }
-  .m2 { top: 24%; left: 105%; animation: shootingStar 10s infinite linear 3.5s; }
-  .m3 { top: -2%; left: 65%; animation: shootingStar 8.5s infinite linear 6.2s; }
-  @keyframes rise { 0% { transform: translateY(0) scale(0.7); opacity: 0; } 25% { opacity: 0.9; } 85% { opacity: 0.7; } 100% { transform: translateY(-98vh) scale(1.2); opacity: 0; } }
-  .spark { position: absolute; bottom: -12px; border-radius: 50%; opacity: 0; }
-  .s1 { left: 10%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: rise 8s infinite 0.5s; }
-  .s2 { left: 25%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: rise 10s infinite 2.1s; }
-  .s3 { left: 45%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: rise 9s infinite 4.2s; }
-  .s4 { left: 65%; width: 4px; height: 4px; background: #c084fc; box-shadow: 0 0 10px #c084fc; animation: rise 11s infinite 1.1s; }
-  .s5 { left: 85%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: rise 8.5s infinite 3.4s; }
+  body { background-color: #08070a; color: #fff; min-height: 100vh; padding: 15px 16px 40px 16px; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; position: relative; animation: none; box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.95); }
   .container { width: 100%; max-width: 1080px; margin: 0 auto; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
   .bleach-top-nav { width: 100%; margin: 0 auto 14px auto; display: flex; justify-content: center; align-items: center; gap: 12px; }
   /* CENTRALNI HOME MENI - prenesen sa originalne stranice */
@@ -76,86 +58,6 @@
   /* Removed an incomplete legacy media query. */
   @media (max-width: 640px) { .btn-game { width: 100%; font-size: 13.5px; padding: 12px 16px; } }
 
-  /* Kosmicke magline (Nebula) na bokovima i dnu */
-  @keyframes nebulaFloat {
-    0%, 100% { transform: scale(1) translateY(0); opacity: 0.45; }
-    50% { transform: scale(1.12) translateY(-15px); opacity: 0.8; }
-  }
-  @keyframes nebulaDriftLeft {
-    0%, 100% {
-      transform: translate(0px, 0px) scale(0.95);
-      opacity: 0.45;
-    }
-    50% {
-      transform: translate(calc(50vw - 660px), 35px) scale(1.2);
-      opacity: 0.85;
-    }
-  }
-  .nebula-left {
-    position: absolute;
-    top: 16%;
-    left: -60px;
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.48) 0%, rgba(126, 34, 206, 0.22) 45%, transparent 75%);
-    filter: blur(32px);
-    animation: nebulaDriftLeft 11s infinite ease-in-out;
-  }
-  @keyframes nebulaDriftRight {
-    0%, 100% {
-      transform: translate(0px, 0px) scale(0.95);
-      opacity: 0.45;
-    }
-    50% {
-      transform: translate(calc(-50vw + 660px), 35px) scale(1.2);
-      opacity: 0.85;
-    }
-  }
-  .nebula-right {
-    position: absolute;
-    top: 22%;
-    right: -60px;
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(126, 34, 206, 0.24) 45%, rgba(255, 204, 0, 0.04) 60%, transparent 75%);
-    filter: blur(32px);
-    animation: nebulaDriftRight 11.5s infinite ease-in-out 1.5s;
-  }
-  .soul-aura {
-    position: absolute; bottom: 0; left: 0; width: 100%; height: 180px;
-    background: radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.45) 0%, rgba(107, 33, 168, 0.15) 55%, transparent 80%);
-    animation: nebulaFloat 6s infinite ease-in-out;
-  }
-
-  /* Dodatni meteori (m4 - m7) razlicitih brzina */
-  @keyframes shootingStarFast {
-    0% { transform: translate(0, 0) rotate(-32deg); opacity: 0; }
-    3% { opacity: 1; }
-    14% { transform: translate(-1300px, 820px) rotate(-32deg); opacity: 0; }
-    100% { transform: translate(-1300px, 820px) rotate(-32deg); opacity: 0; }
-  }
-  .meteor-purple {
-    position: absolute; width: 165px; height: 2.5px;
-    background: linear-gradient(90deg, #ffffff 0%, #e879f9 35%, #7e22ce 75%, transparent 100%);
-    border-radius: 50%; filter: drop-shadow(0 0 8px #d946ef); opacity: 0;
-  }
-  .meteor-purple::before {
-    content: ""; position: absolute; left: 0; top: -2px; width: 6px; height: 6px;
-    border-radius: 50%; background: #ffffff; box-shadow: 0 0 12px #ffffff, 0 0 22px #e879f9;
-  }
-  .m4 { top: 12%; left: 102%; animation: shootingStarFast 6.5s infinite linear 1.9s; }
-  .m5 { top: 38%; left: 98%; animation: shootingStarFast 9s infinite linear 4.4s; }
-  .m6 { top: -4%; left: 48%; animation: shootingStar 7.8s infinite linear 2.7s; }
-  .m7 { top: 55%; left: 104%; animation: shootingStarFast 11s infinite linear 7.1s; }
-
-  /* Dodatne iskre (s6 - s14) */
-  .s6 { left: 6%; width: 3px; height: 3px; background: #f0abfc; box-shadow: 0 0 9px #f0abfc; animation: rise 9.5s infinite 1.4s; }
-  .s7 { left: 18%; width: 5px; height: 5px; background: #ffcc00; box-shadow: 0 0 12px #ff8800; animation: rise 11s infinite 3.1s; }
-  .s8 { left: 34%; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 9px #ffcc00; animation: rise 8.2s infinite 5.2s; }
-  .s9 { left: 53%; width: 4px; height: 4px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: rise 10.4s infinite 0.9s; }
-  .s10 { left: 73%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: rise 9.1s infinite 2.6s; }
-  .s11 { left: 91%; width: 3px; height: 3px; background: #c084fc; box-shadow: 0 0 9px #c084fc; animation: rise 8.7s infinite 4.7s; }
-  .s12 { left: 95%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: rise 10.1s infinite 6.3s; }
 
   /* Blagi svjetlosni odsjaj preko glavnog banera */
   @keyframes bannerShine {
@@ -240,26 +142,6 @@
   }
 @keyframes blinkBorder { 0%, 100% { border-color: #666666; box-shadow: 0 0 6px rgba(255, 204, 0, 0.2); } 50% { border-color: #ffcc00; box-shadow: 0 0 18px rgba(255, 204, 0, 0.85); } }
 @keyframes blinkAccount { 0%, 100% { color: #ffcc00; text-shadow: 0 0 8px rgba(255, 204, 0, 0.8); } 50% { color: #ffffff; text-shadow: 0 0 18px #ffcc00, 0 0 28px #ff8800; } }
-@keyframes twinkle {
-    0%, 100% { opacity: 0.25; transform: scale(0.9); }
-    50% { opacity: 0.9; transform: scale(1.2); }
-  }
-@keyframes shootingStar {
-    0% { transform: translate(0, 0) rotate(-35deg); opacity: 0; }
-    4% { opacity: 1; }
-    16% { transform: translate(-1100px, 750px) rotate(-35deg); opacity: 0; }
-    100% { transform: translate(-1100px, 750px) rotate(-35deg); opacity: 0; }
-  }
-@keyframes auraWave {
-    0%, 100% { opacity: 0.35; transform: scaleY(1); }
-    50% { opacity: 0.75; transform: scaleY(1.15); }
-  }
-@keyframes floatEmber {
-    0% { transform: translateY(0) translateX(0) scale(0.7); opacity: 0; }
-    20% { opacity: 0.95; }
-    80% { opacity: 0.8; }
-    100% { transform: translateY(-95vh) translateX(35px) scale(1.2); opacity: 0; }
-  }
 @keyframes bannerPulse {
     0%, 100% { border-color: #9333ea; box-shadow: 0 0 22px rgba(168, 85, 247, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.3); }
     50% { border-color: #f0abfc; box-shadow: 0 0 38px rgba(217, 70, 239, 0.85), 0 0 15px rgba(255, 204, 0, 0.4); }
@@ -267,10 +149,6 @@
 @keyframes bannerSweep {
     0% { left: -100%; }
     35%, 100% { left: 150%; }
-  }
-@keyframes nebulaBreathe {
-    0%, 100% { opacity: 0.45; transform: scale(1); }
-    50% { opacity: 0.85; transform: scale(1.12); }
   }
 @keyframes redDriveGlow {
     0%, 100% { box-shadow: inset 0 0 12px rgba(255, 100, 100, 0.35), 0 2px 8px rgba(220, 38, 38, 0.4); }
@@ -858,7 +736,7 @@
 
 
   /* PORAVNAJ SREDISNJI OKVIR NA 1080PX */
-  body > div:not(.left-upgrade-wrap):not(.flag-clean-wrap):not(.live-top-box):not(.cosmic-sky),
+  body > div:not(.left-upgrade-wrap):not(.flag-clean-wrap):not(.live-top-box),
   .home-panel, .hero-card-box, .main-card, .bleach-panel, .discord-bar, .pay-bar {
     max-width: 1080px !important;
     width: 100% !important;
@@ -1444,21 +1322,26 @@
 .banner-box img{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;display:block!important;width:100%!important}
 .info-bar{ width: 100%; max-width: 1080px; background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%); border: 1.5px solid #8ea1e1; border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45); text-align: center; ;margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important;width:100%!important;box-sizing:border-box!important}
 </style>
-<style>.nebula-left,.nebula-right,.soul-aura{display:none!important;opacity:0!important}</style>
+
+<style id="banner-glow-final">
+  /* Samo svjetlucanje glavnog banera */
+  .banner-box {
+    position: relative !important;
+    animation: bannerPulse 2.8s ease-in-out infinite !important;
+  }
+  .banner-box img {
+    position: relative;
+    z-index: 1;
+  }
+  .banner-box::after {
+    z-index: 2;
+    animation: bannerShine 7.5s infinite ease-in-out !important;
+  }
+</style>
+
+<style id="gfx-c">@keyframes gTw{0%,100%{opacity:.28;transform:scale(.92)}50%{opacity:.95;transform:scale(1.18)}}@keyframes gMt{0%{transform:translate(0,0) rotate(-35deg);opacity:0}4%{opacity:1}18%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}100%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}}@keyframes gSp{0%{transform:translateY(0) scale(.85);opacity:0}15%{opacity:1}85%{opacity:.85}100%{transform:translateY(-102vh) scale(1.25);opacity:0}}#gacha-fx,#gacha-fx *{pointer-events:none!important}#gacha-fx{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;min-width:100vw!important;height:100%!important;min-height:100vh!important;z-index:1!important;overflow:hidden!important}html{background:#06040a!important;background-image:radial-gradient(circle at 50% 22%,#1b0e33 0%,#0b0614 55%,#050308 100%)!important;background-attachment:fixed!important}body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar{background:transparent!important;background-color:transparent!important}.container,.main-wrap,.bleach-wrap,.page-wrap,.content-wrap{background:transparent!important}img,.banner,.main-banner,.hero-card,.catalog-card,.panel,.card,.box,.discord-bar,.bleach-top-nav,.btn-back-home{position:relative!important;z-index:5!important}.g-st{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 10% 15%,#fff,transparent),radial-gradient(2px 2px at 24% 68%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 38% 28%,#fff,transparent),radial-gradient(2px 2px at 52% 82%,#f0abfc,transparent),radial-gradient(2px 2px at 67% 20%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 79% 58%,#fff,transparent),radial-gradient(2px 2px at 91% 34%,#f0abfc,transparent),radial-gradient(1.5px 1.5px at 16% 86%,#fff,transparent);animation:gTw 4.5s infinite ease-in-out}.g-mt{position:absolute;width:140px;height:2px;background:linear-gradient(90deg,#fff 0%,#ffcc00 35%,#a855f7 75%,transparent 100%);border-radius:50%;filter:drop-shadow(0 0 6px #ffcc00);opacity:0;animation:gMt 8.5s infinite linear}.g-sp{position:absolute;bottom:-12px;border-radius:50%;opacity:0;animation:gSp 8s infinite linear}</style>
 </head>
 <body>
-  <div class="cosmic-sky">
-    <div class="stars-bg"></div>
-    <div class="nebula-left"></div>
-    <div class="nebula-right"></div>
-    <div class="soul-aura"></div>
-    <div class="meteor m1"></div><div class="meteor m2"></div><div class="meteor m3"></div>
-    <div class="meteor-purple m4"></div><div class="meteor-purple m5"></div>
-    <div class="meteor m6"></div><div class="meteor-purple m7"></div>
-    <div class="spark s1"></div><div class="spark s2"></div><div class="spark s3"></div><div class="spark s4"></div>
-    <div class="spark s5"></div><div class="spark s6"></div><div class="spark s7"></div><div class="spark s8"></div>
-    <div class="spark s9"></div><div class="spark s10"></div><div class="spark s11"></div><div class="spark s12"></div>
-  </div>
 
   <div class="container">
     <div class="bleach-top-nav"><a href="https://genesisgachastore.github.io/home/" class="btn-back-home">🏠 Home • Genesis Gacha Store</a></div>
@@ -1753,5 +1636,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+<div id="gacha-fx"><div class="g-st"></div><div class="g-mt" style="top:6%;left:26%;animation-delay:0.5s"></div><div class="g-mt" style="top:18%;left:42%;animation-delay:2.4s"></div><div class="g-mt" style="top:12%;left:58%;animation-delay:4.2s"></div><div class="g-mt" style="top:28%;left:35%;animation-delay:6.0s"></div><div class="g-mt" style="top:8%;left:76%;animation-delay:1.6s"></div><div class="g-mt" style="top:22%;left:90%;animation-delay:3.5s"></div><div class="g-mt" style="top:34%;left:96%;animation-delay:5.3s"></div><div class="g-st" style="transform:scaleX(-1) scaleY(-1);animation-delay:2.2s;opacity:.75"></div><div class="g-sp" style="left:8.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.35s;animation-duration:7.6s"></div><div class="g-sp" style="left:16.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.0s;animation-duration:8.45s"></div><div class="g-sp" style="left:24.1%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.65s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:31.9%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.3s;animation-duration:7.6s"></div><div class="g-sp" style="left:39.7%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:2.95s;animation-duration:8.45s"></div><div class="g-sp" style="left:47.5%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.6s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:55.3%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.25s;animation-duration:7.6s"></div><div class="g-sp" style="left:63.1%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:4.9s;animation-duration:8.45s"></div><div class="g-sp" style="left:70.9%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.55s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:78.7%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.2s;animation-duration:7.6s"></div><div class="g-sp" style="left:86.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:6.85s;animation-duration:8.45s"></div><div class="g-sp" style="left:94.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:7.5s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:5.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:0.0s;animation-duration:7.2s"></div><div class="g-sp" style="left:12.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.65s;animation-duration:8.1s"></div><div class="g-sp" style="left:20.6%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.3s;animation-duration:9.0s"></div><div class="g-sp" style="left:28.4%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.95s;animation-duration:7.2s"></div><div class="g-sp" style="left:36.2%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.6s;animation-duration:8.1s"></div><div class="g-sp" style="left:44.0%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:3.25s;animation-duration:9.0s"></div><div class="g-sp" style="left:51.8%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.9s;animation-duration:7.2s"></div><div class="g-sp" style="left:59.6%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.55s;animation-duration:8.1s"></div><div class="g-sp" style="left:67.4%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:5.2s;animation-duration:9.0s"></div><div class="g-sp" style="left:75.2%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.85s;animation-duration:7.2s"></div><div class="g-sp" style="left:83.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.5s;animation-duration:8.1s"></div><div class="g-sp" style="left:90.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:7.15s;animation-duration:9.0s"></div></div>
 </body>
 </html>
