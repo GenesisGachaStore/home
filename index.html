@@ -1341,6 +1341,42 @@
 
 <style id="gfx-c">@keyframes gTw{0%,100%{opacity:.28;transform:scale(.92)}50%{opacity:.95;transform:scale(1.18)}}@keyframes gMt{0%{transform:translate(0,0) rotate(-35deg);opacity:0}4%{opacity:1}18%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}100%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}}@keyframes gSp{0%{transform:translateY(0) scale(.85);opacity:0}15%{opacity:1}85%{opacity:.85}100%{transform:translateY(-102vh) scale(1.25);opacity:0}}#gacha-fx,#gacha-fx *{pointer-events:none!important}#gacha-fx{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;min-width:100vw!important;height:100%!important;min-height:100vh!important;z-index:1!important;overflow:hidden!important}html{background:#06040a!important;background-image:radial-gradient(circle at 50% 22%,#1b0e33 0%,#0b0614 55%,#050308 100%)!important;background-attachment:fixed!important}body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar{background:transparent!important;background-color:transparent!important}.container,.main-wrap,.bleach-wrap,.page-wrap,.content-wrap{background:transparent!important}img,.banner,.main-banner,.hero-card,.catalog-card,.panel,.card,.box,.discord-bar,.bleach-top-nav,.btn-back-home{position:relative!important;z-index:5!important}.g-st{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 10% 15%,#fff,transparent),radial-gradient(2px 2px at 24% 68%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 38% 28%,#fff,transparent),radial-gradient(2px 2px at 52% 82%,#f0abfc,transparent),radial-gradient(2px 2px at 67% 20%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 79% 58%,#fff,transparent),radial-gradient(2px 2px at 91% 34%,#f0abfc,transparent),radial-gradient(1.5px 1.5px at 16% 86%,#fff,transparent);animation:gTw 4.5s infinite ease-in-out}.g-mt{position:absolute;width:140px;height:2px;background:linear-gradient(90deg,#fff 0%,#ffcc00 35%,#a855f7 75%,transparent 100%);border-radius:50%;filter:drop-shadow(0 0 6px #ffcc00);opacity:0;animation:gMt 8.5s infinite linear}.g-sp{position:absolute;bottom:-12px;border-radius:50%;opacity:0;animation:gSp 8s infinite linear}</style>
 <style id="home-purple-theme">@keyframes purplePulse{0%,100%{opacity:.05}50%{opacity:.66}}html{min-height:100%!important;background:#06040a!important;position:relative!important}html::before{content:""!important;position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100vw!important;height:100vh!important;z-index:0!important;pointer-events:none!important;background:linear-gradient(180deg,#24104a 0%,#34176b 50%,#200e42 100%)!important;animation:purplePulse 7s ease-in-out infinite!important}body{background:transparent!important;background-image:none!important}</style>
+<style id="completed-sales-css">
+.selling-header.completed-hdr {
+  margin-top: 28px !important;
+}
+.selling-header.completed-hdr .selling-line {
+  background: linear-gradient(90deg, transparent, #22c55e) !important;
+}
+.selling-header.completed-hdr .selling-line.right {
+  background: linear-gradient(90deg, #22c55e, transparent) !important;
+}
+.selling-header.completed-hdr .selling-title {
+  color: #4ade80 !important;
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.55) !important;
+}
+.btn-game-main.completed-btn {
+  background: linear-gradient(180deg, #064e3b 0%, #022c22 100%) !important;
+  border-color: #22c55e !important;
+  color: #dcfce7 !important;
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.25) !important;
+}
+.btn-game-main.completed-btn:hover {
+  background: linear-gradient(180deg, #047857 0%, #064e3b 100%) !important;
+  border-color: #86efac !important;
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.45) !important;
+}
+.sold-badge {
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid #4ade80;
+  color: #86efac;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+</style>
 </head>
 <body>
 
@@ -1403,8 +1439,139 @@
 
 </div>
 
+<!-- COMPLETED SALES SECTION -->
+<div class="selling-header completed-hdr">
+  <div class="selling-line"></div>
+  <div class="selling-title">✅ Completed Sales ✅</div>
+  <div class="selling-line right"></div>
+</div>
 
-  <div class="left-side-row">
+<div class="two-games-row" id="completedGamesRow">
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="goddessOfGenesisBtn">
+      <a href="https://www.epicnpc.com/threads/goddess-of-genesis-sacred_realm-account-shop-6-accounts-for-free.1797523/" target="_blank" rel="noopener target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Goddess of Genesis S</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="moonlightSculptorBtn">
+      <a href="https://www.epicnpc.com/threads/eu-as-starter-moonlight-sculptor-heroic-buddy-first-day-accs.1964781/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Moonlight Sculptor</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="worldFlipperBtn">
+      <a href="https://www.epicnpc.com/threads/na-end-game-accounts-catalog-total-32-accounts-final-update-30eur.2053573/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ World Flipper</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="panillaSagaBtn">
+      <a href="https://www.epicnpc.com/threads/w19-starter-accounts-catalog-5-eur-02-december-2022.2373032/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Panilla Saga</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="lostRealmBtn">
+      <a href="https://www.epicnpc.com/threads/server-4-starter-accounts-total-50-accounts-final-update-15eur.2665339/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Lost Realm: Chronorift</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="shieldHeroBtn">
+      <a href="https://www.epicnpc.com/threads/global-3-starter-accounts-total-90-accounts-final-update-15eur.2669429/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Shield Hero: RISE</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="blackCloverBtn">
+      <a href="https://www.epicnpc.com/threads/eu-starter-accounts-selective-on-total-90-accounts-final-update-15eur.2681753/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Black Clover M</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="pixelHeroesBtn">
+      <a href="https://www.epicnpc.com/threads/myth-starter-accounts-na-20-chapter-4-1-07-july-2024-15eur.2754359/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Pixel Heroes</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="monsterNeverCryBtn">
+      <a href="https://www.epicnpc.com/threads/shiny-starter-accounts-servers-200-chapter-2-4-final-update-15eur.2758651/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Monster Never Cry</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="trailsColdSteelBtn">
+      <a href="https://www.epicnpc.com/forums/trails-of-cold-steel-northern-war-accounts.3772/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Trails of Cold Steel: Northern War</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="soulStrikeBtn">
+      <a href="https://www.epicnpc.com/threads/soul-strike-glb50-mid-end-accs-sold-16-september-2024-45eur.2817484/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Soul Strike!</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="cookieRunToaBtn">
+      <a href="https://www.epicnpc.com/threads/starter-accounts-catalog-final-update-15eur.2837137/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Cookie Run ToA</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="sevenDeadlySinsBtn">
+      <a href="https://www.epicnpc.com/threads/server-idle-66-tavern-1390-stages-34k-diamonds-4kk-35-euro-only-1-acc.2955506/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Seven Deadly Sins Idle Adventure</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="pixelBraveBtn">
+      <a href="https://www.epicnpc.com/threads/s-107-day-one-accounts-all-mats-collected-daily-farm-only-account.3177090/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Pixel Brave: Idle RPG</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+  <div class="games-row">
+    <div class="game-dropdown-wrap" id="digimonUpBtn">
+      <a href="https://www.epicnpc.com/threads/asia-starter-wargreymon-sp-gems-and-mats-daily-log-10euro.3220283/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
+        <span>✅ Digimon UP</span>
+        <span class="sold-badge">SOLD OUT</span>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- END COMPLETED SALES SECTION -->
+
+
+<div class="left-side-row">
   <div class="epicnpc-wrapper">
     <div class="trusted-box">
       <div class="trusted-text">⭐ 100% Trusted Seller ⭐</div>
