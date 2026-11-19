@@ -1064,6 +1064,74 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
   }
 </style>
 
+
+<style id="mobile-catalog-grid-and-click-dropdown-fix">
+/* Mobile: keep available catalogs and completed sales side by side */
+@media (max-width: 768px) {
+  .selling-header + .two-games-row,
+  #completedGamesRow {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+  }
+  .selling-header + .two-games-row > .games-row,
+  #completedGamesRow > .games-row {
+    width: calc(50% - 4px) !important;
+    min-width: 0 !important;
+    max-width: calc(50% - 4px) !important;
+    flex: 0 0 calc(50% - 4px) !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .selling-header + .two-games-row .game-dropdown-wrap,
+  #completedGamesRow .game-dropdown-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+  .selling-header + .two-games-row .btn-game-main,
+  #completedGamesRow .btn-game-main {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 68px !important;
+    padding: 10px 8px !important;
+    gap: 5px !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  .selling-header + .two-games-row .btn-game-main > span:first-child,
+  #completedGamesRow .btn-game-main > span:first-child {
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+  #completedGamesRow .sold-badge {
+    font-size: 9px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* Bleach submenus stay fully hidden until their own main button is clicked */
+#bleachDropdown > .game-submenu,
+#bmh_bleachDropdown > .game-submenu {
+  display: none !important;
+}
+#bleachDropdown.open > .game-submenu,
+#bmh_bleachDropdown.open > .game-submenu {
+  display: flex !important;
+}
+</style>
+
 </head>
 <body>
   <main class="container">
