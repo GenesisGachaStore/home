@@ -1132,6 +1132,68 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
 }
 </style>
 
+
+<style id="trusted-howtobuy-text-only-glow">
+  /* Samo tekst/naslovi lagano trepere – bez animiranja okvira ili panela */
+  @keyframes headingTextShimmer {
+    0%, 100% {
+      color: #ffe680;
+      opacity: 0.96;
+      text-shadow: 0 0 3px rgba(255, 204, 0, 0.3);
+      filter: brightness(1);
+    }
+    50% {
+      color: #fff4c2;
+      opacity: 1;
+      text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.45),
+        0 0 8px rgba(255, 204, 0, 0.48),
+        0 0 11px rgba(168, 85, 247, 0.35);
+      filter: brightness(1.06);
+    }
+  }
+
+  .trusted-panel-title,
+  .howtobuy-header,
+  .selling-title {
+    animation: headingTextShimmer 2.4s ease-in-out infinite !important;
+  }
+</style>
+
+
+<style id="mobile-visitor-counter-last">
+  /* Na mobitelu Flag Counter i LIVE idu na samo dno, ispod svih kataloga i Completed Sales */
+  @media (max-width: 768px) {
+    .container {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Omogućava da se elementi iz hero sekcije rasporede zajedno s katalozima */
+    .hero-layout {
+      display: contents !important;
+    }
+
+    .bleach-top-nav { order: 0 !important; }
+    .banner-column { order: 1 !important; }
+    .left-info-stack { order: 2 !important; }
+
+    .selling-header:not(.completed-hdr) { order: 3 !important; }
+    .selling-header:not(.completed-hdr) + .two-games-row { order: 4 !important; }
+
+    .selling-header.completed-hdr { order: 5 !important; }
+    #completedGamesRow { order: 6 !important; }
+
+    .visitor-stack {
+      order: 7 !important;
+      width: min(100%, 180px) !important;
+      max-width: 180px !important;
+      margin: 12px auto 0 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
 </head>
 <body>
   <main class="container">
