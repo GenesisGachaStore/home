@@ -380,6 +380,26 @@
       font-weight: bold;
     }
 
+    /* Zatvara samo nedostajuću desnu bijelu ivicu LIVE "1 online" widgeta */
+    .live-widget-frame {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      line-height: 0;
+    }
+
+    .live-widget-frame::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 14px;
+      background: #ffffff;
+      pointer-events: none;
+      z-index: 2;
+    }
+
     /* Manji laptopi, tableti i mobiteli: elementi se slažu bez horizontalnog skrolanja */
     @media (max-width: 1050px) {
       .hero-layout {
@@ -1147,8 +1167,10 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
         <div class="live-top-box" role="group" title="Real-time visitors online" aria-label="Live visitors online">
           <span class="live-indicator" aria-hidden="true"></span>
           <span class="live-label">LIVE:</span>
-          <script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
-          <script async src="//waust.at/s.js"></script>
+          <span class="live-widget-frame">
+            <script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
+            <script async src="//waust.at/s.js"></script>
+          </span>
         </div>
       </aside>
     </div>
