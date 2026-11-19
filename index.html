@@ -1,78 +1,616 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Genesis Gacha Store - Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genesis Gacha Store - trusted game account sales, secure trading and fast support.">
+  <meta name="theme-color" content="#0b0614">
+  <title>Genesis Gacha Store - Home</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-  body { background-color: #08070a; color: #fff; min-height: 100vh; padding: 15px 16px 40px 16px; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; position: relative; animation: none; box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.95); }
-  .container { width: 100%; max-width: 1080px; margin: 0 auto; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
-  .bleach-top-nav { width: 100%; margin: 0 auto 14px auto; display: flex; justify-content: center; align-items: center; gap: 12px; }
-  /* CENTRALNI HOME MENI - prenesen sa originalne stranice */
-  .bleach-top-nav {
-    width: 100%;
-    max-width: 1080px;
-    margin: 0 auto 14px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 10;
-  }
-  .btn-back-home {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(90deg, #1b0c30 0%, #581c87 50%, #1b0c30 100%);
-    color: #ffe680;
-    border: 2px solid #ffcc00;
-    border-radius: 10px;
-    padding: 9px 24px;
-    font-size: 13.5px;
-    font-weight: 900;
-    letter-spacing: 0.9px;
-    text-transform: uppercase;
-    text-decoration: none;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 14px rgba(168, 85, 247, 0.5);
-    transition: all 0.2s ease;
-  }
-  .btn-back-home:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%);
-    color: #ffffff;
-    box-shadow: 0 0 22px rgba(255, 204, 0, 0.85);
-  }
+* {
+      box-sizing: border-box;
+    }
 
-  .btn-nav-active { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%); color: #fff; border: 2px solid #ffcc00; border-radius: 10px; padding: 9px 24px; font-size: 13.5px; font-weight: 900; letter-spacing: 0.9px; text-transform: uppercase; text-decoration: none; box-shadow: 0 0 18px rgba(255, 204, 0, 0.65); }
-  .banner-box { width: 100%; border-radius: 14px; overflow: hidden; border: 2px solid #a855f7; background: #0d0717; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9), 0 0 24px rgba(168, 85, 247, 0.5); }
-  .banner-box img { width: 100%; height: auto; display: block; }
-  .games-row { width: 100%; margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-  .btn-game { background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%); color: #ffe680; border: 2px solid #ffcc00; border-radius: 10px; padding: 14px 28px; font-size: 15px; font-weight: 900; letter-spacing: 0.9px; text-transform: uppercase; text-decoration: none; box-shadow: 0 4px 18px rgba(147, 51, 234, 0.55); transition: 0.2s; text-align: center; }
-  .btn-game:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(255, 204, 0, 0.85); color: #fff; }
-  .trusted-box { position: fixed; top: 15px; right: calc(50% + 540px + ((50vw - 540px) / 2)); transform: translateX(50%); z-index: 95; background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%); border: 2px solid #ffcc00; border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; box-shadow: 0 6px 24px rgba(0,0,0,0.9), 0 0 20px rgba(255,204,0,0.55); text-align: center;  }
-  .trusted-title { color: #ffe680; font-size: 12px; font-weight: 900; letter-spacing: 0.6px; text-transform: uppercase; text-shadow: 0 0 8px rgba(255,204,0,0.7); }
-  .trusted-box img { width: 100%;  height: auto; border-radius: 8px; display: block; }
-  .flag-clean-wrap { position: fixed; top: 15px; left: calc(50% + 540px + ((50vw - 540px) / 2)); transform: translateX(-50%); z-index: 95; background: #0d0717; border: 2px solid #a855f7; border-bottom: none; border-radius: 10px 10px 0 0; padding: 6px 6px 4px 6px; box-shadow: 0 4px 18px rgba(0,0,0,0.85), 0 0 14px rgba(168,85,247,0.45); }
-  
-  /* Removed an incomplete legacy media query. */
-  @media (max-width: 640px) { .btn-game { width: 100%; font-size: 13.5px; padding: 12px 16px; } }
+    html {
+      min-height: 100%;
+      background: #06040a;
+    }
 
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px 16px 40px;
+      color: #ffffff;
+      background: radial-gradient(circle at 50% 20%, #1b0e33 0%, #0b0614 58%, #050308 100%);
+      font-family: Arial, sans-serif;
+    }
 
-  /* Blagi svjetlosni odsjaj preko glavnog banera */
-  @keyframes bannerShine {
-    0% { left: -100%; }
-    30%, 100% { left: 150%; }
-  }
-  .banner-box { position: relative; }
-  .banner-box::after {
-    content: ""; position: absolute; top: 0; left: -100%; width: 40%; height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.14), transparent);
-    transform: skewX(-25deg); animation: bannerShine 7.5s infinite ease-in-out; pointer-events: none;
-  }
+    .container {
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
 
+    /* 1. Osnovna crna, ljubičasta i zlatna tema */
 
-  .selling-header {
+    /* 2. Glavni banner sa ljubičastim sjajem i svjetlosnim prelazom */
+    @keyframes bannerShine {
+      0% {
+        left: -100%;
+      }
+      30%, 100% {
+        left: 150%;
+      }
+    }
+
+    @keyframes bannerPulse {
+      0%, 100% {
+        border-color: #9333ea;
+        box-shadow:
+          0 0 22px rgba(168, 85, 247, 0.5),
+          inset 0 0 15px rgba(168, 85, 247, 0.3);
+      }
+      50% {
+        border-color: #f0abfc;
+        box-shadow:
+          0 0 38px rgba(217, 70, 239, 0.85),
+          0 0 15px rgba(255, 204, 0, 0.4);
+      }
+    }
+
+    .banner-box {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border: 2px solid #a855f7;
+      border-radius: 14px;
+      background: #0d0717;
+      animation: bannerPulse 2.8s ease-in-out infinite;
+    }
+
+    .banner-box img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-box::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: -100%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.14),
+        transparent
+      );
+      transform: skewX(-25deg);
+      animation: bannerShine 7.5s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    /* 3. Centralni Home meni */
+    .bleach-top-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto 8px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 20px;
+      color: #ffe680;
+      background: linear-gradient(90deg, #1b0c30 0%, #581c87 50%, #1b0c30 100%);
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 900;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 14px rgba(168, 85, 247, 0.5);
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-back-home:focus-visible,
+    .copy-discord-btn:focus-visible,
+    .trusted-panel-link:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 3px;
+    }
+
+    .btn-back-home:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%);
+      color: #ffffff;
+      box-shadow: 0 0 22px rgba(255, 204, 0, 0.85);
+    }
+
+    /* 4. EpicNPC lijevo, banner u sredini, Flag Counter desno – poravnati po vrhu */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 205px) minmax(0, 1fr) minmax(0, 150px);
+      align-items: stretch;
+      gap: clamp(12px, 1.5vw, 20px);
+      width: 100%;
+    }
+
+    .trusted-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      max-width: 205px;
+      margin: 0;
+      padding: 8px 8px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%);
+      border: 2px solid #ffcc00;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.35);
+    }
+
+    .left-info-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 205px;
+      min-width: 0;
+      height: auto;
+      margin: 0 0 0 auto;
+      align-self: start;
+      justify-content: flex-start;
+      transform: translateX(clamp(40px, 5.7vw, 90px));
+    }
+
+    .howtobuy-box {
+      width: 100%;
+      min-width: 0;
+      padding: 9px 9px 8px;
+      color: #f3e8ff;
+      text-align: left;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #160929 0%, #0d0717 100%);
+      border: 2px solid #ffcc00;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.35);
+    }
+
+    .howtobuy-header {
+      margin: 0 0 8px;
+      padding: 0 0 7px;
+      color: #ffe680;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      line-height: 1.3;
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 1.5px solid rgba(255, 204, 0, 0.4);
+      text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+    }
+
+    .htb-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      margin: 0 0 5px;
+      padding: 5px 6px;
+      background: rgba(88, 28, 135, 0.22);
+      border: 1px solid rgba(255, 204, 0, 0.28);
+      border-radius: 7px;
+    }
+
+    .htb-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .htb-num {
+      display: flex;
+      flex: 0 0 18px;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      color: #0d0717;
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, #ffcc00 0%, #f59e0b 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(255, 204, 0, 0.45);
+    }
+
+    .htb-txt {
+      min-width: 0;
+      font-size: 10.2px;
+      line-height: 1.26;
+      overflow-wrap: anywhere;
+    }
+
+    .htb-txt b {
+      display: block;
+      margin-bottom: 1px;
+      color: #ffe680;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .trusted-panel-title {
+      color: #ffe680;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      line-height: 1.3;
+      text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+    }
+
+    .trusted-panel-link {
+      display: inline-block;
+      width: 100%;
+      padding: 7px 6px;
+      color: #ffe680;
+      background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%);
+      border: 1.5px solid #ffcc00;
+      border-radius: 7px;
+      font-size: 10px;
+      font-weight: 900;
+      line-height: 1.3;
+      text-decoration: none;
+      text-transform: uppercase;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .trusted-panel-link:hover {
+      color: #ffffff;
+      background: linear-gradient(90deg, #7e22ce 0%, #a855f7 50%, #7e22ce 100%);
+      box-shadow: 0 0 14px rgba(255, 204, 0, 0.85);
+    }
+
+    .trusted-panel img {
+      display: block;
+      width: 100%;
+      max-width: 135px;
+      height: auto;
+      border: 1.5px solid rgba(255, 204, 0, 0.65);
+      border-radius: 8px;
+    }
+
+    .hero-layout .banner-box {
+      min-width: 0;
+      width: 84%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 5. Flag Counter desno od bannera, poravnat s njegovim gornjim rubom */
+    .flag-counter-wrap {
+      align-self: start;
+      justify-self: center;
+      width: 100%;
+      max-width: 150px;
+      margin: 0;
+      padding: 6px 6px 4px;
+      background: #0d0717;
+      border: 2px solid #ffcc00;
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
+    }
+
+    .flag-counter-wrap a,
+    .flag-counter-wrap img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .flag-counter-wrap img {
+      width: auto;
+      height: auto;
+      margin: 0 auto;
+      border: 0;
+    }
+
+    /* 6. Live brojač odmah ispod Flag Countera, u istoj desnoj koloni */
+    .visitor-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-self: start;
+      align-self: start;
+      gap: 0;
+      width: 150px;
+      min-width: 0;
+      transform: translateX(clamp(-90px, -5.7vw, -40px));
+    }
+
+    .live-top-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      width: 100%;
+      min-height: 36px;
+      margin: 0;
+      padding: 7px 8px;
+      background: #0d0717;
+      border: 2px solid #ffcc00;
+      border-top: 1.5px solid #ffcc00;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4);
+      white-space: nowrap;
+    }
+
+    .live-indicator {
+      display: inline-block;
+      flex: 0 0 8px;
+      width: 8px;
+      height: 8px;
+      background: #ffcc00;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #ffcc00;
+    }
+
+    .live-label {
+      color: #ffe680;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* Manji laptopi, tableti i mobiteli: elementi se slažu bez horizontalnog skrolanja */
+    @media (max-width: 1050px) {
+      .hero-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .left-info-stack {
+        align-self: center;
+        height: auto;
+        justify-content: flex-start;
+        transform: none;
+        width: min(100%, 390px);
+        margin: 0 auto;
+      }
+
+      .trusted-panel {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .visitor-stack {
+        transform: none;
+        width: min(100%, 180px);
+        margin: 0 auto;
+      }
+
+      .flag-counter-wrap {
+        max-width: 100%;
+        margin: 0;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+      .btn-back-home {
+        max-width: 100%;
+        padding: 9px 16px;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .trusted-panel {
+        max-width: 100%;
+        padding: 9px;
+      }
+
+      .trusted-panel img {
+        max-width: 135px;
+      }
+
+      .flag-counter-wrap {
+        padding: 5px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Discord i Payment trake su odmah ispod bannera, u istoj centriranoj koloni */
+    .banner-column {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .banner-column .info-bar,
+    .banner-column .payment-bar {
+      width: 84%;
+      max-width: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .banner-column .info-bar {
+      margin-top: 12px;
+      flex-wrap: nowrap;
+      gap: clamp(4px, 0.8vw, 10px);
+      padding: 8px clamp(6px, 1vw, 16px);
+      font-size: clamp(8px, 1vw, 13px);
+      white-space: nowrap;
+    }
+
+    .banner-column .info-bar > span:first-child {
+      white-space: nowrap;
+      min-width: 0;
+      flex: 0 1 auto;
+    }
+
+    .banner-column .info-bar .dc-tag,
+    .banner-column .info-bar .copy-discord-btn {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    .banner-column .payment-bar {
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 14px 8px 28px; }
+      .banner-column .info-bar {
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 8px 6px;
+        font-size: 11px;
+        line-height: 1.35;
+        white-space: normal;
+      }
+      .banner-column .info-bar > span:first-child {
+        flex: 1 1 100%;
+        min-width: 0;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
+      .banner-column .info-bar .dc-tag {
+        padding: 4px 7px;
+        font-size: 10px;
+      }
+
+      .banner-column .info-bar .copy-discord-btn {
+        padding: 5px 8px;
+        font-size: 10px;
+      }
+    }
+
+    /* Originalni Discord info bar */
+    .info-bar {
+      width: 100%;
+      max-width: 1080px;
+      margin: 14px auto 0;
+      background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%);
+      border: 1.5px solid #8ea1e1;
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45);
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .dc-tag {
+      color: #ffe680;
+      font-weight: 900;
+      background: rgba(88, 28, 135, 0.55);
+      padding: 4px 10px;
+      border-radius: 7px;
+      border: 1px solid #ffcc00;
+    }
+
+    .copy-discord-btn {
+      position: relative;
+      z-index: 10;
+      background: #ffcc00;
+      color: #111;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 11px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .copy-discord-btn:hover {
+      background: #ffffff;
+      transform: scale(1.04);
+    }
+
+    /* Originalni Payment bar */
+    .payment-bar {
+      width: 100%;
+      max-width: 1080px;
+      margin: 10px auto 14px;
+      background: linear-gradient(90deg, #120921 0%, #241240 50%, #120921 100%);
+      border: 1.5px solid #7e22ce;
+      border-radius: 10px;
+      padding: 9px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 14px rgba(147, 51, 234, 0.3);
+      position: relative;
+      z-index: 2;
+      box-sizing: border-box;
+    }
+
+    .payment-label {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #e9d5ff;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .pay-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 13px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .pay-paypal {
+      background: linear-gradient(135deg, #003087 0%, #0070e0 100%);
+      border: 1.5px solid #7dd3fc;
+      color: #ffffff;
+    }
+
+    .pay-steam {
+      background: linear-gradient(135deg, #171a21 0%, #2a475e 100%);
+      border: 1.5px solid #66c0f4;
+      color: #e0f2fe;
+    }
+
+.selling-header {
     width: 100%;
     margin-top: 24px;
     margin-bottom: 4px;
@@ -103,401 +641,68 @@
     .selling-title { font-size: 13.5px; letter-spacing: 1px; }
   }
 
-
-  
-  /* FIKSNA POZICIJA LIJEVO I DESNO OD BANERA (NE ISPOD) */
-  html {
-    overflow-y: scroll;
-  }
-  .trusted-box {
-    position: fixed !important;
-    top: 15px !important;
-    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(50%) !important;
-    z-index: 95 !important;
-    
-    margin: 0 !important;
-  }
-  .flag-clean-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-    z-index: 95 !important;
-    margin: 0 !important;
-  }
-  
-  /* Removed an incomplete legacy media query. */
-
-
-  
-  /* 1:1 KOPIJA EPICNPC BEDZA SA BLEACH STRANICE */
-  @keyframes bgPulse {
-    0%, 100% { background-color: #08070a; box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.9); }
-    50% { background-color: #170c29; box-shadow: inset 0 0 110px rgba(123, 66, 188, 0.22); }
-  }
-@keyframes cbGlow {
-    0%, 100% { border-color: #d8bff8; box-shadow: 0 0 6px rgba(192, 132, 252, 0.6), inset 0 0 4px rgba(192, 132, 252, 0.4); }
-    50% { border-color: #ffcc00; box-shadow: 0 0 14px rgba(255, 204, 0, 0.95), inset 0 0 6px rgba(255, 204, 0, 0.6); }
-  }
-@keyframes blinkBorder { 0%, 100% { border-color: #666666; box-shadow: 0 0 6px rgba(255, 204, 0, 0.2); } 50% { border-color: #ffcc00; box-shadow: 0 0 18px rgba(255, 204, 0, 0.85); } }
-@keyframes blinkAccount { 0%, 100% { color: #ffcc00; text-shadow: 0 0 8px rgba(255, 204, 0, 0.8); } 50% { color: #ffffff; text-shadow: 0 0 18px #ffcc00, 0 0 28px #ff8800; } }
-@keyframes bannerPulse {
-    0%, 100% { border-color: #9333ea; box-shadow: 0 0 22px rgba(168, 85, 247, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.3); }
-    50% { border-color: #f0abfc; box-shadow: 0 0 38px rgba(217, 70, 239, 0.85), 0 0 15px rgba(255, 204, 0, 0.4); }
-  }
-@keyframes bannerSweep {
-    0% { left: -100%; }
-    35%, 100% { left: 150%; }
-  }
-@keyframes redDriveGlow {
-    0%, 100% { box-shadow: inset 0 0 12px rgba(255, 100, 100, 0.35), 0 2px 8px rgba(220, 38, 38, 0.4); }
-    50% { box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.45), 0 2px 14px rgba(239, 68, 68, 0.85); }
-  }
-@keyframes trustedGlow {
-    0%, 100% { color: #ffcc00; text-shadow: 0 0 6px rgba(255, 204, 0, 0.7); transform: scale(1); }
-    50% { color: #ffffff; text-shadow: 0 0 14px #ffcc00, 0 0 22px #ff8800; transform: scale(1.04); }
-  }
-  .trusted-box {
-    position: fixed;
-    top: 15px;
-    right: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(50%);
-    z-index: 95;
-    background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%);
-    border: 2px solid #ffcc00;
-    border-radius: 12px;
-    padding: 10px 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.55);
-    text-align: center;
-    
-  }
-.trusted-text {
-    font-size: 13.5px;
-    font-weight: 900;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    line-height: 1.25;
-    animation: trustedGlow 1.8s infinite ease-in-out;
-  }
-.trusted-box img {
-    width: 175px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    border: 1.5px solid rgba(255, 204, 0, 0.65);
-  }
-.trusted-box {
-      position: static;
-      transform: none;
-      margin: 0 auto 14px auto;
-      width: fit-content;
-    }
-.trusted-box {
-    position: fixed !important;
-    top: 15px !important;
-    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(50%) !important;
-    
-  }
-.trusted-box, .flag-clean-wrap, 
-  .trusted-box {
-    position: fixed !important;
-    top: 15px !important;
-    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(50%) !important;
-    z-index: 95 !important;
-    margin: 0 !important;
-  }
-  @media (max-width: 1280px) {
-    .trusted-box {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
-    }
-  }
-
-
-  /* TACNA VELICINA EPICNPC BEDZA KAO NA BLEACH STRANICI */
-  .trusted-box {
-    
-    position: fixed;
-    top: 15px;
-    right: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(50%);
-    z-index: 95;
-    background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%);
-    border: 2px solid #ffcc00;
-    border-radius: 12px;
-    padding: 10px 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.55);
-    text-align: center;
-    max-width: 195px;
-  
-    position: fixed !important;
-    top: 15px !important;
-    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(50%) !important;
-    z-index: 95 !important;
-    margin: 0 !important;
-  }
-  .trusted-box img {
-    
-    width: 175px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    border: 1.5px solid rgba(255, 204, 0, 0.65);
-  
-  }
-
-
-  /* 1:1 KOPIJA FLAG COUNTERA I LIVE BROJACA SA BLEACH STRANICE */
-  .flag-clean-wrap {
-    position: fixed;
-    top: 15px;
-    left: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(-50%);
-    z-index: 95;
-    background: #0d0717;
-    border: 2px solid #a855f7;
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
-    padding: 6px 6px 4px 6px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
-  }
-.flag-clean-wrap {
-      position: static;
-      transform: none;
-      margin: 16px auto;
-      width: fit-content;
-    }
-.flag-clean-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-  }
-.flag-clean-wrap, .flag-clean-wrap {
-      position: static;
-      transform: none;
-      margin: 16px auto;
-      width: fit-content;
-    }
-
-
-  .flag-clean-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-    z-index: 95 !important;
-    margin: 0 !important;
-  }
-  
-  /* Removed an incomplete legacy media query. */
-
-
-  /* UREDAN PRIKAZ KATALOGA U 2 STUPCA NA HOME STRANICI */
-  .games-row {
-    width: 100% !important;
-    max-width: 1080px !important;
-    margin-top: 18px !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
-  }
-  .btn-game {
-    display: flex !important;
-    align-items: center !important;
+  /* CISTI RASPORED KATALOGA (PC I MOBITEL) */
+  .two-games-row {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
     justify-content: center !important;
-    width: 100% !important;
-    padding: 16px 20px !important;
-    font-size: 14.5px !important;
-    line-height: 1.35 !important;
-    text-align: center !important;
-  }
-  @media (max-width: 760px) {
-    .games-row {
-      grid-template-columns: 1fr !important;
-    }
-  }
-
-
-  /* POPRAVLJEN FLAG COUNTER (E57c) */
-  .flag-clean-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-    z-index: 95 !important;
-    background: #0d0717 !important;
-    border: 2px solid #a855f7 !important;
-    border-bottom: none !important;
-    border-radius: 10px 10px 0 0 !important;
-    padding: 6px 6px 4px 6px !important;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45) !important;
-    margin: 0 !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  .flag-clean-wrap img {
-    display: block !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
     width: auto !important;
-    height: auto !important;
-    max-width: none !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    max-width: 100% !important;
   }
-  @media (max-width: 1280px) {
-    .flag-clean-wrap {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
-      border-bottom: 2px solid #a855f7 !important;
-      border-radius: 10px !important;
-      width: fit-content !important;
-    }
-  }
-
-
-  /* DISCORD I NACINI PLACANJA ISPOD BANERA (IDENTICNO KAO U KATALOGU) */
-  .info-bar {
-    width: 100%;
-    max-width: 1080px;
-    margin: 14px auto 0 auto;
-    background: linear-gradient(90deg, #120821 0%, #241042 50%, #120821 100%);
-    border: 2px solid #a855f7;
-    border-radius: 12px;
-    padding: 12px 18px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-size: 14.5px;
-    font-weight: bold;
-    color: #f3e8ff;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85), 0 0 15px rgba(168, 85, 247, 0.4);
-    text-align: center;
-  }
-  .dc-tag {
-    color: #ffe680;
-    font-weight: 900;
-    background: rgba(88, 28, 135, 0.55);
-    padding: 4px 10px;
-    border-radius: 7px;
-    border: 1px solid #ffcc00;
-  }
-  .btn-copy-dc {
-    background: linear-gradient(90deg, #581c87 0%, #9333ea 100%);
-    color: #ffffff;
-    border: 1.5px solid #ffcc00;
-    border-radius: 8px;
-    padding: 5px 12px;
-    font-size: 13px;
-    font-weight: 900;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
-  }
-  .btn-copy-dc:hover {
-    background: #9333ea;
-    box-shadow: 0 0 16px rgba(255, 204, 0, 0.85);
-    transform: translateY(-1px);
-  }
-  .pay-bar {
-    width: 100%;
-    max-width: 1080px;
-    margin: 10px auto 0 auto;
-    background: #0d0717;
-    border: 1.5px solid #ffcc00;
-    border-radius: 10px;
-    padding: 10px 16px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #ffe680;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 204, 0, 0.35);
-    text-align: center;
-  }
-  .pay-badge {
-    background: rgba(168, 85, 247, 0.2);
-    border: 1px solid #a855f7;
-    color: #ffffff;
-    padding: 4px 11px;
-    border-radius: 7px;
-    font-weight: 800;
-  }
-
-
-  
-
-
-  /* VRACEN LIVE BROJAC ISPOD FLAG COUNTERA */
-  .flag-clean-wrap {
-    border-bottom: none !important;
-    border-radius: 10px 10px 0 0 !important;
-    padding: 6px 6px 4px 6px !important;
-  }
-  .live-top-box {
-    position: fixed !important;
-    top: 294px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-    z-index: 96 !important;
-    width: 132px !important;
+  .two-games-row > div {
+    width: 245px !important;
+    min-width: 245px !important;
+    max-width: 245px !important;
+    flex: 0 0 245px !important;
     display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 7px !important;
-    background: #0d0717 !important;
-    border: 2px solid #a855f7 !important;
-    border-top: 1.5px solid #ffcc00 !important;
-    border-radius: 0 0 10px 10px !important;
-    padding: 7px 12px !important;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4) !important;
-    margin: 0 !important;
-  }
-  @media (max-width: 1280px) {
-    .flag-clean-wrap {
-      border-bottom: 2px solid #a855f7 !important;
-      border-radius: 10px !important;
-    }
-    .live-top-box {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
-      border-top: 2px solid #ffcc00 !important;
-      border-radius: 10px !important;
-    }
-  }
-
-
-
-  /* ZLATNI OKVIR OKO EPICNPC SLIKE */
-  img[src*="epicnpc" i] {
-    border: 2.5px solid #ffcc00 !important;
-    border-radius: 10px !important;
-    box-shadow: 0 0 14px rgba(255, 204, 0, 0.75), 0 4px 12px rgba(0, 0, 0, 0.85) !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
     box-sizing: border-box !important;
-    display: block !important;
   }
-
-
+  .two-games-row > div > div:first-child {
+    width: 245px !important;
+    min-width: 245px !important;
+    max-width: 245px !important;
+    height: 74px !important;
+    min-height: 74px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+  .two-games-row > div > div:not(:first-child) {
+    width: 245px !important;
+    min-width: 245px !important;
+    max-width: 245px !important;
+    margin-top: 10px !important;
+    box-sizing: border-box !important;
+  }
+  @media (max-width: 768px) {
+    .two-games-row {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+      gap: 12px !important;
+    }
+    .two-games-row > div {
+      margin: 0 auto !important;
+      align-items: center !important;
+    }
+    .two-games-row > div > div:not(:first-child) {
+      margin-top: 8px !important;
+      margin-bottom: 4px !important;
+      position: static !important;
+    }
+  }
 
   /* GLAVNI TAB I PADAJUCI SUB-MENU ZA KATALOGE */
   .game-dropdown-wrap {
@@ -572,776 +777,26 @@
     transform: translateY(-1px);
   }
 
-
-
-  /* UPGRADE LIJEVE KUTIJE BEZ DIRANJA POZICIJE STRANICE */
-  .left-upgrade-wrap {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-  }
-  .btn-epicnpc-topic {
-    display: block !important;
-    width: 100% !important;
-    margin: 6px 0 !important;
-    padding: 6px 8px !important;
-    background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%) !important;
-    color: #ffe680 !important;
-    border: 1.5px solid #ffcc00 !important;
-    border-radius: 7px !important;
-    font-size: 10.5px !important;
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-    text-decoration: none !important;
-    text-align: center !important;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8) !important;
-    line-height: 1.2 !important;
-  }
-  .btn-epicnpc-topic:hover {
-    background: linear-gradient(90deg, #7e22ce 0%, #a855f7 50%, #7e22ce 100%) !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 14px rgba(255, 204, 0, 0.85) !important;
-  }
-  img[src*="epicnpc" i] {
-    border: 2.5px solid #ffcc00 !important;
-    border-radius: 10px !important;
-    box-shadow: 0 0 14px rgba(255, 204, 0, 0.75) !important;
-  }
-  .howtobuy-box {
-    width: 168px !important;
-    max-width: 168px !important;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%) !important;
-    border: 2px solid #ffcc00 !important;
-    border-radius: 12px !important;
-    padding: 8px 8px 6px 8px !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45) !important;
-    text-align: left !important;
-    flex-shrink: 0 !important;
-  }
-  .howtobuy-header {
-    text-align: center !important;
-    font-size: 11.5px !important;
-    font-weight: 900 !important;
-    color: #ffe680 !important;
-    text-transform: uppercase !important;
-    padding-bottom: 5px !important;
-    margin-bottom: 6px !important;
-    border-bottom: 1.5px solid rgba(255, 204, 0, 0.4) !important;
-  }
-  .htb-step {
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 6px !important;
-    margin-bottom: 5px !important;
-    background: rgba(88, 28, 135, 0.25) !important;
-    border: 1px solid rgba(168, 85, 247, 0.35) !important;
-    border-radius: 7px !important;
-    padding: 4px 5px !important;
-  }
-  .htb-step:last-child { margin-bottom: 0 !important; }
-  .htb-num {
-    min-width: 17px !important;
-    height: 17px !important;
-    background: linear-gradient(135deg, #ffcc00 0%, #f59e0b 100%) !important;
-    color: #0d0717 !important;
-    font-size: 10.5px !important;
-    font-weight: 900 !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  .htb-txt { font-size: 10px !important; line-height: 1.22 !important; color: #f3e8ff !important; }
-  .htb-txt b { color: #ffe680 !important; display: block !important; font-size: 10.5px !important; }
-
-
-
-  /* HOW TO BUY: precizno uskladjeno s originalnom stranicom */
-  .left-side-row .howtobuy-box {
-    width: 195px !important;
-    max-width: 195px !important;
-    flex: 0 0 195px !important;
-    padding: 10px 10px 8px 10px !important;
-    margin-top: 2px !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-  }
-  .left-side-row .howtobuy-header {
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 12px !important;
-    font-weight: 900 !important;
-    letter-spacing: 0.8px !important;
-    padding-bottom: 6px !important;
-    margin-bottom: 8px !important;
-    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6) !important;
-  }
-  .left-side-row .htb-step {
-    gap: 7px !important;
-    margin-bottom: 7px !important;
-    padding: 5px 6px !important;
-  }
-  .left-side-row .htb-num {
-    min-width: 18px !important;
-    width: 18px !important;
-    height: 18px !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 11px !important;
-    font-weight: 900 !important;
-    margin-top: 1px !important;
-    box-shadow: 0 0 6px rgba(255, 204, 0, 0.7) !important;
-  }
-  .left-side-row .htb-txt {
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 10.5px !important;
-    line-height: 1.28 !important;
-    color: #f3e8ff !important;
-  }
-  .left-side-row .htb-txt b {
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 11px !important;
-    font-weight: bold !important;
-    margin-bottom: 1px !important;
-  }
-
-  /* TACNA MATEMATIKA OD RUBA DO BANERA */
-  .left-upgrade-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc((100vw - 1080px) / 4) !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-    z-index: 95 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-    margin: 0 !important;
-  }
-  @media (max-width: 1620px) {
-    .left-upgrade-wrap {
-      left: 15px !important;
-      transform: none !important;
-    }
-  }
-  @media (max-width: 1440px) {
-    .left-upgrade-wrap {
-      position: static !important;
-      transform: none !important;
-      justify-content: center !important;
-      flex-wrap: wrap !important;
-      margin: 12px auto !important;
-    }
-  }
-
-
-
-  /* PORAVNAJ SREDISNJI OKVIR NA 1080PX */
-  body > div:not(.left-upgrade-wrap):not(.flag-clean-wrap):not(.live-top-box),
-  .home-panel, .hero-card-box, .main-card, .bleach-panel, .discord-bar, .pay-bar {
-    max-width: 1080px !important;
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    box-sizing: border-box !important;
-  }
-
-
-
-  /* SKROZ LIJEVO KAO NA DRUGOJ SLICI */
-  .left-upgrade-wrap,
-  .left-side-row {
-    position: fixed !important;
-    top: 15px !important;
-    left: 10px !important;
-    right: auto !important;
-    transform: none !important;
-    z-index: 999 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-    margin: 0 !important;
-  }
-
-
-
-  /* MOBITEL FIX ZA HOME - ISTO KAO STARTER I JADE */
-  @media (max-width: 1450px) {
-    .left-upgrade-wrap,
-    .left-side-row,
-    .flag-clean-wrap,
-    .live-top-box {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
-      left: auto !important;
-      right: auto !important;
-      top: auto !important;
-    }
-    .left-upgrade-wrap,
-    .left-side-row {
-      justify-content: center !important;
-      flex-wrap: wrap !important;
-      width: 100% !important;
-    }
-  }
-
-
-
-  /* PRENESENA ZAJEDNICKA LIJEVA STRANA: EPICNPC + HOW TO BUY */
-  .left-side-row {
-    position: fixed !important;
-    top: 15px !important;
-    left: 15px !important;
-    z-index: 999 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 10px !important;
-    margin: 0 !important;
-  }
-  .left-side-row .epicnpc-wrapper {
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
-    width: 175px !important;
-    flex: 0 0 175px !important;
-    display: flex !important;
+/* Katalog centriran direktno ispod naslova */
+.selling-header + .two-games-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 768px) {
+  .selling-header + .two-games-row {
     flex-direction: column !important;
-    gap: 8px !important;
-  }
-  .left-side-row .epicnpc-wrapper .trusted-box {
-    position: static !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-  }
-  .left-side-row .epicnpc-wrapper img {
-    display: block !important;
-    width: 175px !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-  .left-side-row .howtobuy-box {
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
-    width: 175px !important;
-    max-width: 175px !important;
-    flex: 0 0 175px !important;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%) !important;
-    border: 2px solid #ffcc00 !important;
-    border-radius: 12px !important;
-    padding: 8px 8px 6px 8px !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45) !important;
-    box-sizing: border-box !important;
-    text-align: left !important;
-  }
-  .left-side-row .howtobuy-header {
-    text-align: center !important;
-    font-size: 12px !important;
-    font-weight: 900 !important;
-    color: #ffe680 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.8px !important;
-    padding-bottom: 6px !important;
-    margin-bottom: 8px !important;
-    border-bottom: 1.5px solid rgba(255, 204, 0, 0.4) !important;
-    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6) !important;
-  }
-  .left-side-row .htb-step {
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 7px !important;
-    margin-bottom: 5px !important;
-    background: rgba(88, 28, 135, 0.25) !important;
-    border: 1px solid rgba(168, 85, 247, 0.35) !important;
-    border-radius: 7px !important;
-    padding: 4px 5px !important;
-  }
-  .left-side-row .htb-step:last-child { margin-bottom: 0 !important; }
-  .left-side-row .htb-num {
-    min-width: 18px !important;
-    height: 18px !important;
-    background: linear-gradient(135deg, #ffcc00 0%, #f59e0b 100%) !important;
-    color: #0d0717 !important;
-    font-size: 11px !important;
-    font-weight: 900 !important;
-    border-radius: 50% !important;
-    display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    margin-top: 1px !important;
-    flex-shrink: 0 !important;
   }
-  .left-side-row .htb-txt {
-    font-size: 10px !important;
-    line-height: 1.22 !important;
-    color: #f3e8ff !important;
-  }
-  .left-side-row .htb-txt b {
-    color: #ffe680 !important;
-    display: block !important;
-    font-size: 10.5px !important;
-    margin-bottom: 1px !important;
-  }
-  @media (max-width: 1620px) {
-    .left-side-row {
-      position: static !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      width: 100% !important;
-      max-width: 1080px !important;
-      margin: 12px auto !important;
-    }
-    .left-side-row .howtobuy-box {
-      width: 100% !important;
-      max-width: 680px !important;
-      flex: 1 1 100% !important;
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 8px !important;
-    }
-    .left-side-row .howtobuy-header {
-      grid-column: 1 / -1 !important;
-      margin-bottom: 2px !important;
-    }
-    .left-side-row .htb-step { margin-bottom: 0 !important; }
-  }
-  @media (max-width: 760px) {
-    .left-side-row .howtobuy-box {
-      grid-template-columns: 1fr !important;
-    }
-  }
+}
 
-
-  /* Poravnanje centralnog menija */
-  .bleach-top-nav { width: 100% !important; max-width: 1080px !important; margin: 0 auto 14px auto !important; justify-content: center !important; }
-  .bleach-top-nav .btn-back-home { box-sizing: border-box; line-height: 1.2; }
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-  /* CISTI RASPORED KATALOGA (PC I MOBITEL) */
-  .two-games-row {
-    display: inline-flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    gap: 18px !important;
-    width: auto !important;
-    max-width: 100% !important;
-  }
-  .two-games-row > div {
-    width: 245px !important;
-    min-width: 245px !important;
-    max-width: 245px !important;
-    flex: 0 0 245px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    box-sizing: border-box !important;
-  }
-  .two-games-row > div > div:first-child {
-    width: 245px !important;
-    min-width: 245px !important;
-    max-width: 245px !important;
-    height: 74px !important;
-    min-height: 74px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    box-sizing: border-box !important;
-  }
-  .two-games-row > div > div:not(:first-child) {
-    width: 245px !important;
-    min-width: 245px !important;
-    max-width: 245px !important;
-    margin-top: 10px !important;
-    box-sizing: border-box !important;
-  }
-  @media (max-width: 768px) {
-    .two-games-row {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      width: 100% !important;
-      height: auto !important;
-      min-height: 0 !important;
-      margin: 0 auto !important;
-      padding: 0 !important;
-      gap: 12px !important;
-    }
-    .two-games-row > div {
-      margin: 0 auto !important;
-      align-items: center !important;
-    }
-    .two-games-row > div > div:not(:first-child) {
-      margin-top: 8px !important;
-      margin-bottom: 4px !important;
-      position: static !important;
-    }
-  }
-
-
-  /* USKLADJEN HOW TO BUY FONT I STIL */
-  .howtobuy-box, .howtobuy-box * {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  }
-  .howtobuy-box {
-    width: 100%;
-    max-width: 195px;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%);
-    border: 2px solid #ffcc00;
-    border-radius: 12px;
-    padding: 10px 10px 8px 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45);
-    box-sizing: border-box;
-    margin-top: 2px;
-    text-align: left;
-  }
-  .howtobuy-header {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 900;
-    color: #ffe680;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    padding-bottom: 6px;
-    margin-bottom: 8px;
-    border-bottom: 1.5px solid rgba(255, 204, 0, 0.4);
-    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
-  }
-  .htb-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 7px;
-    margin-bottom: 7px;
-    background: rgba(88, 28, 135, 0.25);
-    border: 1px solid rgba(168, 85, 247, 0.35);
-    border-radius: 7px;
-    padding: 5px 6px;
-  }
-  .htb-step:last-child {
-    margin-bottom: 0;
-  }
-  .htb-num {
-    min-width: 18px;
-    height: 18px;
-    background: linear-gradient(135deg, #ffcc00 0%, #f59e0b 100%);
-    color: #0d0717;
-    font-size: 11px;
-    font-weight: 900;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1px;
-    box-shadow: 0 0 6px rgba(255, 204, 0, 0.7);
-  }
-  .htb-txt {
-    font-size: 10.5px;
-    line-height: 1.28;
-    color: #f3e8ff;
-  }
-  .htb-txt b {
-    color: #ffe680;
-    display: block;
-    font-size: 11px;
-    margin-bottom: 1px;
-  }
-  .howtobuy-box {
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
-    width: 175px !important;
-    max-width: 175px !important;
-    flex-shrink: 0 !important;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%) !important;
-    border: 2px solid #ffcc00 !important;
-    border-radius: 12px !important;
-    padding: 8px 8px 6px 8px !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45) !important;
-  }
-  .htb-step {
-    padding: 4px 5px !important;
-    margin-bottom: 5px !important;
-  }
-  .htb-txt {
-    font-size: 10px !important;
-    line-height: 1.22 !important;
-  }
-  .howtobuy-box {
-      width: 100% !important;
-      max-width: 680px !important;
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 8px !important;
-    }
-  .howtobuy-header {
-      grid-column: 1 / -1 !important;
-      margin-bottom: 2px !important;
-    }
-  .htb-step {
-      margin-bottom: 0 !important;
-    }
-  .howtobuy-box {
-      grid-template-columns: 1fr !important;
-    }
-
-
-
-  /* FIX RAZMAKA NA MOBITELU ZA TWO-GAMES-ROW */
-  @media (max-width: 768px) {
-    .two-games-row {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      gap: 12px !important;
-      height: auto !important;
-      min-height: 0 !important;
-      margin: 0 auto !important;
-      padding: 0 !important;
-    }
-    .two-games-row > div {
-      height: auto !important;
-      min-height: 0 !important;
-      max-height: none !important;
-      flex: 0 0 auto !important;
-      margin: 0 auto !important;
-      padding: 0 !important;
-    }
-    .two-games-row > div > div:not(:first-child) {
-      position: static !important;
-      margin-top: 8px !important;
-      margin-bottom: 0 !important;
-      height: auto !important;
-    }
-  }
-
-  .discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
-  .copy-discord-btn { position: relative !important; z-index: 10000 !important; pointer-events: auto !important; cursor: pointer !important; }
-</style>
-
-
-<style id="how-to-buy-final-cleanup">
-  /* How to Buy — dimenzije i tipografija usklađene s originalnom stranicom */
-  .left-side-row .howtobuy-box {
-    position: static !important; transform: none !important; margin: 0 !important;
-    width: 175px !important; max-width: 175px !important; flex: 0 0 175px !important;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%) !important;
-    border: 2px solid #ffcc00 !important; border-radius: 12px !important;
-    padding: 8px 8px 6px !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,.9), 0 0 15px rgba(168,85,247,.45) !important;
-    box-sizing: border-box !important; text-align: left !important;
-    font-family: Arial, sans-serif !important;
-  }
-  .left-side-row .howtobuy-header {
-    text-align: center !important; font: 900 12px Arial, sans-serif !important;
-    color: #ffe680 !important; text-transform: uppercase !important; letter-spacing: .8px !important;
-    padding-bottom: 6px !important; margin-bottom: 8px !important;
-    border-bottom: 1.5px solid rgba(255,204,0,.4) !important;
-    text-shadow: 0 0 8px rgba(255,204,0,.6) !important;
-  }
-  .left-side-row .htb-step {
-    display: flex !important; align-items: flex-start !important; gap: 7px !important;
-    margin-bottom: 5px !important; background: rgba(88,28,135,.25) !important;
-    border: 1px solid rgba(168,85,247,.35) !important; border-radius: 7px !important;
-    padding: 4px 5px !important; font-family: Arial, sans-serif !important;
-  }
-  .left-side-row .htb-step:last-child { margin-bottom: 0 !important; }
-  .left-side-row .htb-num {
-    min-width: 18px !important; width: 18px !important; height: 18px !important;
-    display: flex !important; align-items: center !important; justify-content: center !important;
-    flex-shrink: 0 !important; margin-top: 1px !important; border-radius: 50% !important;
-    background: linear-gradient(135deg,#ffcc00 0%,#f59e0b 100%) !important;
-    color: #0d0717 !important; font: 900 11px Arial, sans-serif !important;
-    box-shadow: 0 0 6px rgba(255,204,0,.7) !important;
-  }
-  .left-side-row .htb-txt {
-    font: 10px/1.22 Arial, sans-serif !important; color: #f3e8ff !important;
-  }
-  .left-side-row .htb-txt b {
-    display: block !important; color: #ffe680 !important;
-    font: bold 10.5px Arial, sans-serif !important; margin-bottom: 1px !important;
-  }
-  @media (max-width: 1620px) {
-    .left-side-row .howtobuy-box {
-      width: 100% !important; max-width: 680px !important; flex: 1 1 100% !important;
-      display: grid !important; grid-template-columns: repeat(3,minmax(0,1fr)) !important; gap: 8px !important;
-    }
-    .left-side-row .howtobuy-header { grid-column: 1 / -1 !important; margin-bottom: 2px !important; }
-    .left-side-row .htb-step { margin-bottom: 0 !important; }
-  }
-  @media (max-width: 760px) {
-    .left-side-row .howtobuy-box { grid-template-columns: 1fr !important; }
-  }
-</style>
-
-<style>.copy-discord-btn { background: #ffcc00; color: #111; border: none; border-radius: 5px; padding: 5px 11px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.15s; }
-  .copy-discord-btn:hover { background: #ffffff; transform: scale(1.04); }</style><style>.flag-clean-wrap{border:2px solid #ffcc00!important;border-bottom:2px solid #ffcc00!important;border-radius:10px!important;padding-bottom:6px!important}.live-top-box{border:2px solid #ffcc00!important;border-top:2px solid #ffcc00!important;border-radius:10px!important;width:auto!important;min-width:138px!important;padding:7px 12px!important}.live-top-box div[title]{width:80px!important;min-width:80px!important;box-sizing:content-box!important;overflow:visible!important}</style><style>
-.payment-bar {
-    width: 100%;
-    max-width: 1080px;
-    background: linear-gradient(90deg, #120921 0%, #241240 50%, #120921 100%);
-    border: 1.5px solid #7e22ce;
-    border-radius: 10px;
-    padding: 9px 16px;
-    margin-bottom: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 14px rgba(147, 51, 234, 0.3);
-    position: relative;
-    z-index: 2;
-  }
-.payment-label {
-    font-size: 13.5px;
-    font-weight: 800;
-    color: #e9d5ff;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-  }
-.pay-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 13px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 0.4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  }
-.pay-paypal {
-    background: linear-gradient(135deg, #003087 0%, #0070e0 100%);
-    border: 1.5px solid #7dd3fc;
-    color: #ffffff;
-  }
-.pay-steam {
-    background: linear-gradient(135deg, #171a21 0%, #2a475e 100%);
-    border: 1.5px solid #66c0f4;
-    color: #e0f2fe;
-  }
-</style>
-<style>
-.payment-bar {
-    width: 100%;
-    max-width: 1080px;
-    background: linear-gradient(90deg, #120921 0%, #241240 50%, #120921 100%);
-    border: 1.5px solid #7e22ce;
-    border-radius: 10px;
-    padding: 9px 16px;
-    margin-bottom: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 14px rgba(147, 51, 234, 0.3);
-    position: relative;
-    z-index: 2;
-  }
-.payment-label {
-    font-size: 13.5px;
-    font-weight: 800;
-    color: #e9d5ff;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-  }
-.pay-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 13px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 0.4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  }
-.pay-paypal {
-    background: linear-gradient(135deg, #003087 0%, #0070e0 100%);
-    border: 1.5px solid #7dd3fc;
-    color: #ffffff;
-  }
-.pay-steam {
-    background: linear-gradient(135deg, #171a21 0%, #2a475e 100%);
-    border: 1.5px solid #66c0f4;
-    color: #e0f2fe;
-  }
-</style>
-<style>
-.discord-bar { width: 100%; max-width: 1080px; background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%); border: 1.5px solid #8ea1e1; border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45); text-align: center; }
-.discord-bar, .bleach-panel, .status, .accounts {
-    position: relative;
-    z-index: 2;
-  }
-.discord-bar {
-    border-radius: 0 0 14px 14px !important;
-    border-top: 1px solid rgba(240, 171, 252, 0.45) !important;
-    border-left: 2px solid #a855f7 !important;
-    border-right: 2px solid #a855f7 !important;
-    border-bottom: 2px solid #a855f7 !important;
-    margin-bottom: 16px !important;
-    background: linear-gradient(90deg, #160c29 0%, #3b1c6e 30%, #5865F2 50%, #3b1c6e 70%, #160c29 100%) !important;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(168, 85, 247, 0.45) !important;
-  }
-.banner-box {
-    width: 100% !important;
-    max-width: 1080px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-.discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
-.discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
-.banner-box,.banner-wrap,.hero-banner{margin-bottom:0!important;border-bottom:none!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}.banner-box img,.banner-wrap img,.hero-banner img{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;display:block!important}.discord-bar,.dc-bar{margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important}</style>
-<style>
-.banner-box{margin-bottom:0!important;border-bottom:none!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}
-.banner-box img{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;display:block!important;width:100%!important}
-.info-bar{ width: 100%; max-width: 1080px; background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%); border: 1.5px solid #8ea1e1; border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45); text-align: center; ;margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important;width:100%!important;box-sizing:border-box!important}
-</style>
-
-<style id="banner-glow-final">
-  /* Samo svjetlucanje glavnog banera */
-  .banner-box {
-    position: relative !important;
-    animation: bannerPulse 2.8s ease-in-out infinite !important;
-  }
-  .banner-box img {
-    position: relative;
-    z-index: 1;
-  }
-  .banner-box::after {
-    z-index: 2;
-    animation: bannerShine 7.5s infinite ease-in-out !important;
-  }
-</style>
-
-<style id="gfx-c">@keyframes gTw{0%,100%{opacity:.28;transform:scale(.92)}50%{opacity:.95;transform:scale(1.18)}}@keyframes gMt{0%{transform:translate(0,0) rotate(-35deg);opacity:0}4%{opacity:1}18%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}100%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}}@keyframes gSp{0%{transform:translateY(0) scale(.85);opacity:0}15%{opacity:1}85%{opacity:.85}100%{transform:translateY(-102vh) scale(1.25);opacity:0}}#gacha-fx,#gacha-fx *{pointer-events:none!important}#gacha-fx{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;min-width:100vw!important;height:100%!important;min-height:100vh!important;z-index:1!important;overflow:hidden!important}html{background:#06040a!important;background-image:radial-gradient(circle at 50% 22%,#1b0e33 0%,#0b0614 55%,#050308 100%)!important;background-attachment:fixed!important}body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar{background:transparent!important;background-color:transparent!important}.container,.main-wrap,.bleach-wrap,.page-wrap,.content-wrap{background:transparent!important}img,.banner,.main-banner,.hero-card,.catalog-card,.panel,.card,.box,.discord-bar,.bleach-top-nav,.btn-back-home{position:relative!important;z-index:5!important}.g-st{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 10% 15%,#fff,transparent),radial-gradient(2px 2px at 24% 68%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 38% 28%,#fff,transparent),radial-gradient(2px 2px at 52% 82%,#f0abfc,transparent),radial-gradient(2px 2px at 67% 20%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 79% 58%,#fff,transparent),radial-gradient(2px 2px at 91% 34%,#f0abfc,transparent),radial-gradient(1.5px 1.5px at 16% 86%,#fff,transparent);animation:gTw 4.5s infinite ease-in-out}.g-mt{position:absolute;width:140px;height:2px;background:linear-gradient(90deg,#fff 0%,#ffcc00 35%,#a855f7 75%,transparent 100%);border-radius:50%;filter:drop-shadow(0 0 6px #ffcc00);opacity:0;animation:gMt 8.5s infinite linear}.g-sp{position:absolute;bottom:-12px;border-radius:50%;opacity:0;animation:gSp 8s infinite linear}</style>
-<style id="home-purple-theme">@keyframes purplePulse{0%,100%{opacity:.05}50%{opacity:.66}}html{min-height:100%!important;background:#06040a!important;position:relative!important}html::before{content:""!important;position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100vw!important;height:100vh!important;z-index:0!important;pointer-events:none!important;background:linear-gradient(180deg,#24104a 0%,#34176b 50%,#200e42 100%)!important;animation:purplePulse 7s ease-in-out infinite!important}body{background:transparent!important;background-image:none!important}</style>
-<style id="completed-sales-css">
 .selling-header.completed-hdr {
   margin-top: 28px !important;
 }
@@ -1376,44 +831,195 @@
   border-radius: 6px;
   letter-spacing: 0.5px;
 }
+
+/* Completed sales sit centered directly beneath the available catalogs */
+#completedGamesRow {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+#completedGamesRow > .games-row {
+  width: 245px !important;
+  min-width: 245px !important;
+  max-width: 245px !important;
+  flex: 0 0 245px !important;
+  margin-top: 12px !important;
+}
+@media (max-width: 768px) {
+  #completedGamesRow {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #completedGamesRow > .games-row {
+    margin: 0 auto 12px !important;
+  }
+}
+
+@keyframes gTw{0%,100%{opacity:.28;transform:scale(.92)}50%{opacity:.95;transform:scale(1.18)}}
+@keyframes gMt{0%{transform:translate(0,0) rotate(-35deg);opacity:0}4%{opacity:1}18%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}100%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}}
+@keyframes gSp{0%{transform:translateY(0) scale(.85);opacity:0}15%{opacity:1}85%{opacity:.85}100%{transform:translateY(-102vh) scale(1.25);opacity:0}}
+@keyframes purplePulse{0%,100%{opacity:.05}50%{opacity:.66}}
+
+html{min-height:100%!important;background:#06040a!important;background-image:none!important;position:relative!important}
+html::before{content:""!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;z-index:0!important;pointer-events:none!important;background:linear-gradient(180deg,#24104a 0%,#34176b 50%,#200e42 100%)!important;animation:purplePulse 7s ease-in-out infinite!important}
+body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.main-wrap,.bleach-wrap,.page-wrap,.content-wrap,.bleach-panel,.main-wrapper,.page-wrapper{background:transparent!important;background-color:transparent!important;background-image:none!important}
+
+.hero-layout,.left-info-stack,.banner-column,.visitor-stack,img,.banner,.main-banner,.banner-box,.hero-card,.catalog-card,.panel,.card,.box,.discord-bar,.bleach-top-nav,.btn-back-home,.offer-card,.jade-card,.account-card,.acc-card,.account-box,.banner-wrap,.status,.accounts,.trusted-panel,.howtobuy-box,.flag-counter-wrap,.live-top-box,.info-bar,.payment-bar,.selling-header,.two-games-row,.btn-game-main,.game-submenu{position:relative!important;z-index:5!important}
+
+#gacha-fx,#gacha-fx *{pointer-events:none!important}
+#gacha-fx{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;z-index:1!important;overflow:hidden!important}
+#gacha-fx,#gacha-fx div{display:block!important}
+
+.g-st{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 10% 15%,#fff,transparent),radial-gradient(2px 2px at 24% 68%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 38% 28%,#fff,transparent),radial-gradient(2px 2px at 52% 82%,#f0abfc,transparent),radial-gradient(2px 2px at 67% 20%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 79% 58%,#fff,transparent),radial-gradient(2px 2px at 91% 34%,#f0abfc,transparent),radial-gradient(1.5px 1.5px at 16% 86%,#fff,transparent);animation:gTw 4.5s infinite ease-in-out!important}
+.g-mt{position:absolute;width:140px;height:2px;background:linear-gradient(90deg,#fff 0%,#ffcc00 35%,#a855f7 75%,transparent 100%);border-radius:50%;filter:drop-shadow(0 0 6px #ffcc00);opacity:0;animation:gMt 8.5s infinite linear!important}
+.g-sp{position:absolute;bottom:-12px;border-radius:50%;opacity:0;animation-name:gSp!important;animation-iteration-count:infinite!important;animation-timing-function:linear!important}
+</style>
+<style>
+
+/* BLEACH DROPDOWN FIX: podmeni se otvara ispod glavnog dugmeta */
+#bleachDropdown,
+#bmh_bleachDropdown {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  position: relative !important;
+}
+#bleachDropdown > .btn-game-main,
+#bmh_bleachDropdown > .btn-game-main {
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  height: 74px !important;
+  min-height: 74px !important;
+}
+#bleachDropdown > .game-submenu,
+#bmh_bleachDropdown > .game-submenu {
+  display: none !important;
+  position: static !important;
+  inset: auto !important;
+  float: none !important;
+  flex-direction: column !important;
+  align-self: stretch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 10px 0 0 !important;
+  clear: both !important;
+  transform: none !important;
+  z-index: 6 !important;
+}
+#bleachDropdown.open > .game-submenu,
+#bmh_bleachDropdown.open > .game-submenu {
+  display: flex !important;
+}
+#bleachDropdown > .game-submenu > .btn-sub-item,
+#bmh_bleachDropdown > .game-submenu > .btn-sub-item {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
 </style>
 
-<style id="how-to-buy-typography-final">
-  /* Samo tipografija iz prvog HTML-a — bez izmjene rasporeda i dimenzija */
-  html body .left-side-row .howtobuy-header {
-    font-family: Arial, sans-serif !important;
-    font-size: 12px !important;
-    font-weight: 900 !important;
-    letter-spacing: 0.8px !important;
-    text-transform: uppercase !important;
+
+<style id="banner-effects-transferred-from-indexmoja">
+  /* Efekti bannera preneseni iz indexmoja(3).html */
+  @keyframes bannerPulse {
+    0%, 100% {
+      border-color: #a855f7;
+      box-shadow: 0 0 28px rgba(168, 85, 247, 0.85),
+                  0 0 52px rgba(147, 51, 234, 0.55),
+                  inset 0 0 18px rgba(168, 85, 247, 0.38);
+    }
+    50% {
+      border-color: #f0abfc;
+      box-shadow: 0 0 42px rgba(217, 70, 239, 1),
+                  0 0 72px rgba(168, 85, 247, 0.85),
+                  inset 0 0 26px rgba(217, 70, 239, 0.55);
+    }
   }
-  html body .left-side-row .htb-num {
-    font-family: Arial, sans-serif !important;
-    font-size: 11px !important;
-    font-weight: 900 !important;
+  @keyframes bannerShine {
+    0% { left: -100%; }
+    30%, 100% { left: 150%; }
   }
-  html body .left-side-row .htb-txt {
-    font-family: Arial, sans-serif !important;
-    font-size: 10.5px !important;
-    line-height: 1.28 !important;
+  .banner-box {
+    position: relative !important;
+    width: 100%;
+    overflow: hidden !important;
+    border: 2.5px solid #a855f7 !important;
+    border-radius: 14px !important;
+    background: #0d0717 !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9), 0 0 34px rgba(168, 85, 247, 0.8), 0 0 52px rgba(147, 51, 234, 0.45) !important;
+    animation: bannerPulse 2.4s ease-in-out infinite !important;
   }
-  html body .left-side-row .htb-txt b {
-    font-family: Arial, sans-serif !important;
-    font-size: 11px !important;
-    font-weight: bold !important;
+  .banner-box img {
+    position: relative !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .banner-box::after {
+    content: "" !important;
+    position: absolute !important;
+    z-index: 2 !important;
+    top: 0 !important;
+    left: -100%;
+    width: 40% !important;
+    height: 100% !important;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.14), transparent) !important;
+    transform: skewX(-25deg) !important;
+    animation: bannerShine 7.5s infinite ease-in-out !important;
+    pointer-events: none !important;
   }
 </style>
 </head>
 <body>
+  <main class="container">
+    <nav class="bleach-top-nav" aria-label="Main navigation">
+      <a href="https://genesisgachastore.github.io/home/" class="btn-back-home">🏠 Home • Genesis Gacha Store</a>
+    </nav>
 
-  <div class="container">
-    <div class="bleach-top-nav"><a href="https://genesisgachastore.github.io/home/" class="btn-back-home">🏠 Home • Genesis Gacha Store</a></div>
-    <div class="banner-box"><img src="slike/home_banner.jpg" alt="Genesis Gacha Store"></div>
+    <div class="hero-layout">
+      <div class="left-info-stack">
+        <section class="trusted-panel" aria-label="EpicNPC trusted seller">
+          <div class="trusted-panel-title">⭐ 100% Trusted Seller ⭐</div>
+          <a class="trusted-panel-link" href="https://www.epicnpc.com/members/genesisgacha.1199111/" target="_blank" rel="noopener">
+            🔥 Click Here for EpicNPC Profile
+          </a>
+          <img src="slike/epicnpc.png" alt="EpicNPC Trusted Seller">
+        </section>
+
+        <section class="howtobuy-box" aria-label="How to Buy">
+          <h2 class="howtobuy-header">🛒 How to Buy</h2>
+          <div class="htb-step"><span class="htb-num">1</span><div class="htb-txt"><b>Pick Account</b><span>Select your favorite Account #.</span></div></div>
+          <div class="htb-step"><span class="htb-num">2</span><div class="htb-txt"><b>Add on Discord</b><span>Message me with the Account #.</span></div></div>
+          <div class="htb-step"><span class="htb-num">3</span><div class="htb-txt"><b>Live Account Check</b><span>I will log back into the account so we can confirm it's the exact one you want.</span></div></div>
+          <div class="htb-step"><span class="htb-num">4</span><div class="htb-txt"><b>Easy Payment</b><span>Pay via PayPal or Steam Gift.</span></div></div>
+          <div class="htb-step"><span class="htb-num">5</span><div class="htb-txt"><b>Account Binding</b><span>Send mail or dummy mail &amp; password.</span></div></div>
+          <div class="htb-step"><span class="htb-num">6</span><div class="htb-txt"><b>100% Yours</b><span>Account is 100% yours — change the password and do whatever you want!</span></div></div>
+        </section>
+      </div>
+
+      <div class="banner-column">
+      <div class="banner-box">
+        <img src="slike/home_banner.jpg" alt="Genesis Gacha Store">
+      </div>
 
     <div class="info-bar">
       <span>💬 For any questions, prices or more images, add me on Discord:</span>
       <span class="dc-tag" id="dcTag">GenesisGacha#0271</span>
-      <button type="button" class="copy-discord-btn" onclick="(function(b){var t=document.getElementById('dcTag').textContent.trim();var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,9999);try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);if(navigator.clipboard){navigator.clipboard.writeText(t).catch(function(){});}var o=b.innerHTML;b.innerHTML='&#10003; Copied!';setTimeout(function(){b.innerHTML=o;},2000);})(this)">&#128203; Copy</button>
+      <button type="button" class="copy-discord-btn" onclick="copyDiscord(this)" aria-label="Copy Discord username">&#128203; Copy</button>
     </div>
 
     <div class="payment-bar">
@@ -1421,8 +1027,25 @@
     <span class="pay-badge pay-paypal">🅿️ PayPal</span>
     <span class="pay-badge pay-steam">🎮 Steam Gift Cards (EU)</span>
   </div>
+      </div>
 
-        <div class="selling-header">
+      <aside class="visitor-stack" aria-label="Visitor statistics">
+        <div class="flag-counter-wrap" aria-label="Visitor flag counter">
+          <a href="https://info.flagcounter.com/E57c" target="_blank" rel="noopener noreferrer">
+            <img src="https://s01.flagcounter.com/count2/E57c/bg_000000/txt_FFFFFF/border_CCCCCC/columns_1/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Visitor Flag Counter">
+          </a>
+        </div>
+
+        <div class="live-top-box" title="Real-time visitors online" aria-label="Live visitors online">
+          <span class="live-indicator" aria-hidden="true"></span>
+          <span class="live-label">LIVE:</span>
+          <script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
+          <script async src="//waust.at/s.js"></script>
+        </div>
+      </aside>
+    </div>
+
+<div class="selling-header">
       <div class="selling-line"></div>
       <div class="selling-title">🔥 Currently Available Catalogs 🔥</div>
       <div class="selling-line right"></div>
@@ -1431,11 +1054,11 @@
     <div class="two-games-row">
 <div class="games-row">
       <div class="game-dropdown-wrap" id="bleachDropdown">
-        <button type="button" class="btn-game-main" onclick="document.getElementById('bleachDropdown').classList.toggle('open')">
+        <button type="button" class="btn-game-main" aria-expanded="false" aria-controls="bleachSubmenu" onclick="toggleGameMenu('bleachDropdown', this)">
           <span>&#128293; Bleach Soul Resonance APLUS</span>
           <span class="game-arrow">&#9660;</span>
         </button>
-        <div class="game-submenu">
+        <div class="game-submenu" id="bleachSubmenu">
           <a href="https://genesisgachastore.github.io/Bleach-Soul-Resonance-APLUS-Starter-Accounts/" class="btn-sub-item">&#9876;&#65039; Starter Accounts with Characters</a>
           <a href="https://genesisgachastore.github.io/Bleach-Soul-Resonance-APLUS-Jade-Accounts/" class="btn-sub-item">&#128142; Starter Accounts with Only Jades</a>
         </div>
@@ -1444,12 +1067,12 @@
     </div>
 <div class="games-row">
       <div class="game-dropdown-wrap" id="bmh_bleachDropdown">
-        <button type="button" class="btn-game-main" >
+        <button type="button" class="btn-game-main" aria-expanded="false" aria-controls="bmhSubmenu" onclick="toggleGameMenu('bmh_bleachDropdown', this)">
           <span>&#128293; Bleach Mirrors High EU</span>
           <span class="game-arrow">&#9660;</span>
         </button>
-        <div class="game-submenu">
-          
+        <div class="game-submenu" id="bmhSubmenu">
+          <a href="https://genesisgachastore.github.io/Bleach-Mirrors-High-EU-Starter-Accounts-/" class="btn-sub-item">&#9876;&#65039; Starter Accounts with Characters</a>
         </div>
       </div>
     
@@ -1465,180 +1088,197 @@
 
 </div>
 
-<!-- COMPLETED SALES SECTION -->
 <div class="selling-header completed-hdr">
-  <div class="selling-line"></div>
-  <div class="selling-title">✅ Completed Sales ✅</div>
-  <div class="selling-line right"></div>
+<div class="selling-line"></div>
+<div class="selling-title">✅ Completed Sales ✅</div>
+<div class="selling-line right"></div>
 </div>
-
 <div class="two-games-row" id="completedGamesRow">
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="goddessOfGenesisBtn">
-      <a href="https://www.epicnpc.com/threads/goddess-of-genesis-sacred_realm-account-shop-6-accounts-for-free.1797523/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Goddess of Genesis S</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="moonlightSculptorBtn">
-      <a href="https://www.epicnpc.com/threads/eu-as-starter-moonlight-sculptor-heroic-buddy-first-day-accs.1964781/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Moonlight Sculptor</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="worldFlipperBtn">
-      <a href="https://www.epicnpc.com/threads/na-end-game-accounts-catalog-total-32-accounts-final-update-30eur.2053573/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ World Flipper</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="panillaSagaBtn">
-      <a href="https://www.epicnpc.com/threads/w19-starter-accounts-catalog-5-eur-02-december-2022.2373032/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Panilla Saga</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="lostRealmBtn">
-      <a href="https://www.epicnpc.com/threads/server-4-starter-accounts-total-50-accounts-final-update-15eur.2665339/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Lost Realm: Chronorift</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="shieldHeroBtn">
-      <a href="https://www.epicnpc.com/threads/global-3-starter-accounts-total-90-accounts-final-update-15eur.2669429/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Shield Hero: RISE</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="blackCloverBtn">
-      <a href="https://www.epicnpc.com/threads/eu-starter-accounts-selective-on-total-90-accounts-final-update-15eur.2681753/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Black Clover M</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="pixelHeroesBtn">
-      <a href="https://www.epicnpc.com/threads/myth-starter-accounts-na-20-chapter-4-1-07-july-2024-15eur.2754359/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Pixel Heroes</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="monsterNeverCryBtn">
-      <a href="https://www.epicnpc.com/threads/shiny-starter-accounts-servers-200-chapter-2-4-final-update-15eur.2758651/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Monster Never Cry</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="trailsColdSteelBtn">
-      <a href="https://www.epicnpc.com/threads/global-starter-accounts-northern-war-chapter-1-9-final-update-15eur.2816731/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Trails of Cold Steel: Northern War</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="soulStrikeBtn">
-      <a href="https://www.epicnpc.com/threads/soul-strike-glb50-mid-end-accs-sold-16-september-2024-45eur.2817484/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Soul Strike!</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="cookieRunToaBtn">
-      <a href="https://www.epicnpc.com/threads/starter-accounts-catalog-final-update-15eur.2837137/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Cookie Run ToA</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="sevenDeadlySinsBtn">
-      <a href="https://www.epicnpc.com/threads/server-idle-66-tavern-1390-stages-34k-diamonds-4kk-35-euro-only-1-acc.2955506/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Seven Deadly Sins Idle Adventure</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="pixelBraveBtn">
-      <a href="https://www.epicnpc.com/threads/s-107-day-one-accounts-all-mats-collected-daily-farm-only-account.3177090/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Pixel Brave: Idle RPG</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="digimonUpBtn">
-      <a href="https://www.epicnpc.com/threads/asia-starter-wargreymon-sp-gems-and-mats-daily-log-10euro.3220283/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Digimon UP</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
-  <div class="games-row">
-    <div class="game-dropdown-wrap" id="eversoulBtn">
-      <a href="https://www.epicnpc.com/threads/na-eu-starter-accounts-lvl-30-20k-everstone-final-update-15eur.2407630/" target="_blank" rel="noopener" class="btn-game-main completed-btn" style="text-decoration:none;">
-        <span>✅ Eversoul</span>
-        <span class="sold-badge">SOLD OUT</span>
-      </a>
-    </div>
-  </div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="goddessOfGenesisBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/goddess-of-genesis-sacred_realm-account-shop-6-accounts-for-free.1797523/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Goddess of Genesis S</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
 </div>
-<!-- END COMPLETED SALES SECTION -->
-
-
-<div class="left-side-row">
-  <div class="epicnpc-wrapper">
-    <div class="trusted-box">
-      <div class="trusted-text">⭐ 100% Trusted Seller ⭐</div>
-      <a href="https://www.epicnpc.com/members/genesisgacha.1199111/" target="_blank" rel="noopener" class="btn-epicnpc-topic">&#128293; Click Here for EpicNPC Profile</a>
-    </div>
-    <img src="slike/epicnpc.png" alt="EpicNPC Trusted Seller">
-  </div>
-  <div class="howtobuy-box">
-      <div class="howtobuy-header">&#128722; How to Buy</div>
-      <div class="htb-step">
-        <span class="htb-num">1</span>
-        <div class="htb-txt"><b>Pick Account</b>Select your favorite Account #.</div>
-      </div>
-    <div class="htb-step"><span class="htb-num">2</span><div class="htb-txt"><b>Add on Discord</b>Message me with the Account #.</div></div>
-    <div class="htb-step"><span class="htb-num">3</span><div class="htb-txt"><b>Live Account Check</b>I will log back into the account so we can confirm it's the exact one you want.</div></div>
-    <div class="htb-step"><span class="htb-num">4</span><div class="htb-txt"><b>Easy Payment</b>Pay via PayPal or Steam Gift.</div></div>
-    <div class="htb-step"><span class="htb-num">5</span><div class="htb-txt"><b>Account Binding</b>Send mail or dummy mail &amp; password.</div></div>
-    <div class="htb-step"><span class="htb-num">6</span><div class="htb-txt"><b>100% Yours</b>Account is 100% yours &mdash; change the password and do whatever you want!</div></div>
-  </div>
 </div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="moonlightSculptorBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/eu-as-starter-moonlight-sculptor-heroic-buddy-first-day-accs.1964781/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Moonlight Sculptor</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="worldFlipperBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/na-end-game-accounts-catalog-total-32-accounts-final-update-30eur.2053573/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ World Flipper</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="panillaSagaBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/w19-starter-accounts-catalog-5-eur-02-december-2022.2373032/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Panilla Saga</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="lostRealmBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/server-4-starter-accounts-total-50-accounts-final-update-15eur.2665339/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Lost Realm: Chronorift</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="shieldHeroBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/global-3-starter-accounts-total-90-accounts-final-update-15eur.2669429/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Shield Hero: RISE</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="blackCloverBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/eu-starter-accounts-selective-on-total-90-accounts-final-update-15eur.2681753/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Black Clover M</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="pixelHeroesBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/myth-starter-accounts-na-20-chapter-4-1-07-july-2024-15eur.2754359/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Pixel Heroes</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="monsterNeverCryBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/shiny-starter-accounts-servers-200-chapter-2-4-final-update-15eur.2758651/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Monster Never Cry</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="trailsColdSteelBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/global-starter-accounts-northern-war-chapter-1-9-final-update-15eur.2816731/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Trails of Cold Steel: Northern War</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="soulStrikeBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/soul-strike-glb50-mid-end-accs-sold-16-september-2024-45eur.2817484/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Soul Strike!</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="cookieRunToaBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/starter-accounts-catalog-final-update-15eur.2837137/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Cookie Run ToA</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="sevenDeadlySinsBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/server-idle-66-tavern-1390-stages-34k-diamonds-4kk-35-euro-only-1-acc.2955506/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Seven Deadly Sins Idle Adventure</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="pixelBraveBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/s-107-day-one-accounts-all-mats-collected-daily-farm-only-account.3177090/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Pixel Brave: Idle RPG</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="digimonUpBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/asia-starter-wargreymon-sp-gems-and-mats-daily-log-10euro.3220283/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Digimon UP</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+<div class="games-row">
+<div class="game-dropdown-wrap" id="eversoulBtn">
+<a class="btn-game-main completed-btn" href="https://www.epicnpc.com/threads/na-eu-starter-accounts-lvl-30-20k-everstone-final-update-15eur.2407630/" rel="noopener" style="text-decoration:none;" target="_blank">
+<span>✅ Eversoul</span>
+<span class="sold-badge">SOLD OUT</span>
+</a>
+</div>
+</div>
+</div>
+  </main>
 
-  <div class="flag-clean-wrap">
-    <a href="https://info.flagcounter.com/E57c" target="_blank" rel="noopener"><img src="https://s01.flagcounter.com/count2/E57c/bg_000000/txt_FFFFFF/border_CCCCCC/columns_1/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" style="border:0;"></a>
-  </div>
+  <script>
+    async function copyDiscord(button) {
+      const username = document.getElementById("dcTag")?.textContent.trim();
+      if (!username) return;
 
-  <div class="live-top-box" title="Real-time visitors online">
-    <span style="display:inline-block; width:8px; height:8px; background:#ffcc00; border-radius:50%; box-shadow:0 0 8px #ffcc00;"></span>
-    <span style="font-size:12px; font-weight:bold; color:#ffe680;">LIVE:</span>
-    <script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
-    <script async src="//waust.at/s.js"></script>
-  </div>
+      const originalLabel = button.innerHTML;
+      let copied = false;
 
-<!--Start of Tawk.to Script-->
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(username);
+          copied = true;
+        } else {
+          const field = document.createElement("textarea");
+          field.value = username;
+          field.setAttribute("readonly", "");
+          field.style.position = "fixed";
+          field.style.opacity = "0";
+          document.body.appendChild(field);
+          try {
+            field.select();
+            copied = document.execCommand("copy");
+          } finally {
+            field.remove();
+          }
+        }
+      } catch (error) {
+        copied = false;
+      }
+
+      button.textContent = copied ? "✓ Copied!" : "Copy failed";
+      window.setTimeout(() => {
+        button.innerHTML = originalLabel;
+      }, 1800);
+    }
+  </script>
+
+<script>
+  function toggleGameMenu(id, button) {
+    const menu = document.getElementById(id);
+    if (!menu) return;
+    const isOpening = !document.getElementById(id).classList.contains('open');
+    document.querySelectorAll('.game-dropdown-wrap.open').forEach((item) => {
+      item.classList.remove('open');
+      const trigger = item.querySelector('.btn-game-main[aria-expanded="true"]');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+    menu.classList.toggle('open', isOpening);
+    button.setAttribute('aria-expanded', String(isOpening));
+  }
+</script>
+<div id="gacha-fx"><div class="g-st"></div><div class="g-mt" style="top:6%;left:26%;animation-delay:0.5s!important"></div><div class="g-mt" style="top:18%;left:42%;animation-delay:2.4s!important"></div><div class="g-mt" style="top:12%;left:58%;animation-delay:4.2s!important"></div><div class="g-mt" style="top:28%;left:35%;animation-delay:6.0s!important"></div><div class="g-mt" style="top:8%;left:76%;animation-delay:1.6s!important"></div><div class="g-mt" style="top:22%;left:90%;animation-delay:3.5s!important"></div><div class="g-mt" style="top:34%;left:96%;animation-delay:5.3s!important"></div><div class="g-st" style="transform:scaleX(-1) scaleY(-1);animation-delay:2.2s!important;opacity:.75"></div><div class="g-sp" style="left:8.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.35s!important;animation-duration:7.6s!important"></div><div class="g-sp" style="left:16.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.0s!important;animation-duration:8.45s!important"></div><div class="g-sp" style="left:24.1%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.65s!important;animation-duration:9.3s!important"></div><div class="g-sp" style="left:31.9%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.3s!important;animation-duration:7.6s!important"></div><div class="g-sp" style="left:39.7%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:2.95s!important;animation-duration:8.45s!important"></div><div class="g-sp" style="left:47.5%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.6s!important;animation-duration:9.3s!important"></div><div class="g-sp" style="left:55.3%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.25s!important;animation-duration:7.6s!important"></div><div class="g-sp" style="left:63.1%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:4.9s!important;animation-duration:8.45s!important"></div><div class="g-sp" style="left:70.9%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.55s!important;animation-duration:9.3s!important"></div><div class="g-sp" style="left:78.7%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.2s!important;animation-duration:7.6s!important"></div><div class="g-sp" style="left:86.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:6.85s!important;animation-duration:8.45s!important"></div><div class="g-sp" style="left:94.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:7.5s!important;animation-duration:9.3s!important"></div><div class="g-sp" style="left:5.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:0.0s!important;animation-duration:7.2s!important"></div><div class="g-sp" style="left:12.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.65s!important;animation-duration:8.1s!important"></div><div class="g-sp" style="left:20.6%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.3s!important;animation-duration:9.0s!important"></div><div class="g-sp" style="left:28.4%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.95s!important;animation-duration:7.2s!important"></div><div class="g-sp" style="left:36.2%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.6s!important;animation-duration:8.1s!important"></div><div class="g-sp" style="left:44.0%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:3.25s!important;animation-duration:9.0s!important"></div><div class="g-sp" style="left:51.8%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.9s!important;animation-duration:7.2s!important"></div><div class="g-sp" style="left:59.6%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.55s!important;animation-duration:8.1s!important"></div><div class="g-sp" style="left:67.4%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:5.2s!important;animation-duration:9.0s!important"></div><div class="g-sp" style="left:75.2%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.85s!important;animation-duration:7.2s!important"></div><div class="g-sp" style="left:83.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.5s!important;animation-duration:8.1s!important"></div><div class="g-sp" style="left:90.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:7.15s!important;animation-duration:9.0s!important"></div></div>
+
+  <!--Start of Tawk.to Script-->
   <script>
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
   (function(){
@@ -1652,172 +1292,5 @@
   </script>
   <!--End of Tawk.to Script-->
 
-  </div>
-<script>
-    function kopirajMojDiscord(btn) {
-      var tekst = "GenesisGacha#0271";
-      function gotovo() {
-        if (btn) {
-          btn.innerText = "✔ Copied!";
-          btn.style.background = "#ffcc00"; btn.style.color = "#111";
-          btn.style.borderColor = "#ffe680";
-          setTimeout(function() {
-            btn.innerText = "📋 Copy"; btn.style.background = ""; btn.style.color = "";
-            btn.style.background = "";
-            btn.style.borderColor = "";
-          }, 2000);
-        }
-      }
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(tekst).then(gotovo).catch(function() {
-          rezerva(tekst);
-        });
-      } else {
-        rezerva(tekst);
-      }
-      function rezerva(val) {
-        var el = document.createElement("textarea");
-        el.value = val;
-        el.style.position = "fixed";
-        el.style.left = "-9999px";
-        document.body.appendChild(el);
-        el.select();
-        try {
-          if (document.execCommand("copy")) {
-            gotovo();
-          }
-        } catch (e) {
-          // Keep the button unchanged if copying is blocked by the browser.
-        } finally {
-          document.body.removeChild(el);
-        }
-      }
-    }
-  </script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.game-header, .catalog-header, .accordion-header, .dropdown-header').forEach(function(hdr) {
-    if (!hdr.dataset.bound) {
-      hdr.dataset.bound = '1';
-      hdr.addEventListener('click', function() {
-        var parent = hdr.parentElement;
-        if (parent) parent.classList.toggle('open');
-      });
-    }
-  });
-});
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var row = document.querySelector('.two-games-row');
-  if (!row) return;
-
-  // 1. Lijeva kartica (Bleach Soul Resonance APLUS)
-  var jadesLink = Array.from(document.querySelectorAll('a')).find(function(a) {
-    return a.textContent.indexOf('Only Jades') !== -1;
-  });
-  var lijeviPadajuci = jadesLink ? jadesLink.parentElement : null;
-  var bsrHeader = Array.from(row.querySelectorAll('div')).find(function(el) {
-    return el.textContent.indexOf('Bleach Soul Resonance') !== -1 && el.children.length > 0 && el.offsetHeight < 120;
-  });
-
-  if (bsrHeader && lijeviPadajuci) {
-    var lijeviStupac = document.createElement('div');
-    row.insertBefore(lijeviStupac, row.firstChild);
-    lijeviStupac.appendChild(bsrHeader);
-    lijeviStupac.appendChild(lijeviPadajuci);
-    lijeviPadajuci.style.setProperty('display', 'none', 'important');
-
-    bsrHeader.style.cursor = 'pointer';
-    bsrHeader.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A') return;
-      var jeSkriven = (lijeviPadajuci.style.display === 'none');
-      lijeviPadajuci.style.setProperty('display', jeSkriven ? 'flex' : 'none', 'important');
-      lijeviPadajuci.style.setProperty('flex-direction', 'column', 'important');
-    });
-  }
-
-  // 2. Desna kartica (Bleach Mirrors High EU)
-  var desnaKartica = Array.from(row.querySelectorAll('div')).find(function(el) {
-    return el.textContent.indexOf('Bleach Mirrors High') !== -1 && el.children.length > 0 && el.offsetHeight < 120;
-  });
-  var lijeviLink = Array.from(document.querySelectorAll('a')).find(function(a) {
-    return a.textContent.indexOf('Starter Accounts with Characters') !== -1 && a.href.indexOf('Mirrors-High') === -1;
-  });
-
-  if (desnaKartica) {
-    var desniStupac = desnaKartica.parentElement;
-    if (desniStupac === row) {
-      desniStupac = document.createElement('div');
-      row.insertBefore(desniStupac, desnaKartica);
-      desniStupac.appendChild(desnaKartica);
-    }
-
-    var noviMeni = document.createElement('div');
-    if (lijeviLink && lijeviLink.parentElement) {
-      noviMeni.className = lijeviLink.parentElement.className;
-    }
-    noviMeni.style.setProperty('display', 'none', 'important');
-
-    var noviLink = lijeviLink ? lijeviLink.cloneNode(true) : document.createElement('a');
-    var url = 'https://genesisgachastore.github.io/Bleach-Mirrors-High-EU-Starter-Accounts-/';
-    noviLink.href = url;
-    noviLink.innerHTML = '&#9876;&#65039; Starter Accounts with Characters';
-    noviLink.style.setProperty('width', '100%', 'important');
-    noviLink.style.setProperty('box-sizing', 'border-box', 'important');
-    noviLink.style.setProperty('white-space', 'normal', 'important');
-    noviLink.onclick = function(e) { e.stopPropagation(); window.location.href = url; };
-    noviMeni.appendChild(noviLink);
-    desniStupac.appendChild(noviMeni);
-
-    desnaKartica.style.cursor = 'pointer';
-    desnaKartica.onclick = function(e) {
-      if (e.target.tagName === 'A') return;
-      e.preventDefault();
-      e.stopPropagation();
-      var otvoren = noviMeni.style.display !== 'none';
-      noviMeni.style.setProperty('display', otvoren ? 'none' : 'flex', 'important');
-      var strelica = desnaKartica.querySelector('.arrow, span:last-child');
-      if (strelica) {
-        strelica.style.display = 'inline-block';
-        strelica.style.transition = 'transform 0.2s ease';
-        strelica.style.transform = otvoren ? 'rotate(0deg)' : 'rotate(180deg)';
-      }
-    };
-  }
-});
-</script>
-<div id="gacha-fx"><div class="g-st"></div><div class="g-mt" style="top:6%;left:26%;animation-delay:0.5s"></div><div class="g-mt" style="top:18%;left:42%;animation-delay:2.4s"></div><div class="g-mt" style="top:12%;left:58%;animation-delay:4.2s"></div><div class="g-mt" style="top:28%;left:35%;animation-delay:6.0s"></div><div class="g-mt" style="top:8%;left:76%;animation-delay:1.6s"></div><div class="g-mt" style="top:22%;left:90%;animation-delay:3.5s"></div><div class="g-mt" style="top:34%;left:96%;animation-delay:5.3s"></div><div class="g-st" style="transform:scaleX(-1) scaleY(-1);animation-delay:2.2s;opacity:.75"></div><div class="g-sp" style="left:8.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.35s;animation-duration:7.6s"></div><div class="g-sp" style="left:16.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.0s;animation-duration:8.45s"></div><div class="g-sp" style="left:24.1%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.65s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:31.9%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.3s;animation-duration:7.6s"></div><div class="g-sp" style="left:39.7%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:2.95s;animation-duration:8.45s"></div><div class="g-sp" style="left:47.5%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.6s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:55.3%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.25s;animation-duration:7.6s"></div><div class="g-sp" style="left:63.1%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:4.9s;animation-duration:8.45s"></div><div class="g-sp" style="left:70.9%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.55s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:78.7%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.2s;animation-duration:7.6s"></div><div class="g-sp" style="left:86.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:6.85s;animation-duration:8.45s"></div><div class="g-sp" style="left:94.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:7.5s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:5.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:0.0s;animation-duration:7.2s"></div><div class="g-sp" style="left:12.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.65s;animation-duration:8.1s"></div><div class="g-sp" style="left:20.6%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.3s;animation-duration:9.0s"></div><div class="g-sp" style="left:28.4%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.95s;animation-duration:7.2s"></div><div class="g-sp" style="left:36.2%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.6s;animation-duration:8.1s"></div><div class="g-sp" style="left:44.0%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:3.25s;animation-duration:9.0s"></div><div class="g-sp" style="left:51.8%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.9s;animation-duration:7.2s"></div><div class="g-sp" style="left:59.6%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.55s;animation-duration:8.1s"></div><div class="g-sp" style="left:67.4%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:5.2s;animation-duration:9.0s"></div><div class="g-sp" style="left:75.2%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.85s;animation-duration:7.2s"></div><div class="g-sp" style="left:83.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.5s;animation-duration:8.1s"></div><div class="g-sp" style="left:90.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:7.15s;animation-duration:9.0s"></div></div>
 </body>
 </html>
