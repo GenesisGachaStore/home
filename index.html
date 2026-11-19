@@ -983,6 +983,87 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
     pointer-events: none !important;
   }
 </style>
+
+<style id="mobile-layout-and-dropdown-final-fix">
+  /* Mobile: banner and contact/payment first, then seller/how-to-buy, then counters */
+  @media (max-width: 1050px) {
+    .hero-layout {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 10px !important;
+    }
+    .banner-column { order: 1 !important; width: 100% !important; }
+    .left-info-stack {
+      order: 2 !important;
+      width: min(100%, 390px) !important;
+      max-width: 390px !important;
+      margin: 0 auto !important;
+      gap: 8px !important;
+      transform: none !important;
+    }
+    .visitor-stack {
+      order: 3 !important;
+      width: min(100%, 180px) !important;
+      max-width: 180px !important;
+      margin: 0 auto !important;
+      transform: none !important;
+    }
+    .hero-layout .banner-box,
+    .banner-column .info-bar,
+    .banner-column .payment-bar {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .banner-column .info-bar { margin-top: 8px !important; }
+    .banner-column .payment-bar { margin-top: 6px !important; }
+    .trusted-panel { max-width: 100% !important; }
+    .flag-counter-wrap { max-width: 100% !important; }
+    .selling-header { margin-top: 12px !important; }
+    .two-games-row, .games-row { gap: 8px !important; }
+  }
+
+  /* Both Bleach menus always expand vertically underneath their own button */
+  #bleachDropdown, #bmh_bleachDropdown {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  #bleachDropdown > .btn-game-main,
+  #bmh_bleachDropdown > .btn-game-main {
+    position: relative !important;
+    display: flex !important;
+    width: 100% !important;
+    flex: 0 0 auto !important;
+  }
+  #bleachDropdown > .game-submenu,
+  #bmh_bleachDropdown > .game-submenu {
+    display: none !important;
+    position: static !important;
+    inset: auto !important;
+    float: none !important;
+    flex-direction: column !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 8px 0 0 !important;
+    transform: none !important;
+  }
+  #bleachDropdown.open > .game-submenu,
+  #bmh_bleachDropdown.open > .game-submenu { display: flex !important; }
+  #bleachDropdown > .game-submenu > .btn-sub-item,
+  #bmh_bleachDropdown > .game-submenu > .btn-sub-item {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+</style>
+
 </head>
 <body>
   <main class="container">
