@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#0b0614">
   <title>Genesis Gacha Store - Home</title>
 <style>
+
 * {
       box-sizing: border-box;
     }
@@ -35,26 +36,24 @@
 
     /* 2. Glavni banner sa ljubičastim sjajem i svjetlosnim prelazom */
     @keyframes bannerShine {
-      0% {
-        left: -100%;
-      }
-      30%, 100% {
-        left: 150%;
-      }
+      0% { left: -100%; }
+      30%, 100% { left: 150%; }
     }
 
     @keyframes bannerPulse {
       0%, 100% {
-        border-color: #9333ea;
+        border-color: #a855f7;
         box-shadow:
-          0 0 22px rgba(168, 85, 247, 0.5),
-          inset 0 0 15px rgba(168, 85, 247, 0.3);
+          0 0 28px rgba(168, 85, 247, 0.85),
+          0 0 52px rgba(147, 51, 234, 0.55),
+          inset 0 0 18px rgba(168, 85, 247, 0.38);
       }
       50% {
         border-color: #f0abfc;
         box-shadow:
-          0 0 38px rgba(217, 70, 239, 0.85),
-          0 0 15px rgba(255, 204, 0, 0.4);
+          0 0 42px rgba(217, 70, 239, 1),
+          0 0 72px rgba(168, 85, 247, 0.85),
+          inset 0 0 26px rgba(217, 70, 239, 0.55);
       }
     }
 
@@ -62,10 +61,14 @@
       position: relative;
       width: 100%;
       overflow: hidden;
-      border: 2px solid #a855f7;
+      border: 2.5px solid #a855f7;
       border-radius: 14px;
       background: #0d0717;
-      animation: bannerPulse 2.8s ease-in-out infinite;
+      box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.9),
+        0 0 34px rgba(168, 85, 247, 0.8),
+        0 0 52px rgba(147, 51, 234, 0.45);
+      animation: bannerPulse 2.4s ease-in-out infinite;
     }
 
     .banner-box img {
@@ -879,113 +882,8 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
 .g-st{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 10% 15%,#fff,transparent),radial-gradient(2px 2px at 24% 68%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 38% 28%,#fff,transparent),radial-gradient(2px 2px at 52% 82%,#f0abfc,transparent),radial-gradient(2px 2px at 67% 20%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 79% 58%,#fff,transparent),radial-gradient(2px 2px at 91% 34%,#f0abfc,transparent),radial-gradient(1.5px 1.5px at 16% 86%,#fff,transparent);animation:gTw 4.5s infinite ease-in-out!important}
 .g-mt{position:absolute;width:140px;height:2px;background:linear-gradient(90deg,#fff 0%,#ffcc00 35%,#a855f7 75%,transparent 100%);border-radius:50%;filter:drop-shadow(0 0 6px #ffcc00);opacity:0;animation:gMt 8.5s infinite linear!important}
 .g-sp{position:absolute;bottom:-12px;border-radius:50%;opacity:0;animation-name:gSp!important;animation-iteration-count:infinite!important;animation-timing-function:linear!important}
-</style>
-<style>
 
-/* BLEACH DROPDOWN FIX: podmeni se otvara ispod glavnog dugmeta */
-#bleachDropdown,
-#bmh_bleachDropdown {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
-  justify-content: flex-start !important;
-  height: auto !important;
-  min-height: 0 !important;
-  overflow: visible !important;
-  position: relative !important;
-}
-#bleachDropdown > .btn-game-main,
-#bmh_bleachDropdown > .btn-game-main {
-  flex: 0 0 auto !important;
-  width: 100% !important;
-  height: 74px !important;
-  min-height: 74px !important;
-}
-#bleachDropdown > .game-submenu,
-#bmh_bleachDropdown > .game-submenu {
-  display: none !important;
-  position: static !important;
-  inset: auto !important;
-  float: none !important;
-  flex-direction: column !important;
-  align-self: stretch !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 10px 0 0 !important;
-  clear: both !important;
-  transform: none !important;
-  z-index: 6 !important;
-}
-#bleachDropdown.open > .game-submenu,
-#bmh_bleachDropdown.open > .game-submenu {
-  display: flex !important;
-}
-#bleachDropdown > .game-submenu > .btn-sub-item,
-#bmh_bleachDropdown > .game-submenu > .btn-sub-item {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-</style>
-
-
-<style id="banner-effects-transferred-from-indexmoja">
-  /* Efekti bannera preneseni iz indexmoja(3).html */
-  @keyframes bannerPulse {
-    0%, 100% {
-      border-color: #a855f7;
-      box-shadow: 0 0 28px rgba(168, 85, 247, 0.85),
-                  0 0 52px rgba(147, 51, 234, 0.55),
-                  inset 0 0 18px rgba(168, 85, 247, 0.38);
-    }
-    50% {
-      border-color: #f0abfc;
-      box-shadow: 0 0 42px rgba(217, 70, 239, 1),
-                  0 0 72px rgba(168, 85, 247, 0.85),
-                  inset 0 0 26px rgba(217, 70, 239, 0.55);
-    }
-  }
-  @keyframes bannerShine {
-    0% { left: -100%; }
-    30%, 100% { left: 150%; }
-  }
-  .banner-box {
-    position: relative !important;
-    width: 100%;
-    overflow: hidden !important;
-    border: 2.5px solid #a855f7 !important;
-    border-radius: 14px !important;
-    background: #0d0717 !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9), 0 0 34px rgba(168, 85, 247, 0.8), 0 0 52px rgba(147, 51, 234, 0.45) !important;
-    animation: bannerPulse 2.4s ease-in-out infinite !important;
-  }
-  .banner-box img {
-    position: relative !important;
-    z-index: 1 !important;
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-  .banner-box::after {
-    content: "" !important;
-    position: absolute !important;
-    z-index: 2 !important;
-    top: 0 !important;
-    left: -100%;
-    width: 40% !important;
-    height: 100% !important;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.14), transparent) !important;
-    transform: skewX(-25deg) !important;
-    animation: bannerShine 7.5s infinite ease-in-out !important;
-    pointer-events: none !important;
-  }
-</style>
-
-<style id="mobile-layout-and-dropdown-final-fix">
-  /* Mobile: banner and contact/payment first, then seller/how-to-buy, then counters */
+/* Mobile: banner and contact/payment first, then seller/how-to-buy, then counters */
   @media (max-width: 1050px) {
     .hero-layout {
       display: flex !important;
@@ -1038,6 +936,8 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
     position: relative !important;
     display: flex !important;
     width: 100% !important;
+    height: 74px !important;
+    min-height: 74px !important;
     flex: 0 0 auto !important;
   }
   #bleachDropdown > .game-submenu,
@@ -1051,8 +951,11 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
+    min-height: 0 !important;
     margin: 8px 0 0 !important;
+    clear: both !important;
     transform: none !important;
+    z-index: 6 !important;
   }
   #bleachDropdown.open > .game-submenu,
   #bmh_bleachDropdown.open > .game-submenu { display: flex !important; }
@@ -1062,10 +965,6 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
     width: 100% !important;
     max-width: 100% !important;
   }
-</style>
-
-
-<style id="mobile-catalog-grid-and-click-dropdown-fix">
 /* Mobile: keep available catalogs and completed sales side by side */
 @media (max-width: 768px) {
   .selling-header + .two-games-row,
@@ -1121,20 +1020,7 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
   }
 }
 
-/* Bleach submenus stay fully hidden until their own main button is clicked */
-#bleachDropdown > .game-submenu,
-#bmh_bleachDropdown > .game-submenu {
-  display: none !important;
-}
-#bleachDropdown.open > .game-submenu,
-#bmh_bleachDropdown.open > .game-submenu {
-  display: flex !important;
-}
-</style>
-
-
-<style id="trusted-howtobuy-text-only-glow">
-  /* Samo tekst/naslovi lagano trepere – bez animiranja okvira ili panela */
+/* Samo tekst/naslovi lagano trepere – bez animiranja okvira ili panela */
   @keyframes headingTextShimmer {
     0%, 100% {
       color: #ffe680;
@@ -1158,11 +1044,7 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
   .selling-title {
     animation: headingTextShimmer 2.4s ease-in-out infinite !important;
   }
-</style>
-
-
-<style id="mobile-visitor-counter-last">
-  /* Na mobitelu Flag Counter i LIVE idu na samo dno, ispod svih kataloga i Completed Sales */
+/* Na mobitelu Flag Counter i LIVE idu na samo dno, ispod svih kataloga i Completed Sales */
   @media (max-width: 768px) {
     .container {
       display: flex !important;
@@ -1192,11 +1074,25 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
       transform: none !important;
     }
   }
+
+    /* Accessible main heading, visually hidden to preserve the existing design */
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
 </style>
 
 </head>
 <body>
-  <main class="container">
+  <main class="container">\n    <h1 class="visually-hidden">Genesis Gacha Store</h1>
     <nav class="bleach-top-nav" aria-label="Main navigation">
       <a href="https://genesisgachastore.github.io/home/" class="btn-back-home">🏠 Home • Genesis Gacha Store</a>
     </nav>
@@ -1241,13 +1137,13 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
       </div>
 
       <aside class="visitor-stack" aria-label="Visitor statistics">
-        <div class="flag-counter-wrap" aria-label="Visitor flag counter">
+        <div class="flag-counter-wrap" role="group" aria-label="Visitor flag counter">
           <a href="https://info.flagcounter.com/E57c" target="_blank" rel="noopener noreferrer">
             <img src="https://s01.flagcounter.com/count2/E57c/bg_000000/txt_FFFFFF/border_CCCCCC/columns_1/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Visitor Flag Counter">
           </a>
         </div>
 
-        <div class="live-top-box" title="Real-time visitors online" aria-label="Live visitors online">
+        <div class="live-top-box" role="group" title="Real-time visitors online" aria-label="Live visitors online">
           <span class="live-indicator" aria-hidden="true"></span>
           <span class="live-label">LIVE:</span>
           <script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
