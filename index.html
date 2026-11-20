@@ -1071,31 +1071,42 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
       flex-direction: column !important;
     }
 
-    /* Omogućava da se elementi iz hero sekcije rasporede zajedno s katalozima */
+    /* Mobile: banner, catalog heading, contact/payment, then remaining content */
     .hero-layout {
       display: contents !important;
     }
 
     .bleach-top-nav { order: 0 !important; }
 
-    /* Mobile only: split the banner column so the catalog heading sits
-       immediately below the banner image, without changing desktop layout. */
-    .banner-column { display: contents !important; }
-    .banner-box { order: 1 !important; }
-    .selling-header:not(.completed-hdr) {
+    /* Keep the banner contents in one real column on mobile. The heading is
+       moved into this column by the small script below, directly after image. */
+    .banner-column {
+      display: flex !important;
+      flex-direction: column !important;
+      order: 1 !important;
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+    .banner-column .banner-box {
+      order: 1 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .banner-column > .selling-header:not(.completed-hdr) {
       order: 2 !important;
       margin-top: 10px !important;
     }
     .banner-column .info-bar { order: 3 !important; }
     .banner-column .payment-bar { order: 4 !important; }
-    .left-info-stack { order: 5 !important; }
 
-    .selling-header:not(.completed-hdr) + .two-games-row { order: 6 !important; }
-    .selling-header.completed-hdr { order: 7 !important; }
-    #completedGamesRow { order: 8 !important; }
+    .left-info-stack { order: 2 !important; }
+    .banner-column ~ .selling-header:not(.completed-hdr) { order: 3 !important; }
+    .two-games-row { order: 4 !important; }
+    .selling-header.completed-hdr { order: 5 !important; }
+    #completedGamesRow { order: 6 !important; }
 
     .visitor-stack {
-      order: 9 !important;
+      order: 7 !important;
       width: min(100%, 180px) !important;
       max-width: 180px !important;
       margin: 12px auto 0 !important;
@@ -1429,6 +1440,34 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
   })();
   </script>
   <!--End of Tawk.to Script-->
+
+
+<script>
+(function () {
+  function placeCatalogHeading() {
+    const heading = document.querySelector('.selling-header:not(.completed-hdr)');
+    const bannerColumn = document.querySelector('.banner-column');
+    const banner = bannerColumn && bannerColumn.querySelector('.banner-box');
+    const hero = document.querySelector('.hero-layout');
+    if (!heading || !bannerColumn || !banner || !hero) return;
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      if (heading.parentElement !== bannerColumn || banner.nextElementSibling !== heading) {
+        banner.insertAdjacentElement('afterend', heading);
+      }
+    } else if (heading.parentElement !== hero.parentElement || heading.previousElementSibling !== hero) {
+      hero.insertAdjacentElement('afterend', heading);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', placeCatalogHeading, { once: true });
+  } else {
+    placeCatalogHeading();
+  }
+  window.addEventListener('resize', placeCatalogHeading, { passive: true });
+})();
+</script>
 
 </body>
 </html>
