@@ -1077,17 +1077,25 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
     }
 
     .bleach-top-nav { order: 0 !important; }
-    .banner-column { order: 1 !important; }
-    .left-info-stack { order: 2 !important; }
 
-    .selling-header:not(.completed-hdr) { order: 3 !important; }
-    .selling-header:not(.completed-hdr) + .two-games-row { order: 4 !important; }
+    /* Mobile only: split the banner column so the catalog heading sits
+       immediately below the banner image, without changing desktop layout. */
+    .banner-column { display: contents !important; }
+    .banner-box { order: 1 !important; }
+    .selling-header:not(.completed-hdr) {
+      order: 2 !important;
+      margin-top: 10px !important;
+    }
+    .banner-column .info-bar { order: 3 !important; }
+    .banner-column .payment-bar { order: 4 !important; }
+    .left-info-stack { order: 5 !important; }
 
-    .selling-header.completed-hdr { order: 5 !important; }
-    #completedGamesRow { order: 6 !important; }
+    .selling-header:not(.completed-hdr) + .two-games-row { order: 6 !important; }
+    .selling-header.completed-hdr { order: 7 !important; }
+    #completedGamesRow { order: 8 !important; }
 
     .visitor-stack {
-      order: 7 !important;
+      order: 9 !important;
       width: min(100%, 180px) !important;
       max-width: 180px !important;
       margin: 12px auto 0 !important;
